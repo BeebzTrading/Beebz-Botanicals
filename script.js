@@ -72,7 +72,7 @@ window.location.href="checkout.html?total="+total
 
 function renderProducts(containerId,limit=null){
 
-if(!window.products) return
+if(typeof products === "undefined") return
 
 let container=document.getElementById(containerId)
 if(!container) return
