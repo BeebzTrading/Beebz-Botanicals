@@ -1,19 +1,14 @@
 
 let cart = JSON.parse(localStorage.getItem("cartData")) || []
 
-function saveCart(){
-localStorage.setItem("cartData",JSON.stringify(cart))
-}
+function saveCart(){localStorage.setItem("cartData",JSON.stringify(cart))}
 
 function addToCart(name,price,image){
 
 let item=cart.find(p=>p.name===name)
 
-if(item){
-item.qty++
-}else{
-cart.push({name,price,image,qty:1})
-}
+if(item){item.qty++}
+else{cart.push({name,price,image,qty:1})}
 
 saveCart()
 updateCart()
@@ -43,33 +38,17 @@ ${item.name} x${item.qty}
 items.appendChild(div)
 
 total+=item.price*item.qty
-
 })
 
 totalEl.innerText="Total: R"+total
 localStorage.setItem("cartTotal",total)
 }
 
-function removeItem(i){
-cart.splice(i,1)
-saveCart()
-updateCart()
-}
+function removeItem(i){cart.splice(i,1);saveCart();updateCart()}
 
-function openCart(){
-const c=document.getElementById("cart")
-if(c)c.classList.add("open")
-}
-
-function closeCart(){
-const c=document.getElementById("cart")
-if(c)c.classList.remove("open")
-}
-
-function toggleCart(){
-const c=document.getElementById("cart")
-if(c)c.classList.toggle("open")
-}
+function openCart(){const c=document.getElementById("cart");if(c)c.classList.add("open")}
+function closeCart(){const c=document.getElementById("cart");if(c)c.classList.remove("open")}
+function toggleCart(){const c=document.getElementById("cart");if(c)c.classList.toggle("open")}
 
 function goCheckout(){
 let total=localStorage.getItem("cartTotal")||0
