@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beebz Botanicals</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beebz Botanicals</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -21,33 +22,28 @@
 
 
 <section class="hero">
-  <h1>Botanical Rituals for Everyday Luxury</h1>
-  <p>Handcrafted bath and body products inspired by nature.</p>
-  <a class="btn" href="shop.html">Shop Collection</a>
+<h1>Botanical Rituals for Everyday Luxury</h1>
+<p>Handcrafted botanical self‑care inspired by nature.</p>
+<a class="btn" href="shop.html">Shop Collection</a>
 </section>
 
 <section class="section">
-  <h2>Best Sellers</h2>
-  <div class="products" id="home-products"></div>
+<h2>Best Sellers</h2>
+<div class="products" id="home-products"></div>
 </section>
 
 
-<button class="cart-toggle" type="button" onclick="toggleCart()">🛒 Cart</button>
+<button class="cart-toggle" onclick="toggleCart()">🛒 Cart</button>
 
-<aside id="cart" class="cart" aria-label="Shopping cart">
+<div id="cart" class="cart">
   <div class="cart-header">
     <h2>Your Cart</h2>
-    <button class="close-cart" type="button" onclick="closeCart()">✕</button>
+    <button onclick="closeCart()">✕</button>
   </div>
-  <div id="cart-items" class="cart-items"></div>
-  <h3 id="cart-total" class="cart-total">Total: R0</h3>
-  <button class="checkout-btn" type="button" onclick="goCheckout()">Checkout</button>
-</aside>
-
-
-<footer class="footer">
-  <p>© 2026 Beebz Botanicals • Botanical Self-Care</p>
-</footer>
+  <div id="cart-items"></div>
+  <h3 id="cart-total">Total: R0</h3>
+  <button class="checkout-btn" onclick="goCheckout()">Checkout</button>
+</div>
 
 
 <script src="products.js"></script>
