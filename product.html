@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Product</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Signature Botanical Soap</h1>
+
+<div class="gallery">
+<img id="main-img" src="images/soap.jpg">
+
+<div class="thumbs">
+<img src="images/soap.jpg" onclick="changeImage(this)">
+<img src="images/soap2.jpg" onclick="changeImage(this)">
+<img src="images/soap3.jpg" onclick="changeImage(this)">
+</div>
+</div>
+
+<button onclick="addToCart('Signature Botanical Soap',120,'images/soap.jpg',false)">Add to Cart</button>
+
+<section class="reviews">
+
+<h2>Customer Reviews</h2>
+
+<div id="review-list"></div>
+
+<input id="review-text" placeholder="Write a review">
+<button onclick="submitReview()">Submit Review</button>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

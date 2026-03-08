@@ -2,82 +2,62 @@
 let cart = JSON.parse(localStorage.getItem("cartData")) || []
 
 function saveCart(){
-localStorage.setItem("cartData", JSON.stringify(cart))
+localStorage.setItem("cartData",JSON.stringify(cart))
 }
 
-function addToCart(name,price){
+function addToCart(name,price,image,isBundle){
 
-let existing = cart.find(p => p.name === name)
+let item=cart.find(p=>p.name===name)
 
-if(existing){
-existing.qty++
+if(item){
+item.qty++
 }else{
-cart.push({name,price,qty:1})
+cart.push({name,price,image,isBundle,qty:1})
 }
 
 saveCart()
 updateCart()
-toggleCart()
-
-let fb=document.getElementById("cart-feedback")
-fb.classList.add("show")
-setTimeout(()=>fb.classList.remove("show"),1500)
-
 }
 
 function updateCart(){
 
 let items=document.getElementById("cart-items")
-let total=0
-
 if(!items) return
 
 items.innerHTML=""
+let total=0
 
-cart.forEach((item,index)=>{
+cart.forEach((item,i)=>{
 
 let div=document.createElement("div")
 
 div.innerHTML=`
-<strong>${item.name}</strong><br>
-R${item.price} x ${item.qty}<br>
-<button onclick="changeQty(${index},1)">+</button>
-<button onclick="changeQty(${index},-1)">-</button>
-<button onclick="removeItem(${index})">Remove</button>
+<img src="${item.image}" class="cart-img">
+${item.name} x${item.qty}
+<button onclick="removeItem(${i})">Remove</button>
 `
 
 items.appendChild(div)
 
-total+=item.price*item.qty
+let price=item.price
+
+# bundle discount 10%
+if(item.isBundle){
+price = price * 0.9
+}
+
+total+=price*item.qty
 
 })
 
-document.getElementById("cart-total").innerText="Total: R"+total
-
-localStorage.setItem("cartTotal", total)
-
-}
-
-function changeQty(i,delta){
-
-cart[i].qty += delta
-
-if(cart[i].qty <=0){
-cart.splice(i,1)
-}
-
-saveCart()
-updateCart()
-
+document.getElementById("cart-total").innerText="Total: R"+Math.round(total)
+localStorage.setItem("cartTotal",Math.round(total))
 }
 
 function removeItem(i){
-
 cart.splice(i,1)
-
 saveCart()
 updateCart()
-
 }
 
 function toggleCart(){
@@ -86,9 +66,46 @@ document.getElementById("cart").classList.toggle("open")
 
 function goCheckout(){
 
-let total = localStorage.getItem("cartTotal") || 0
-window.location.href="checkout.html?total="+total
+let total=localStorage.getItem("cartTotal")||0
+let ship=document.getElementById("shipping").value
 
+total=parseInt(total)+parseInt(ship)
+
+window.location.href="checkout.html?total="+total
 }
 
-window.onload = updateCart
+function changeImage(el){
+document.getElementById("main-img").src=el.src
+}
+
+function submitReview(){
+
+let text=document.getElementById("review-text").value
+let reviews=JSON.parse(localStorage.getItem("reviews"))||[]
+
+reviews.push(text)
+localStorage.setItem("reviews",JSON.stringify(reviews))
+
+loadReviews()
+}
+
+function loadReviews(){
+
+let reviews=JSON.parse(localStorage.getItem("reviews"))||[]
+let list=document.getElementById("review-list")
+
+if(!list) return
+
+list.innerHTML=""
+
+reviews.forEach(r=>{
+let div=document.createElement("div")
+div.innerText="★★★★★ "+r
+list.appendChild(div)
+})
+}
+
+window.onload=function(){
+updateCart()
+loadReviews()
+}
