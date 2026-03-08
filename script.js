@@ -1,8 +1,10 @@
+
 let cart=[]
 
 function addToCart(name,price){
 cart.push({name,price})
 updateCart()
+toggleCart()
 }
 
 function updateCart(){
@@ -31,6 +33,10 @@ localStorage.setItem("cartTotal", total)
 
 function toggleCart(){
 document.getElementById("cart").classList.toggle("open")
+}
+
+function closeCart(){
+document.getElementById("cart").classList.remove("open")
 }
 
 function goCheckout(){
