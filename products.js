@@ -2,35 +2,35 @@ const products = [
 
 {
 name:"Highveld Rose Soap",
-price:120,
+price:59,
 image:"images/highveld-rose-box-cat.png",
 category:"soap"
 },
 
 {
 name:"Jacaranda Bloom Soap",
-price:120,
+price:59,
 image:"images/jacaranda-bloom-box-cat.png",
 category:"soap"
 },
 
 {
 name:"Lily of the Vale Soap",
-price:120,
+price:59,
 image:"images/lily-of-the-vale-box-cat.png",
 category:"soap"
 },
 
 {
 name:"Port Lizzie Soap",
-price:120,
+price:59,
 image:"images/port-lizzie-box-cat.png",
 category:"soap"
 },
 
 {
 name:"Pacific Waters Soap",
-price:120,
+price:59,
 image:"images/pacific-waters-box-cat.png",
 category:"soap"
 },
@@ -44,84 +44,84 @@ category:"soap"
 
 {
 name:"Just Beachy Soap",
-price:120,
+price:59,
 image:"images/just-beachy-box-cat.png",
 category:"soap"
 },
 
 {
 name:"La Vie in Rose Soap",
-price:120,
+price:59,
 image:"images/la-vie-in-rose-box-cat.png",
 category:"soap"
 },
 
 {
 name:"Protea Party Soap",
-price:120,
+price:59,
 image:"images/protea-party-box-cat.png",
 category:"soap"
 },
 
 {
 name:"Boulders Cove Soap",
-price:120,
+price:59,
 image:"images/boulders-cove-box-cat.png",
 category:"soap"
 },
 
 {
 name:"Highveld Rose Bath Salt",
-price:150,
+price:129,
 image:"images/highveld-rose-salt-2.jpeg",
 category:"bath"
 },
 
 {
 name:"Lavender Fynbos Bath Salt",
-price:150,
+price:129,
 image:"images/lavender-fynbos-salt-4.jpeg",
 category:"bath"
 },
 
 {
 name:"Coastal Citrus Bath Salt",
-price:150,
+price:129,
 image:"images/coastal-citrus-salt-5.jpeg",
 category:"bath"
 },
 
 {
 name:"Rooibos & Honey Bath Salt",
-price:150,
+price:129,
 image:"images/rooibos-and-honey-salt-1.png",
 category:"bath"
 },
 
 {
 name:"Fynbos Bath Tea",
-price:150,
+price:139,
 image:"images/fynbos-tea-1.png",
 category:"bath"
 },
 
 {
 name:"Rose Bath Tea",
-price:150,
+price:139,
 image:"images/rose-tea-1.png",
 category:"bath"
 },
 
 {
 name:"Shower Steamers",
-price:150,
+price:149,
 image:"images/shower-steamers-1.jpg",
 category:"bath"
 },
 
 {
 name:"Bloom & Breeze Set",
-price:350,
+price:329,
 image:"images/bloom-and-breeze-set.png",
 category:"bundle"
 },
@@ -135,16 +135,71 @@ category:"bundle"
 
 {
 name:"Birthday Bundle",
-price:350,
+price:179,
 image:"images/birthday-bundle-cat.png",
 category:"bundle"
 },
 
 {
-name:"Christmas Bundle",
-price:350,
+name:"Easter Bundle",
+price:179,
 image:"images/christmas-bundle-cat.png",
 category:"bundle"
-}
+},
+ 
+{
+name:"Evening Bloom Ritual",
+price:289,
+image:"images/christmas-bundle-cat.png",
+category:"bundle"
+},
 
+  {
+name:"Botanical Spa Ritual",
+price:399,
+image:"images/christmas-bundle-cat.png",
+category:"bundle"
+},
+
+  {
+name:"Coastal Refresh Ritual",
+price:399,
+image:"images/christmas-bundle-cat.png",
+category:"bundle"
+},
+
+  {
+name:"Ceramic Soap Dish",
+price:139,
+image:"images/christmas-bundle-cat.png",
+category:"bath"
+},
+
+  {
+name:"Waterfall Soap Dish - Self-Draining",
+price:149,
+image:"images/christmas-bundle-cat.png",
+category:"bath"
+},
+
+  {
+name:"Soap Saver Pouch",
+price:129,
+image:"images/christmas-bundle-cat.png",
+category:"bath"
+},
+
+  {
+name:"Complete Botanical Self-Care Ritual Set",
+price:499,
+image:"images/christmas-bundle-cat.png",
+category:"bundle"
+},
+
+  {
+name:"Premium Signature Soap Collection",
+price:249,
+image:"images/christmas-bundle-cat.png",
+category:"bundle"
+},
 ];
