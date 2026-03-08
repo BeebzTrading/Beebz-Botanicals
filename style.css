@@ -19,17 +19,17 @@ body{margin:0;font-family:Arial;background:#f6f5f1}
 
 .about-text{max-width:800px;margin:auto;text-align:left;line-height:1.6}
 
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px;margin-top:30px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;margin-top:30px}
 
 .feature{
 background:white;
-padding:40px;
+padding:30px;
 border-radius:12px;
 font-size:16px;
 box-shadow:0 5px 15px rgba(0,0,0,0.05)
 }
 
-.contact-box{background:white;padding:40px;border-radius:10px;max-width:400px;margin:auto}
+.contact-box{background:white;padding:30px;border-radius:10px;max-width:400px;margin:auto}
 
 .cart{position:fixed;right:-350px;top:0;width:350px;height:100%;background:white;padding:20px;transition:0.3s}
 .cart.open{right:0}
@@ -38,10 +38,3 @@ box-shadow:0 5px 15px rgba(0,0,0,0.05)
 .cart-img{width:40px;margin-right:10px}
 
 .checkout-btn{margin-top:20px;padding:10px 16px;background:#2f4f46;color:white;border:none}
-
-/* improved about section spacing */
-.about-text p{
-margin-bottom:18px;
-font-size:16px;
-line-height:1.7;
-}
