@@ -56,17 +56,11 @@ saveCart();
 updateCart();
 }
 
-function openCart(){
-document.getElementById("cart").classList.add("open");
-}
 
-function closeCart(){
-document.getElementById("cart").classList.remove("open");
-}
 
-function toggleCart(){
-document.getElementById("cart").classList.toggle("open");
-}
+
+
+
 
 function goCheckout(){
 
@@ -78,3 +72,19 @@ window.location.href="checkout.html?total="+total;
 window.onload=function(){
 updateCart();
 };
+
+
+function openCart(){
+const cart=document.getElementById("cart");
+if(cart) cart.classList.add("open");
+}
+
+function closeCart(){
+const cart=document.getElementById("cart");
+if(cart) cart.classList.remove("open");
+}
+
+function toggleCart(){
+const cart=document.getElementById("cart");
+if(cart) cart.classList.toggle("open");
+}

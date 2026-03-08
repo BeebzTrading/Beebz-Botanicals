@@ -2,7 +2,7 @@
 body{margin:0;font-family:Arial;background:#f6f5f1;}
 .header{display:flex;justify-content:space-between;padding:20px 10%;background:white;}
 .logo{font-size:22px;font-weight:600;color:#2f4f46;}
-.nav a{margin-left:20px;text-decoration:none;color:#333;}
+
 .hero{height:70vh;background:#2f4f46;color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
 .btn{margin-top:20px;background:white;padding:12px 24px;border-radius:6px;text-decoration:none;color:#2f4f46;}
 .section{padding:60px 10%;text-align:center;}
@@ -11,3 +11,15 @@ body{margin:0;font-family:Arial;background:#f6f5f1;}
 .cart-toggle{position:fixed;bottom:20px;right:20px;background:#2f4f46;color:white;padding:12px 18px;border:none;border-radius:30px;}
 .cart-img{width:40px;margin-right:10px;}
 .checkout-btn{margin-top:20px;padding:10px 16px;background:#2f4f46;color:white;border:none;}
+
+.nav{
+display:flex;
+gap:20px;
+align-items:center;
+}
+
+.nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
