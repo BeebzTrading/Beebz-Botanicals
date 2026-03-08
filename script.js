@@ -103,7 +103,6 @@ container.appendChild(div)
 function filterProducts(category){
 
 let container=document.getElementById("shop-products")
-
 container.innerHTML=""
 
 let filtered=products
@@ -115,7 +114,6 @@ filtered=products.filter(p=>p.category===category)
 filtered.forEach(p=>{
 
 let div=document.createElement("div")
-
 div.className="product"
 
 div.innerHTML=`
@@ -136,7 +134,6 @@ function searchProducts(){
 let input=document.getElementById("searchInput").value.toLowerCase()
 
 let container=document.getElementById("shop-products")
-
 container.innerHTML=""
 
 let filtered=products.filter(p=>p.name.toLowerCase().includes(input))
@@ -144,7 +141,6 @@ let filtered=products.filter(p=>p.name.toLowerCase().includes(input))
 filtered.forEach(p=>{
 
 let div=document.createElement("div")
-
 div.className="product"
 
 div.innerHTML=`
