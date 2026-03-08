@@ -1,5 +1,5 @@
 
-let cart=[]
+let cart = []
 
 function addToCart(name,price,image){
 cart.push({name,price,image})
@@ -25,13 +25,17 @@ total+=item.price
 
 })
 
+if(document.getElementById("cart-total")){
 document.getElementById("cart-total").innerText="Total: R"+total
+}
+
 localStorage.setItem("cartTotal", total)
 
 }
 
 function toggleCart(){
-document.getElementById("cart").classList.toggle("open")
+let c=document.getElementById("cart")
+if(c) c.classList.toggle("open")
 }
 
 function goCheckout(){
@@ -39,21 +43,18 @@ let total = localStorage.getItem("cartTotal") || 0
 window.location.href="checkout.html?total="+total
 }
 
-/* PRODUCT RENDER SYSTEM */
+/* ===== PRODUCT RENDER ===== */
 
-function renderProducts(containerId, limit=null){
+function renderShop(){
 
 if(typeof products === "undefined") return
 
-const container=document.getElementById(containerId)
+const container=document.getElementById("shop-products")
 if(!container) return
 
 container.innerHTML=""
 
-let list = products
-if(limit) list = products.slice(0,limit)
-
-list.forEach(p=>{
+products.forEach(p=>{
 
 let div=document.createElement("div")
 div.className="product"
@@ -73,6 +74,5 @@ container.appendChild(div)
 
 window.onload=function(){
 updateCart()
-renderProducts("shop-products")
-renderProducts("home-products",3)
+renderShop()
 }
