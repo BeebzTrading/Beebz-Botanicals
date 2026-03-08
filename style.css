@@ -22,8 +22,12 @@ font-weight:600;
 color:#2f4f46;
 }
 
+.nav{
+display:flex;
+gap:20px;
+}
+
 .nav a{
-margin-left:20px;
 text-decoration:none;
 color:#333;
 font-weight:500;
@@ -34,7 +38,7 @@ color:#2f4f46;
 }
 
 .hero{
-height:80vh;
+height:75vh;
 background:linear-gradient(#2f4f46,#1f332e);
 display:flex;
 flex-direction:column;
@@ -42,6 +46,7 @@ justify-content:center;
 align-items:center;
 text-align:center;
 color:white;
+padding:20px;
 }
 
 .btn{
@@ -51,6 +56,7 @@ background:white;
 color:#2f4f46;
 text-decoration:none;
 border-radius:6px;
+font-weight:600;
 }
 
 .section{
@@ -76,7 +82,7 @@ box-shadow:0 10px 25px rgba(0,0,0,0.05);
 font-weight:bold;
 }
 
-footer{
+.footer{
 background:#2f4f46;
 color:white;
 text-align:center;
