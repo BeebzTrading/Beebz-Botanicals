@@ -72,7 +72,7 @@ window.location.href="checkout.html?total="+total
 
 function renderProducts(containerId,limit=null){
 
-if(typeof products==="undefined") return
+if(!window.products) return
 
 let container=document.getElementById(containerId)
 if(!container) return
@@ -156,7 +156,7 @@ container.appendChild(div)
 
 }
 
-window.onload=function(){
+window.addEventListener("load",function(){
 
 updateCart()
 
@@ -164,4 +164,4 @@ renderProducts("home-products",3)
 
 renderProducts("shop-products")
 
-}
+})
