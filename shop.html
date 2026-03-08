@@ -1,84 +1,76 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beebz Botanicals</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Beebz Botanicals</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-<div class="logo">Beebz Botanicals</div>
-<nav class="nav">
-<a href="index.html">Home</a>
-<a href="shop.html">Shop</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
-</header>
+  <header class="header">
+    <div class="logo">Beebz Botanicals</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<section class="hero">
-<h1>Botanical Rituals for Everyday Luxury</h1>
-<p>Handcrafted bath and body products inspired by nature.</p>
-<a class="btn" href="shop.html">Shop Collection</a>
-</section>
+  <section class="section">
+    <div class="section-head">
+      <h2>Shop Collection</h2>
+      <p>Browse the Beebz Botanicals range.</p>
+    </div>
 
-<section class="section">
+    <div class="products">
+      <article class="product">
+        <img src="images/soap.jpg" alt="Signature Botanical Soap">
+        <h3>Signature Botanical Soap</h3>
+        <p class="price">R120</p>
+        <p class="product-copy">Handcrafted botanical soap designed for a nourishing everyday ritual.</p>
+        <button onclick="addToCart('Signature Botanical Soap', 120, 'images/soap.jpg')">Add to Cart</button>
+      </article>
 
-<h2>Shop Collection</h2>
+      <article class="product">
+        <img src="images/rooibos.jpg" alt="Rooibos & Honey Bath Salt">
+        <h3>Rooibos &amp; Honey Bath Salt</h3>
+        <p class="price">R150</p>
+        <p class="product-copy">A comforting bath salt blend inspired by warm, restorative botanical notes.</p>
+        <button onclick="addToCart('Rooibos & Honey Bath Salt', 150, 'images/rooibos.jpg')">Add to Cart</button>
+      </article>
 
-<div class="products">
+      <article class="product">
+        <img src="images/citrus.jpg" alt="Coastal Citrus Bath Salt">
+        <h3>Coastal Citrus Bath Salt</h3>
+        <p class="price">R150</p>
+        <p class="product-copy">A bright and uplifting coastal-inspired salt blend for refreshing self-care.</p>
+        <button onclick="addToCart('Coastal Citrus Bath Salt', 150, 'images/citrus.jpg')">Add to Cart</button>
+      </article>
+    </div>
+  </section>
 
-<div class="product">
-<img src="images/soap.jpg">
-<h3>Signature Botanical Soap</h3>
-<p class="price">R120</p>
-<button onclick="addToCart('Signature Botanical Soap',120)">Add to Cart</button>
-</div>
+  <button class="cart-toggle" type="button" onclick="toggleCart()">🛒 Cart</button>
 
-<div class="product">
-<img src="images/rooibos.jpg">
-<h3>Rooibos & Honey Bath Salt</h3>
-<p class="price">R150</p>
-<button onclick="addToCart('Rooibos Bath Salt',150)">Add to Cart</button>
-</div>
+  <aside id="cart" class="cart" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-cart" type="button" onclick="closeCart()">✕</button>
+    </div>
 
-<div class="product">
-<img src="images/citrus.jpg">
-<h3>Coastal Citrus Bath Salt</h3>
-<p class="price">R150</p>
-<button onclick="addToCart('Coastal Citrus Bath Salt',150)">Add to Cart</button>
-</div>
+    <div id="cart-items" class="cart-items"></div>
+    <h3 id="cart-total" class="cart-total">Total: R0</h3>
 
-</div>
+    <button class="checkout-btn" type="button" onclick="goCheckout()">Checkout</button>
+  </aside>
 
-</section>
+  <div id="cart-feedback" class="cart-feedback">Added to cart ✓</div>
 
-<button class="cart-toggle" onclick="toggleCart()">🛒 Cart</button>
+  <footer class="footer">
+    <p>© 2026 Beebz Botanicals • Botanical Self-Care</p>
+  </footer>
 
-<div id="cart" class="cart">
-
-<div class="cart-header">
-<h2>Your Cart</h2>
-<button class="close-cart" onclick="toggleCart()">✕</button>
-</div>
-
-<div id="cart-items"></div>
-<h3 id="cart-total"></h3>
-
-<button class="checkout-btn" onclick="goCheckout()">Checkout</button>
-
-</div>
-
-<div id="cart-feedback" class="cart-feedback">Added to cart ✓</div>
-
-<script src="script.js"></script>
-
-<footer class="footer">
-<p>© 2026 Beebz Botanicals</p>
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>

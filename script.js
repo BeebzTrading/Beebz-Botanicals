@@ -1,111 +1,99 @@
+let cart = JSON.parse(localStorage.getItem("cartData")) || [];
 
-let cart = JSON.parse(localStorage.getItem("cartData")) || []
-
-function saveCart(){
-localStorage.setItem("cartData",JSON.stringify(cart))
+function saveCart() {
+  localStorage.setItem("cartData", JSON.stringify(cart));
 }
 
-function addToCart(name,price,image,isBundle){
-
-let item=cart.find(p=>p.name===name)
-
-if(item){
-item.qty++
-}else{
-cart.push({name,price,image,isBundle,qty:1})
+function showFeedback() {
+  const fb = document.getElementById("cart-feedback");
+  if (!fb) return;
+  fb.classList.add("show");
+  setTimeout(() => fb.classList.remove("show"), 1200);
 }
 
-saveCart()
-updateCart()
+function addToCart(name, price, image) {
+  const existing = cart.find(item => item.name === name);
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ name, price, image, qty: 1 });
+  }
+
+  saveCart();
+  updateCart();
+  openCart();
+  showFeedback();
 }
 
-function updateCart(){
+function updateCart() {
+  const items = document.getElementById("cart-items");
+  const totalEl = document.getElementById("cart-total");
+  if (!items || !totalEl) return;
 
-let items=document.getElementById("cart-items")
-if(!items) return
+  items.innerHTML = "";
+  let total = 0;
 
-items.innerHTML=""
-let total=0
+  cart.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "cart-item";
 
-cart.forEach((item,i)=>{
+    row.innerHTML = `
+      <img src="${item.image}" class="cart-img" alt="${item.name}">
+      <div class="cart-item-info">
+        <strong>${item.name}</strong>
+        <p>R${item.price} x ${item.qty}</p>
+        <div class="cart-actions">
+          <button type="button" onclick="changeQty(${index}, 1)">+</button>
+          <button type="button" onclick="changeQty(${index}, -1)">−</button>
+          <button type="button" onclick="removeItem(${index})">Remove</button>
+        </div>
+      </div>
+    `;
+    items.appendChild(row);
 
-let div=document.createElement("div")
+    total += item.price * item.qty;
+  });
 
-div.innerHTML=`
-<img src="${item.image}" class="cart-img">
-${item.name} x${item.qty}
-<button onclick="removeItem(${i})">Remove</button>
-`
-
-items.appendChild(div)
-
-let price=item.price
-
-# bundle discount 10%
-if(item.isBundle){
-price = price * 0.9
+  totalEl.innerText = "Total: R" + total;
+  localStorage.setItem("cartTotal", total);
 }
 
-total+=price*item.qty
+function changeQty(index, delta) {
+  cart[index].qty += delta;
 
-})
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
 
-document.getElementById("cart-total").innerText="Total: R"+Math.round(total)
-localStorage.setItem("cartTotal",Math.round(total))
+  saveCart();
+  updateCart();
 }
 
-function removeItem(i){
-cart.splice(i,1)
-saveCart()
-updateCart()
+function removeItem(index) {
+  cart.splice(index, 1);
+  saveCart();
+  updateCart();
 }
 
-function toggleCart(){
-document.getElementById("cart").classList.toggle("open")
+function openCart() {
+  const cartEl = document.getElementById("cart");
+  if (cartEl) cartEl.classList.add("open");
 }
 
-function goCheckout(){
-
-let total=localStorage.getItem("cartTotal")||0
-let ship=document.getElementById("shipping").value
-
-total=parseInt(total)+parseInt(ship)
-
-window.location.href="checkout.html?total="+total
+function closeCart() {
+  const cartEl = document.getElementById("cart");
+  if (cartEl) cartEl.classList.remove("open");
 }
 
-function changeImage(el){
-document.getElementById("main-img").src=el.src
+function toggleCart() {
+  const cartEl = document.getElementById("cart");
+  if (cartEl) cartEl.classList.toggle("open");
 }
 
-function submitReview(){
-
-let text=document.getElementById("review-text").value
-let reviews=JSON.parse(localStorage.getItem("reviews"))||[]
-
-reviews.push(text)
-localStorage.setItem("reviews",JSON.stringify(reviews))
-
-loadReviews()
+function goCheckout() {
+  const total = localStorage.getItem("cartTotal") || 0;
+  window.location.href = "checkout.html?total=" + total;
 }
 
-function loadReviews(){
-
-let reviews=JSON.parse(localStorage.getItem("reviews"))||[]
-let list=document.getElementById("review-list")
-
-if(!list) return
-
-list.innerHTML=""
-
-reviews.forEach(r=>{
-let div=document.createElement("div")
-div.innerText="★★★★★ "+r
-list.appendChild(div)
-})
-}
-
-window.onload=function(){
-updateCart()
-loadReviews()
-}
+window.onload = updateCart;
