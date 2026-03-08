@@ -1,78 +1,106 @@
 
-let cart = []
+let cart = JSON.parse(localStorage.getItem("cartData")) || [];
 
-function addToCart(name,price,image){
-cart.push({name,price,image})
-updateCart()
+function saveCart() {
+  localStorage.setItem("cartData", JSON.stringify(cart));
 }
 
-function updateCart(){
+function addToCart(name, price, image) {
+  const existing = cart.find(item => item.name === name);
 
-let items=document.getElementById("cart-items")
-let total=0
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ name, price, image, qty: 1 });
+  }
 
-if(!items) return
-
-items.innerHTML=""
-
-cart.forEach(item=>{
-
-let div=document.createElement("div")
-div.innerText=item.name+" - R"+item.price
-items.appendChild(div)
-
-total+=item.price
-
-})
-
-if(document.getElementById("cart-total")){
-document.getElementById("cart-total").innerText="Total: R"+total
+  saveCart();
+  updateCart();
+  openCart();
 }
 
-localStorage.setItem("cartTotal", total)
+function updateCart() {
+  const items = document.getElementById("cart-items");
+  const totalEl = document.getElementById("cart-total");
 
+  if (!items || !totalEl) return;
+
+  items.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    const div = document.createElement("div");
+    div.className = "cart-row";
+    div.innerHTML = `
+      <img src="${item.image}" class="cart-img" alt="${item.name}">
+      <div class="cart-row-info">
+        <strong>${item.name}</strong>
+        <p>R${item.price} x ${item.qty}</p>
+        <button type="button" onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+    items.appendChild(div);
+    total += item.price * item.qty;
+  });
+
+  totalEl.innerText = "Total: R" + total;
+  localStorage.setItem("cartTotal", total);
 }
 
-function toggleCart(){
-let c=document.getElementById("cart")
-if(c) c.classList.toggle("open")
+function removeItem(index) {
+  cart.splice(index, 1);
+  saveCart();
+  updateCart();
 }
 
-function goCheckout(){
-let total = localStorage.getItem("cartTotal") || 0
-window.location.href="checkout.html?total="+total
+function openCart() {
+  const c = document.getElementById("cart");
+  if (c) c.classList.add("open");
 }
 
-/* ===== PRODUCT RENDER ===== */
-
-function renderShop(){
-
-if(typeof products === "undefined") return
-
-const container=document.getElementById("shop-products")
-if(!container) return
-
-container.innerHTML=""
-
-products.forEach(p=>{
-
-let div=document.createElement("div")
-div.className="product"
-
-div.innerHTML=`
-<img src="${p.image}">
-<h3>${p.name}</h3>
-<p class="price">R${p.price}</p>
-<button onclick="addToCart('${p.name}',${p.price},'${p.image}')">Add to Cart</button>
-`
-
-container.appendChild(div)
-
-})
-
+function closeCart() {
+  const c = document.getElementById("cart");
+  if (c) c.classList.remove("open");
 }
 
-window.onload=function(){
-updateCart()
-renderShop()
+function toggleCart() {
+  const c = document.getElementById("cart");
+  if (c) c.classList.toggle("open");
 }
+
+function goCheckout() {
+  const total = localStorage.getItem("cartTotal") || 0;
+  window.location.href = "checkout.html?total=" + total;
+}
+
+function renderProducts(containerId, limit = null) {
+  if (typeof products === "undefined") return;
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container.innerHTML = "";
+  let list = products;
+  if (limit) list = products.slice(0, limit);
+
+  list.forEach((p) => {
+    const div = document.createElement("div");
+    div.className = "product";
+    div.innerHTML = `
+      <img src="${p.image}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p class="price">R${Number(p.price).toFixed(0)}</p>
+      <button type="button">Add to Cart</button>
+    `;
+    const btn = div.querySelector("button");
+    btn.onclick = function () {
+      addToCart(p.name, Number(p.price), p.image);
+    };
+    container.appendChild(div);
+  });
+}
+
+window.onload = function () {
+  updateCart();
+  renderProducts("home-products", 3);
+  renderProducts("shop-products");
+};

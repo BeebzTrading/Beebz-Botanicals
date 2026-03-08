@@ -1,33 +1,53 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Beebz Botanicals</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Beebz Botanicals</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+
 <header class="header">
-<div class="logo">Beebz Botanicals</div>
-<nav class="nav">
-<a href="index.html">Home</a>
-<a href="shop.html">Shop</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
+  <div class="logo">Beebz Botanicals</div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
+
 <section class="section">
-<h2>Contact</h2>
-<p>Email: hello@beebzbotanicals.com</p>
-<p>Instagram: @beebzbotanicals</p>
+  <h2>Contact</h2>
+  <div class="contact-box">
+    <p>Email: hello@beebzbotanicals.com</p>
+    <p>Instagram: @beebzbotanicals</p>
+  </div>
 </section>
 
+
+<button class="cart-toggle" type="button" onclick="toggleCart()">🛒 Cart</button>
+
+<aside id="cart" class="cart" aria-label="Shopping cart">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button class="close-cart" type="button" onclick="closeCart()">✕</button>
+  </div>
+  <div id="cart-items" class="cart-items"></div>
+  <h3 id="cart-total" class="cart-total">Total: R0</h3>
+  <button class="checkout-btn" type="button" onclick="goCheckout()">Checkout</button>
+</aside>
+
+
 <footer class="footer">
-<p>© 2026 Beebz Botanicals</p>
+  <p>© 2026 Beebz Botanicals • Botanical Self-Care</p>
 </footer>
 
+
+<script src="products.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
