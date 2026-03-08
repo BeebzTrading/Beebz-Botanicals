@@ -108,7 +108,39 @@ updateCart()
 renderProducts("home-products",3)
 
 renderProducts("shop-products")
+
+}
+
 function filterProducts(category){
+
+let container=document.getElementById("shop-products")
+
+container.innerHTML=""
+
+let filtered=products
+
+if(category!="all"){
+filtered=products.filter(p=>p.category===category)
+}
+
+filtered.forEach(p=>{
+
+let div=document.createElement("div")
+
+div.className="product"
+
+div.innerHTML=`
+<img src="${p.image}">
+<h3>${p.name}</h3>
+<p class="price">R${p.price}</p>
+<button onclick="addToCart('${p.name}',${p.price},'${p.image}')">Add to Cart</button>
+`
+
+container.appendChild(div)
+
+})
+
+}
 
 let container=document.getElementById("shop-products")
 
