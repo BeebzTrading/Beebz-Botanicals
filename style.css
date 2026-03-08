@@ -1,7 +1,7 @@
 
 body{
 margin:0;
-font-family: 'Segoe UI', Arial, sans-serif;
+font-family:Arial, sans-serif;
 background:#f6f5f1;
 color:#333;
 }
@@ -22,47 +22,35 @@ font-weight:600;
 color:#2f4f46;
 }
 
-nav a{
+.nav a{
 margin-left:20px;
 text-decoration:none;
 color:#333;
 font-weight:500;
 }
 
-nav a:hover{
+.nav a:hover{
 color:#2f4f46;
 }
 
 .hero{
-height:85vh;
-background:linear-gradient(rgba(47,79,70,0.8),rgba(31,51,46,0.9));
+height:80vh;
+background:linear-gradient(#2f4f46,#1f332e);
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
 color:white;
-padding:20px;
-}
-
-.hero h1{
-font-size:48px;
-max-width:700px;
-}
-
-.hero p{
-max-width:500px;
-margin-top:10px;
 }
 
 .btn{
-margin-top:25px;
+margin-top:20px;
 padding:14px 28px;
 background:white;
 color:#2f4f46;
 text-decoration:none;
 border-radius:6px;
-font-weight:600;
 }
 
 .section{
@@ -82,30 +70,10 @@ background:white;
 padding:20px;
 border-radius:10px;
 box-shadow:0 10px 25px rgba(0,0,0,0.05);
-transition:transform 0.3s;
-}
-
-.product:hover{
-transform:translateY(-8px);
-}
-
-.product img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:6px;
 }
 
 .price{
 font-weight:bold;
-margin-top:5px;
-}
-
-.story{
-padding:70px 15%;
-background:#ffffff;
-text-align:center;
-line-height:1.6;
 }
 
 footer{
@@ -114,14 +82,4 @@ color:white;
 text-align:center;
 padding:30px;
 margin-top:40px;
-}
-
-@media(max-width:700px){
-.hero h1{
-font-size:32px;
-}
-.header{
-flex-direction:column;
-gap:10px;
-}
 }
