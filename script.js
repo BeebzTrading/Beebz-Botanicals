@@ -56,7 +56,6 @@ function renderProducts(containerId,limit=null){
 if(typeof products==="undefined") return
 let container=document.getElementById(containerId)
 if(!container) return
-
 container.innerHTML=""
 let list=products
 if(limit) list=products.slice(0,limit)
