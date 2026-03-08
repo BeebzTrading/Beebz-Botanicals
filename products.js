@@ -146,6 +146,12 @@ price:179,
 image:"images/christmas-bundle-cat.png",
 category:"bundle"
 },
+ {
+ name:"Christmas Bundle",
+price:179,
+image:"images/christmas-bundle-cat.png",
+category:"bundle"
+},
  
 {
 name:"Evening Bloom Ritual",
