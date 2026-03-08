@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,14 @@
 
 <header class="header">
 <div class="logo">Beebz Botanicals</div>
+
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+
 </header>
 
 <section class="section">
@@ -23,9 +32,7 @@
 
 <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID">
 <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY">
-
 <input type="hidden" name="amount" id="amountField">
-
 <input type="hidden" name="item_name" value="Beebz Botanicals Order">
 
 <button class="checkout-btn" type="submit">Pay Securely</button>
@@ -35,14 +42,15 @@
 </section>
 
 <script>
-
 const params = new URLSearchParams(window.location.search)
 const total = params.get("total") || 0
-
 document.getElementById("totalDisplay").innerText = "Order Total: R" + total
 document.getElementById("amountField").value = total
-
 </script>
+
+<footer class="footer">
+<p>© 2026 Beebz Botanicals</p>
+</footer>
 
 </body>
 </html>
