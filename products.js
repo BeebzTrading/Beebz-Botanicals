@@ -1,53 +1,45 @@
 const products = [
-  {
-    "name": "Highveld Rose Soap",
-    "price": 59.0,
-    "image": "images/highveld-rose-soap.jpg"
-  },
-  {
-    "name": "Lily of the Vale Soap",
-    "price": 59.0,
-    "image": "images/lily-of-the-vale-soap.jpg"
+   "image": "images/Lily of the vale box cat.png"
   },
   {
     "name": "Jacaranda Bloom Soap",
     "price": 59.0,
-    "image": "images/jacaranda-bloom-soap.jpg"
+    "image": "images/Jacaranda bloom box cat.png"
   },
   {
     "name": "Protea Party Soap",
     "price": 59.0,
-    "image": "images/protea-party-soap.jpg"
+    "image": "images/Protea party box cat.png"
   },
   {
     "name": "Just Beachy Soap",
     "price": 59.0,
-    "image": "images/just-beachy-soap.jpg"
+    "image": "images/Just Beachy box cat.png"
   },
   {
     "name": "Pacific Waters Soap",
     "price": 59.0,
-    "image": "images/pacific-waters-soap.jpg"
+    "image": "images/Pacific waters box cat.png"
   },
   {
     "name": "Boulders Cove Soap",
     "price": 59.0,
-    "image": "images/boulders-cove-soap.jpg"
+    "image": "images/Boulders cove box cat.png"
   },
   {
     "name": "Seashells on the Seaboard Soap",
     "price": 59.0,
-    "image": "images/seashells-on-the-seaboard-soap.jpg"
+    "image": "images/Seashells on the seaboard box cat.png"
   },
   {
     "name": "Port Lizzie Soap",
     "price": 59.0,
-    "image": "images/port-lizzie-soap.jpg"
+    "image": "images/Port Lizzie box cat.png"
   },
   {
     "name": "La Vie in Rose Soap",
     "price": 59.0,
-    "image": "images/la-vie-in-rose-soap.jpg"
+    "image": "images/La Vie in rose box cat.png"
   },
   {
     "name": "Signature Botanical Soap Collection (5 Soap Gift Set)",
