@@ -23,7 +23,19 @@
 
 <section class="section">
 <h2>Shop Collection</h2>
+
+<input class="search" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
+
+<div class="filters">
+<button onclick="filterCategory('all')">All</button>
+<button onclick="filterCategory('soap')">Soaps</button>
+<button onclick="filterCategory('bath')">Bath</button>
+<button onclick="filterCategory('bundle')">Bundles</button>
+<button onclick="filterCategory('accessory')">Accessories</button>
+</div>
+
 <div class="products" id="shop-products"></div>
+
 </section>
 
 
