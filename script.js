@@ -1,18 +1,34 @@
+
 let cart=[]
 
 function addToCart(name,price){
+cart.push({name,price})
+updateCart()
+}
 
-cart.push({name,price}) alert(name + ” added to cart”)
+function updateCart(){
+
+let items=document.getElementById("cart-items")
+let total=0
+
+if(!items) return
+
+items.innerHTML=""
+
+cart.forEach(item=>{
+
+let div=document.createElement("div")
+div.innerText=item.name+" - R"+item.price
+items.appendChild(div)
+
+total+=item.price
+
+})
+
+document.getElementById("cart-total").innerText="Total: R"+total
 
 }
 
-function viewCart(){
-
-let total=0 let items=“”
-
-cart.forEach(item=>{ items += item.name + ” - R” + item.price + “” total
-+= item.price })
-
-alert(“Cart:”+items+“: R”+total)
-
+function toggleCart(){
+document.getElementById("cart").classList.toggle("open")
 }
