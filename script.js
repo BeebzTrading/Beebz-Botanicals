@@ -1,4 +1,3 @@
-
 let cart=[]
 
 function addToCart(name,price){
@@ -26,9 +25,15 @@ total+=item.price
 })
 
 document.getElementById("cart-total").innerText="Total: R"+total
+localStorage.setItem("cartTotal", total)
 
 }
 
 function toggleCart(){
 document.getElementById("cart").classList.toggle("open")
+}
+
+function goCheckout(){
+let total = localStorage.getItem("cartTotal") || 0
+window.location.href="checkout.html?total="+total
 }

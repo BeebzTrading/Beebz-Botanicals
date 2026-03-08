@@ -1,8 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<title>Checkout</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Beebz Botanicals</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,11 +17,32 @@
 
 <h2>Checkout</h2>
 
-<p>Connect your payment processor here.</p>
+<h3 id="totalDisplay"></h3>
 
-<a class="checkout" href="https://payfast.io">Pay Now</a>
+<form action="https://www.payfast.co.za/eng/process" method="post">
+
+<input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID">
+<input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY">
+
+<input type="hidden" name="amount" id="amountField">
+
+<input type="hidden" name="item_name" value="Beebz Botanicals Order">
+
+<button class="checkout-btn" type="submit">Pay Securely</button>
+
+</form>
 
 </section>
+
+<script>
+
+const params = new URLSearchParams(window.location.search)
+const total = params.get("total") || 0
+
+document.getElementById("totalDisplay").innerText = "Order Total: R" + total
+document.getElementById("amountField").value = total
+
+</script>
 
 </body>
 </html>
