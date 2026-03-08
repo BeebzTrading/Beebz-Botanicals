@@ -1,12 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beebz Botanicals</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header class="header">
@@ -21,48 +22,21 @@
 
 <section class="hero">
 <h1>Botanical Rituals for Everyday Luxury</h1>
-<p>Handcrafted botanical self‑care inspired by nature.</p>
+<p>Handcrafted botanical self-care inspired by nature.</p>
 <a class="btn" href="shop.html">Shop Now</a>
-</section>
-
-<section class="section">
-<h2>Best Sellers</h2>
-
-<div class="products">
-
-<div class="product">
-<img src="images/soap.jpg">
-<h3>Signature Botanical Soap</h3>
-<p class="price">R120</p>
-<button onclick="addToCart('Signature Botanical Soap',120,'images/soap.jpg')">Add to Cart</button>
-</div>
-
-<div class="product">
-<img src="images/rooibos.jpg">
-<h3>Rooibos & Honey Bath Salt</h3>
-<p class="price">R150</p>
-<button onclick="addToCart('Rooibos Bath Salt',150,'images/rooibos.jpg')">Add to Cart</button>
-</div>
-
-<div class="product">
-<img src="images/citrus.jpg">
-<h3>Coastal Citrus Bath Salt</h3>
-<p class="price">R150</p>
-<button onclick="addToCart('Coastal Citrus Bath Salt',150,'images/citrus.jpg')">Add to Cart</button>
-</div>
-
-</div>
 </section>
 
 <button class="cart-toggle" onclick="toggleCart()">🛒 Cart</button>
 
 <div id="cart" class="cart">
+
 <div class="cart-header">
 <h2>Your Cart</h2>
-<button onclick="toggleCart()">✕</button>
+<button onclick="closeCart()">✕</button>
 </div>
 
 <div id="cart-items"></div>
+
 <h3 id="cart-total"></h3>
 
 <button onclick="goCheckout()" class="checkout-btn">Checkout</button>
