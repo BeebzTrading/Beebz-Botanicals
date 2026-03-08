@@ -143,7 +143,7 @@ category:"bundle"
 {
 name:"Easter Bundle",
 price:179,
-image:"images/christmas-bundle-cat.png",
+image:"images/easter-bundle-cat.png",
 category:"bundle"
 },
  {
@@ -156,21 +156,21 @@ category:"bundle"
 {
 name:"Evening Bloom Ritual",
 price:289,
-image:"images/christmas-bundle-cat.png",
+image:"images/evening-bloom-ritual-bundle.png",
 category:"bundle"
 },
 
   {
 name:"Botanical Spa Ritual",
 price:399,
-image:"images/christmas-bundle-cat.png",
+image:"images/botanical-spa-ritual.png",
 category:"bundle"
 },
 
   {
 name:"Coastal Refresh Ritual",
 price:399,
-image:"images/christmas-bundle-cat.png",
+image:"images/coastal-refresh-ritual.png",
 category:"bundle"
 },
 
@@ -198,14 +198,14 @@ category:"bath"
   {
 name:"Complete Botanical Self-Care Ritual Set",
 price:499,
-image:"images/christmas-bundle-cat.png",
+image:"images/complete-botanical-self-care-ritual-bundle.png",
 category:"bundle"
 },
 
   {
 name:"Premium Signature Soap Collection",
 price:249,
-image:"images/christmas-bundle-cat.png",
+image:"images/premium-collection-cat.png",
 category:"bundle"
 },
 ];
