@@ -1,40 +1,134 @@
 
-body{margin:0;font-family:Arial;background:#f6f5f1}
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f6f5f1;
+color:#333;
+}
 
-.header{display:flex;justify-content:space-between;align-items:center;padding:20px 10%;background:white}
-.logo{font-size:24px;font-weight:600;color:#2f4f46}
-.nav{display:flex;gap:20px}
-.nav a{text-decoration:none;color:#333}
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:white;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
 
-.hero{height:70vh;background:#2f4f46;color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.logo{
+font-size:24px;
+letter-spacing:3px;
+font-weight:600;
+color:#2f4f46;
+}
 
-.btn{margin-top:20px;background:white;padding:12px 24px;border-radius:6px;text-decoration:none;color:#2f4f46}
+.nav{
+display:flex;
+gap:20px;
+}
 
-.section{padding:60px 10%;text-align:center}
+.nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
 
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:30px}
-.product{background:white;padding:20px;border-radius:10px}
-.product img{width:100%}
-.price{font-weight:bold}
+.nav a:hover{
+color:#2f4f46;
+}
 
-.about-text{max-width:800px;margin:auto;text-align:left;line-height:1.6}
+.hero{
+height:70vh;
+background:linear-gradient(#2f4f46,#1f332e);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+}
 
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;margin-top:30px}
+.btn{
+margin-top:20px;
+padding:14px 26px;
+background:white;
+color:#2f4f46;
+text-decoration:none;
+border-radius:6px;
+}
+
+.section{
+padding:80px 10%;
+text-align:center;
+}
+
+.footer{
+background:#2f4f46;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+
+
+/* ABOUT PAGE IMPROVEMENTS */
+
+.about-title{
+margin-bottom:20px;
+font-size:28px;
+color:#2f4f46;
+}
+
+.about-text{
+max-width:750px;
+margin:0 auto 20px auto;
+line-height:1.6;
+}
+
+.features{
+max-width:900px;
+margin:40px auto 0 auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 
 .feature{
 background:white;
-padding:30px;
-border-radius:12px;
-font-size:16px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05)
+padding:20px;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+display:flex;
+gap:12px;
+align-items:flex-start;
 }
 
-.contact-box{background:white;padding:30px;border-radius:10px;max-width:400px;margin:auto}
+.icon{
+font-size:22px;
+}
 
-.cart{position:fixed;right:-350px;top:0;width:350px;height:100%;background:white;padding:20px;transition:0.3s}
-.cart.open{right:0}
 
-.cart-toggle{position:fixed;bottom:20px;right:20px;background:#2f4f46;color:white;padding:12px 18px;border:none;border-radius:30px}
-.cart-img{width:40px;margin-right:10px}
+/* PREMIUM BOTANICAL BANNER */
 
-.checkout-btn{margin-top:20px;padding:10px 16px;background:#2f4f46;color:white;border:none}
+.brand-banner{
+margin-top:60px;
+background:linear-gradient(rgba(47,79,70,0.85), rgba(31,51,46,0.9));
+padding:80px 20px;
+text-align:center;
+color:white;
+}
+
+.banner-content{
+max-width:700px;
+margin:auto;
+}
+
+.banner-content h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.banner-content p{
+font-size:16px;
+line-height:1.6;
+}
