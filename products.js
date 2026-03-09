@@ -37,7 +37,7 @@ category:"soap"
 
 {
 name:"Seashells on the Seaboard Soap",
-price:120,
+price:59,
 image:"images/seashells-on-the-seaboard-box-cat.png",
 category:"soap"
 },
