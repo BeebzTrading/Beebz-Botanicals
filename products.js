@@ -198,7 +198,7 @@ category:"bath"
   {
 name:"Complete Botanical Self-Care Ritual Set",
 price:499,
-image:"./images/complete-botanical-self-care-ritual-bundle.png",
+image:"./images/complete-botanical-self-care-ritual.png",
 category:"bundle"
 },
 
