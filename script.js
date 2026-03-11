@@ -31,9 +31,10 @@ cart.forEach((item,i)=>{
 let div=document.createElement("div")
 
 div.innerHTML=`
-<img src="${item.image}" class="cart-img">
-${item.name} x${item.qty}
-<button onclick="removeItem(${i})">Remove</button>
+<img src="${p.image}" loading="lazy">
+<h3>${p.name}</h3>
+<p class="price">R${p.price}</p>
+<button onclick="addToCart('${p.name}',${p.price},'${p.image}')">Add to Cart</button>
 `
 
 items.appendChild(div)
