@@ -291,10 +291,9 @@ body{
   z-index: 1000;
 }
 
-.cart.active {
-  right: 0; /* slides in */
+.cart.open{
+  right:0;
 }
-
 .shop-controls{
   display:flex;
   flex-direction:column;
