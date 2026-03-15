@@ -61,20 +61,17 @@ function filterProducts(category){
   renderFiltered(filtered)
 }
 function toggleCart(){
-  const cartEl = document.getElementById("cart")
+  const cart = document.getElementById("cart")
+  if(!cart) return
 
-  if(!cartEl) return
-
-  if(cartEl.style.display === "block"){
-    cartEl.style.display = "none"
-  } else {
-    cartEl.style.display = "block"
-    renderCart()
-  }
+  cart.classList.toggle("active")
 }
 
 function closeCart(){
-  document.getElementById("cart").style.display = "none"
+  const cart = document.getElementById("cart")
+  if(!cart) return
+
+  cart.classList.remove("active")
 }
 
 function goCheckout(){
