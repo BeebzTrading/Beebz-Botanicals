@@ -3,6 +3,33 @@ const cart = JSON.parse(localStorage.getItem("cartData")) || []
 function saveCart(){
   localStorage.setItem("cartData", JSON.stringify(cart))
 }
+function renderCart(){
+
+  const cartItems = document.getElementById("cart-items")
+  const cartTotal = document.getElementById("cart-total")
+
+  if(!cartItems || !cartTotal) return
+
+  cartItems.innerHTML = ""
+
+  let total = 0
+
+  cart.forEach(item => {
+
+    const div = document.createElement("div")
+
+    div.innerHTML = `
+      <p>${item.name} x ${item.qty}</p>
+      <p>R${item.price * item.qty}</p>
+    `
+
+    cartItems.appendChild(div)
+
+    total += item.price * item.qty
+  })
+
+  cartTotal.innerText = "Total: R" + total
+}
 
 function addToCart(name, price, image){
   const existing = cart.find(item => item.name === name)
@@ -74,8 +101,7 @@ function closeCart(){
   cart.classList.remove("open")
 }
 
-  cart.classList.remove("active")
-}
+
 
 function goCheckout(){
   window.location.href = "./checkout.html"
@@ -94,34 +120,6 @@ function searchProducts(){
 function renderFiltered(list){
   const container = document.getElementById("shop-products")
   container.innerHTML = ""
-
-  function renderCart(){
-
-  const cartItems = document.getElementById("cart-items")
-  const cartTotal = document.getElementById("cart-total")
-
-  if(!cartItems || !cartTotal) return
-
-  cartItems.innerHTML = ""
-
-  let total = 0
-
-  cart.forEach(item => {
-
-    const div = document.createElement("div")
-
-    div.innerHTML = `
-      <p>${item.name} x ${item.qty}</p>
-      <p>R${item.price * item.qty}</p>
-    `
-
-    cartItems.appendChild(div)
-
-    total += item.price * item.qty
-  })
-
-  cartTotal.innerText = "Total: R" + total
-}
 
   list.forEach(p => {
 
