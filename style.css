@@ -353,47 +353,43 @@ body{
 }
 .footer {
   background: #2f4f46;
-  color: white;
-  padding: 50px 10% 25px;
+  color: #dcdcdc;
+  text-align: center;
+  padding: 40px 20px;
   margin-top: 80px;
 }
 
-.footer-content {
-  text-align: center;
-  max-width: 700px;
-  margin: auto;
+/* Links (top row) */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-.footer h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.footer-tagline {
-  opacity: 0.85;
-  font-size: 15px;
-  margin-bottom: 25px;
-}
-
-.footer-divider {
-  width: 60px;
-  height: 2px;
-  background: rgba(255,255,255,0.4);
-  margin: 20px auto;
-}
-
-.footer-contact p {
-  margin: 6px 0;
+.footer-links a {
+  color: #dcdcdc;
+  text-decoration: none;
   font-size: 14px;
-  opacity: 0.9;
+  transition: 0.2s;
 }
 
-.footer-bottom {
-  text-align: center;
-  margin-top: 35px;
-  font-size: 13px;
-  opacity: 0.7;
+.footer-links a:hover {
+  color: white;
 }
+
+/* Middle text */
+.footer-text {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  font-size: 14px;
   opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Bottom copyright */
+.footer-copy {
+  font-size: 13px;
+  opacity: 0.6;
 }
