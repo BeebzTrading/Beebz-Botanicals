@@ -73,9 +73,19 @@ function renderCheckout(){
         <div style="flex:1;text-align:left">
           <h3 style="margin:0">${item.name}</h3>
           <p style="margin:5px 0">R${item.price} x ${item.qty}</p>
+
+          <div style="display:flex;align-items:center;gap:8px;margin-top:5px;">
+            <button onclick="changeQty(${index}, -1)" 
+              style="width:25px;height:25px;border:none;background:#eee;cursor:pointer;">−</button>
+            
+            <span>${item.qty}</span>
+            
+            <button onclick="changeQty(${index}, 1)" 
+              style="width:25px;height:25px;border:none;background:#eee;cursor:pointer;">+</button>
+          </div>
           
           <button onclick="removeFromCheckout(${index})"
-            style="background:none;border:none;color:#9b4d4d;cursor:pointer;font-size:13px;">
+            style="background:none;border:none;color:#9b4d4d;cursor:pointer;font-size:13px;margin-top:6px;">
             Remove
           </button>
         </div>
@@ -90,6 +100,17 @@ function renderCheckout(){
   }
 
   document.getElementById("checkout-total").innerText = "Total: R" + total
+}
+
+function changeQty(index, amount){
+  cart[index].qty += amount
+
+  if(cart[index].qty <= 0){
+    cart.splice(index, 1)
+  }
+
+  localStorage.setItem("cartData", JSON.stringify(cart))
+  renderCheckout()
 }
 
 function removeFromCheckout(index){
