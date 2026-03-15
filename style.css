@@ -100,3 +100,57 @@ cursor:pointer;
 background:#2f4f46;
 color:white;
 }
+
+
+/* === PREMIUM UPGRADE STYLES === */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F8F5F2;
+  color: #2B2B2B;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(to bottom, #F8F5F2, #EFEAE5);
+  padding: 40px;
+}
+
+.tagline {
+  color: #7A9A8D;
+}
+
+.btn-primary {
+  background-color: #7A9A8D;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  border: 1px solid #7A9A8D;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #7A9A8D;
+}
+
+.product-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.price {
+  font-weight: bold;
+}
