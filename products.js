@@ -198,14 +198,14 @@ category:"bath"
   {
 name:"Complete Botanical Self-Care Ritual Set",
 price:499,
-image:"./images/complete-botanical-self-care-ritual.png",
+image:"./images/complete-botanical-self-care-ritual.jpg",
 category:"bundle"
 },
 
   {
 name:"Premium Signature Soap Collection",
 price:249,
-image:"./images/premium-collection-cat.png",
+image:"./images/premium-collection-cat-1.jpg",
 category:"bundle"
 },
 ];
