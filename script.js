@@ -31,10 +31,9 @@ cart.forEach((item,i)=>{
 let div=document.createElement("div")
 
 div.innerHTML=`
-<img src="${p.image}" loading="lazy">
-<h3>${p.name}</h3>
-<p class="price">R${p.price}</p>
-<button onclick="addToCart('${p.name}',${p.price},'${p.image}')">Add to Cart</button>
+<img src="${item.image}">
+<h3>${item.name}</h3>
+<p class="price">R${item.price}</p>
 `
 
 items.appendChild(div)
@@ -46,12 +45,6 @@ total+=item.price*item.qty
 totalEl.innerText="Total: R"+total
 localStorage.setItem("cartTotal",total)
 
-}
-
-function removeItem(i){
-cart.splice(i,1)
-saveCart()
-updateCart()
 }
 
 function openCart(){
@@ -160,9 +153,7 @@ container.appendChild(div)
 window.addEventListener("load",function(){
 
 updateCart()
-
 renderProducts("home-products",3)
-
 renderProducts("shop-products")
 
 })
