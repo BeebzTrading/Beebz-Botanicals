@@ -79,11 +79,18 @@ function createProductCard(p){
   let div = document.createElement("div")
   div.className = "product"
 
-  div.innerHTML = `
-    <img src="${p.image}" alt="${p.name}">
-    <h3>${p.name}</h3>
-    <p class="price">R${p.price}</p>
-    <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}',${p.price},'${p.image}')">Add to Cart</button>
+ div.innerHTML=`
+<a href="./product.html?id=${encodeURIComponent(p.name)}">
+  <img src="${p.image}">
+  <h3>${p.name}</h3>
+</a>
+
+<p class="price">R${p.price}</p>
+
+<button onclick="addToCart('${p.name}',${p.price},'${p.image}')">
+Add to Cart
+</button>
+`
   `
 
   return div
