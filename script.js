@@ -60,6 +60,17 @@ function filterProducts(category){
 
   renderFiltered(filtered)
 }
+function toggleCart(){
+  document.getElementById("cart").style.display = "block"
+}
+
+function closeCart(){
+  document.getElementById("cart").style.display = "none"
+}
+
+function goCheckout(){
+  window.location.href = "./checkout.html"
+}
 
 function searchProducts(){
   const query = document.getElementById("searchInput").value.toLowerCase()
