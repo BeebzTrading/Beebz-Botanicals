@@ -64,12 +64,15 @@ function toggleCart(){
   const cart = document.getElementById("cart")
   if(!cart) return
 
-  cart.classList.toggle("active")
+  cart.classList.toggle("open")
 }
 
 function closeCart(){
   const cart = document.getElementById("cart")
   if(!cart) return
+
+  cart.classList.remove("open")
+}
 
   cart.classList.remove("active")
 }
