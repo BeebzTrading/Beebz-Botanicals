@@ -56,9 +56,8 @@ if(product){
       <p class="price" style="font-size:20px">R${product.price}</p>
 
       <p style="max-width:600px;margin:20px auto">
-        A premium handcrafted botanical product designed to elevate your self-care routine with natural ingredients and luxurious fragrance.
-      </p>
-
+  ${product.description}
+</p>
       <button onclick="addToCart('${product.name}',${product.price},'${product.image}')"
         style="margin-top:20px;padding:12px 24px;background:#2f4f46;color:white;border:none;border-radius:30px">
         Add to Cart
