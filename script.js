@@ -1,7 +1,10 @@
 const cart = JSON.parse(localStorage.getItem("cartData")) || []
 
-function renderCart(){
+function saveCart(){
+  localStorage.setItem("cartData", JSON.stringify(cart))
+}
 
+function renderCart(){
   const cartItems = document.getElementById("cart-items")
   const cartTotal = document.getElementById("cart-total")
 
@@ -12,25 +15,21 @@ function renderCart(){
   let total = 0
 
   cart.forEach((item, index) => {
-
     const div = document.createElement("div")
     div.classList.add("cart-item")
 
     div.innerHTML = `
-      <img src="${item.image}">
-
+      <img src="${item.image}" alt="${item.name}">
       <div class="cart-item-details">
         <h3>${item.name}</h3>
         <p>R${item.price}</p>
         <div class="cart-qty">Qty: ${item.qty}</div>
         <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
       </div>
-
       <strong>R${item.price * item.qty}</strong>
     `
 
     cartItems.appendChild(div)
-
     total += item.price * item.qty
   })
 
@@ -43,56 +42,72 @@ function removeFromCart(index){
   renderCart()
 }
 
-
-function saveCart(){
-  localStorage.setItem("cartData", JSON.stringify(cart))
-}
-
-
-  cartTotal.innerText = "Total: R" + total
-}
-
 function addToCart(name, price, image){
-
   const existing = cart.find(item => item.name === name)
 
   if(existing){
     existing.qty++
   } else {
-    cart.push({name, price, image, qty:1})
+    cart.push({ name, price, image, qty: 1 })
   }
 
   saveCart()
   renderCart()
-}
-function renderProducts(containerId){
 
+  const cartPanel = document.getElementById("cart")
+  if(cartPanel){
+    cartPanel.classList.add("open")
+  }
+}
+
+function renderProducts(containerId){
   const container = document.getElementById(containerId)
-  if(!container) return
+  if(!container || typeof products === "undefined") return
 
   let list = products
 
-  // Home page = show first 3
   if(containerId === "home-products"){
-    list = products.slice(0,3)
+    list = products.slice(0, 3)
   }
 
   container.innerHTML = ""
 
   list.forEach(p => {
-
     const div = document.createElement("div")
     div.classList.add("product")
 
     div.innerHTML = `
       <a href="./product.html?id=${encodeURIComponent(p.name)}">
-        <img src="${p.image}">
+        <img src="${p.image}" alt="${p.name}">
         <h3>${p.name}</h3>
       </a>
-
       <p class="price">R${p.price}</p>
+      <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')">
+        Add to Cart
+      </button>
+    `
 
-      <button onclick="addToCart('${p.name}',${p.price},'${p.image}')">
+    container.appendChild(div)
+  })
+}
+
+function renderFiltered(list){
+  const container = document.getElementById("shop-products")
+  if(!container) return
+
+  container.innerHTML = ""
+
+  list.forEach(p => {
+    const div = document.createElement("div")
+    div.classList.add("product")
+
+    div.innerHTML = `
+      <a href="./product.html?id=${encodeURIComponent(p.name)}">
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+      </a>
+      <p class="price">R${p.price}</p>
+      <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')">
         Add to Cart
       </button>
     `
@@ -102,34 +117,18 @@ function renderProducts(containerId){
 }
 
 function filterProducts(category){
-  const filtered = category === "all" 
-    ? products 
+  const filtered = category === "all"
+    ? products
     : products.filter(p => p.category === category)
 
   renderFiltered(filtered)
 }
-function toggleCart(){
-  const cart = document.getElementById("cart")
-  if(!cart) return
-
-  cart.classList.toggle("open")
-}
-
-function closeCart(){
-  const cart = document.getElementById("cart")
-  if(!cart) return
-
-  cart.classList.remove("open")
-}
-
-
-
-function goCheckout(){
-  window.location.href = "./checkout.html"
-}
 
 function searchProducts(){
-  const query = document.getElementById("searchInput").value.toLowerCase()
+  const input = document.getElementById("searchInput")
+  if(!input) return
+
+  const query = input.value.toLowerCase()
 
   const filtered = products.filter(p =>
     p.name.toLowerCase().includes(query)
@@ -138,33 +137,26 @@ function searchProducts(){
   renderFiltered(filtered)
 }
 
-function renderFiltered(list){
-  const container = document.getElementById("shop-products")
-  container.innerHTML = ""
+function toggleCart(){
+  const cartPanel = document.getElementById("cart")
+  if(!cartPanel) return
 
-  list.forEach(p => {
-
-    const div = document.createElement("div")
-    div.classList.add("product")
-
-    div.innerHTML = `
-      <a href="./product.html?id=${encodeURIComponent(p.name)}">
-        <img src="${p.image}">
-        <h3>${p.name}</h3>
-      </a>
-
-      <p class="price">R${p.price}</p>
-
-      <button onclick="addToCart('${p.name}',${p.price},'${p.image}')">
-        Add to Cart
-      </button>
-    `
-
-    container.appendChild(div)
-  })
+  cartPanel.classList.toggle("open")
 }
 
-// RUN ON PAGE LOAD
-renderProducts("home-products")
-renderProducts("shop-products")
-renderCart()
+function closeCart(){
+  const cartPanel = document.getElementById("cart")
+  if(!cartPanel) return
+
+  cartPanel.classList.remove("open")
+}
+
+function goCheckout(){
+  window.location.href = "./checkout.html"
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  renderProducts("home-products")
+  renderProducts("shop-products")
+  renderCart()
+})
