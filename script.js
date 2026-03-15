@@ -61,7 +61,16 @@ function filterProducts(category){
   renderFiltered(filtered)
 }
 function toggleCart(){
-  document.getElementById("cart").style.display = "block"
+  const cartEl = document.getElementById("cart")
+
+  if(!cartEl) return
+
+  if(cartEl.style.display === "block"){
+    cartEl.style.display = "none"
+  } else {
+    cartEl.style.display = "block"
+    renderCart()
+  }
 }
 
 function closeCart(){
