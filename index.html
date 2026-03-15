@@ -1,66 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Beebz Botanicals</title>
-
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beebz Botanicals</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HERO -->
+<header class="header">
+<div class="logo">Beebz Botanicals</div>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
 <section class="hero">
-  <div class="hero-content">
-    <h1>Beebz Botanicals</h1>
-    <p class="tagline">Elevated Botanical Self-Care, Crafted in South Africa</p>
-    <p class="hero-sub">
-      Handcrafted bath rituals using premium botanicals, essential oils, and natural ingredients designed to restore, relax, and rejuvenate.
-    </p>
-    <a href="shop.html" class="btn-primary">Shop Collection</a>
-    <a href="about.html" class="btn-secondary">Our Story</a>
-  </div>
+<h1>Botanical Rituals for Everyday Luxury</h1>
+<p>Handcrafted botanical self-care inspired by nature.</p>
+<a class="btn" href="shop.html">Shop Collection</a>
 </section>
 
-<!-- BEST SELLERS -->
-<section class="best-sellers">
-  <h2>Best Sellers</h2>
-
-  <div class="product-grid">
-
-    <div class="product-card">
-      <img src="images/rooibos-and-honey-salt-1.png">
-      <h3>Rooibos & Honey Bath Salt</h3>
-      <p class="price">R120</p>
-    </div>
-
-    <div class="product-card">
-      <img src="images/coastal-citrus-salt.png">
-      <h3>Coastal Citrus Bath Salt</h3>
-      <p class="price">R120</p>
-    </div>
-
-    <div class="product-card">
-      <img src="images/botanical-soap.png">
-      <h3>Botanical Soap Collection</h3>
-      <p class="price">R180</p>
-    </div>
-
-  </div>
+<section class="section">
+<h2>Best Sellers</h2>
+<div class="products" id="home-products"></div>
 </section>
 
-<!-- WHY US -->
-<section class="why-us">
-  <h2>Why Choose Beebz Botanicals</h2>
+<button class="cart-toggle" onclick="toggleCart()">🛒 Cart</button>
 
-  <div class="why-grid">
-    <div>🌿 Premium botanical ingredients</div>
-    <div>🧴 Handmade in small batches</div>
-    <div>🇿🇦 Proudly South African</div>
-    <div>✨ Designed for relaxation & wellness</div>
-  </div>
-</section>
+<div id="cart" class="cart">
+<div class="cart-header">
+<h2>Your Cart</h2>
+<button onclick="closeCart()">✕</button>
+</div>
+<div id="cart-items"></div>
+<h3 id="cart-total">Total: R0</h3>
+<button onclick="goCheckout()" class="checkout-btn">Checkout</button>
+</div>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
