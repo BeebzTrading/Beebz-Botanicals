@@ -1,47 +1,85 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout</title>
+<title>Checkout | Beebz Botanicals</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
+<body>
 
 <header class="header">
 <div class="logo">Beebz Botanicals</div>
 <nav class="nav">
-<a href="index.html">Home</a>
-<a href="shop.html">Shop</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<a href="./index.html">Home</a>
+<a href="./shop.html">Shop</a>
+<a href="./about.html">About</a>
+<a href="./contact.html">Contact</a>
 </nav>
 </header>
 
-
 <section class="section">
-<h2>Checkout</h2>
-<p id="totalDisplay">Order Total: R0</p>
-<a href="index.html" class="btn">Return Home</a>
+<h2>Order Summary</h2>
+
+<div id="checkout-items" style="max-width:700px;margin:auto;"></div>
+
+<h3 id="checkout-total" style="margin-top:30px;">Total: R0</h3>
+
+<a href="./index.html" class="btn" style="margin-top:20px;display:inline-block;">Continue Shopping</a>
+
 </section>
 
 <script>
-const params=new URLSearchParams(window.location.search)
-const total=params.get("total")||0
-document.getElementById("totalDisplay").innerText="Order Total: R"+total
+let cart = JSON.parse(localStorage.getItem("cartData")) || []
+
+let container = document.getElementById("checkout-items")
+let total = 0
+
+if(cart.length === 0){
+  container.innerHTML = "<p>Your cart is empty.</p>"
+} else {
+
+  cart.forEach(item => {
+
+    let div = document.createElement("div")
+
+    div.style.display = "flex"
+    div.style.alignItems = "center"
+    div.style.gap = "15px"
+    div.style.marginBottom = "20px"
+    div.style.paddingBottom = "10px"
+    div.style.borderBottom = "1px solid #eee"
+
+    div.innerHTML = `
+      <img src="${item.image}" style="width:70px;height:70px;object-fit:cover;border-radius:8px">
+      
+      <div style="flex:1;text-align:left">
+        <h3 style="margin:0">${item.name}</h3>
+        <p style="margin:5px 0">R${item.price} x ${item.qty}</p>
+      </div>
+
+      <strong>R${item.price * item.qty}</strong>
+    `
+
+    container.appendChild(div)
+
+    total += item.price * item.qty
+  })
+}
+
+document.getElementById("checkout-total").innerText = "Total: R" + total
 </script>
 
 </body>
   <footer class="footer">
 
- <div class="footer-links">
-  <a href="./privacy.html">Privacy Policy</a>
-  <a href="./terms.html">Terms</a>
-  <a href="./contact.html">Contact</a>
-</div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Contact</a>
+    <a href="#">Terms</a>
+  </div>
 
   <p class="footer-text">
     Beebz Botanicals creates handcrafted botanical self-care products inspired by nature and designed for everyday luxury.
