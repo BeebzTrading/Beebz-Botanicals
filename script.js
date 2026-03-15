@@ -160,21 +160,4 @@ window.addEventListener("load", function(){
   renderProducts("home-products")
   renderProducts("shop-products")
 })
-<script>
-function placeOrder(){
 
-  let cart = JSON.parse(localStorage.getItem("cartData")) || []
-
-  if(cart.length === 0){
-    alert("Your cart is empty.")
-    return
-  }
-
-  alert("Thank you for your order! 🌿")
-
-  localStorage.removeItem("cartData")
-  localStorage.removeItem("cartTotal")
-
-  window.location.href = "./index.html"
-}
-</script>
