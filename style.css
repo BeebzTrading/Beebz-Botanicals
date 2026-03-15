@@ -354,43 +354,46 @@ body{
 .footer {
   background: #2f4f46;
   color: white;
-  padding: 40px 10% 20px;
-  margin-top: 60px;
+  padding: 50px 10% 25px;
+  margin-top: 80px;
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
 }
 
 .footer h3 {
   font-family: 'Playfair Display', serif;
+  font-size: 28px;
   margin-bottom: 10px;
 }
 
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.footer-tagline {
+  opacity: 0.85;
+  font-size: 15px;
+  margin-bottom: 25px;
 }
 
-.footer-links a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
+.footer-divider {
+  width: 60px;
+  height: 2px;
+  background: rgba(255,255,255,0.4);
+  margin: 20px auto;
 }
 
 .footer-contact p {
-  margin: 5px 0;
+  margin: 6px 0;
+  font-size: 14px;
+  opacity: 0.9;
 }
 
 .footer-bottom {
   text-align: center;
-  margin-top: 30px;
-  font-size: 14px;
+  margin-top: 35px;
+  font-size: 13px;
+  opacity: 0.7;
+}
   opacity: 0.8;
 }
