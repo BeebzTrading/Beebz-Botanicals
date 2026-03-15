@@ -63,15 +63,20 @@ if(cart.length === 0){
     div.style.borderBottom = "1px solid #eee"
 
     div.innerHTML = `
-      <img src="${item.image}" style="width:70px;height:70px;object-fit:cover;border-radius:8px">
-      
-      <div style="flex:1;text-align:left">
-        <h3 style="margin:0">${item.name}</h3>
-        <p style="margin:5px 0">R${item.price} x ${item.qty}</p>
-      </div>
+  <img src="${item.image}" style="width:70px;height:70px;object-fit:cover;border-radius:8px">
+  
+  <div style="flex:1;text-align:left">
+    <h3 style="margin:0">${item.name}</h3>
+    <p style="margin:5px 0">R${item.price} x ${item.qty}</p>
+    
+    <button onclick="removeFromCheckout(${index})" 
+      style="background:none;border:none;color:#9b4d4d;cursor:pointer;font-size:13px;">
+      Remove
+    </button>
+  </div>
 
-      <strong>R${item.price * item.qty}</strong>
-    `
+  <strong>R${item.price * item.qty}</strong>
+`
 
     container.appendChild(div)
 
@@ -98,7 +103,17 @@ document.getElementById("checkout-total").innerText = "Total: R" + total
 
   window.location.href = "./index.html"
 }
-</script>
+ <script>
+function removeFromCheckout(index){
+
+  let cart = JSON.parse(localStorage.getItem("cartData")) || []
+
+  cart.splice(index, 1)
+
+  localStorage.setItem("cartData", JSON.stringify(cart))
+
+  location.reload() // refresh page to update display
+}
  
  </script>
 
