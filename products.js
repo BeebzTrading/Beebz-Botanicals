@@ -129,27 +129,27 @@ category:"bundle"
 {
 name:"Coastal Escape Bundle",
 price:350,
-image:"./images/coastal-escape-cat.png",
+image:"./images/coastal-escape-cat.jpg",
 category:"bundle"
 },
 
 {
 name:"Birthday Bundle",
 price:179,
-image:"./images/birthday-bundle-cat.png",
+image:"./images/birthday-bundle-cat.jpg",
 category:"bundle"
 },
 
 {
 name:"Easter Bundle",
 price:179,
-image:"./images/easter-bundle-cat.png",
+image:"./images/easter-bundle-cat.jpg",
 category:"bundle"
 },
  {
  name:"Christmas Bundle",
 price:179,
-image:"./images/christmas-bundle-cat.png",
+image:"./images/christmas-bundle-cat.jpg",
 category:"bundle"
 },
  
