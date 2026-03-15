@@ -1,8 +1,5 @@
 const cart = JSON.parse(localStorage.getItem("cartData")) || []
 
-function saveCart(){
-  localStorage.setItem("cartData", JSON.stringify(cart))
-}
 function renderCart(){
 
   const cartItems = document.getElementById("cart-items")
@@ -14,13 +11,22 @@ function renderCart(){
 
   let total = 0
 
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
 
     const div = document.createElement("div")
+    div.classList.add("cart-item")
 
     div.innerHTML = `
-      <p>${item.name} x ${item.qty}</p>
-      <p>R${item.price * item.qty}</p>
+      <img src="${item.image}">
+
+      <div class="cart-item-details">
+        <h3>${item.name}</h3>
+        <p>R${item.price}</p>
+        <div class="cart-qty">Qty: ${item.qty}</div>
+        <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+      </div>
+
+      <strong>R${item.price * item.qty}</strong>
     `
 
     cartItems.appendChild(div)
@@ -31,7 +37,23 @@ function renderCart(){
   cartTotal.innerText = "Total: R" + total
 }
 
+function removeFromCart(index){
+  cart.splice(index, 1)
+  saveCart()
+  renderCart()
+}
+
+
+function saveCart(){
+  localStorage.setItem("cartData", JSON.stringify(cart))
+}
+
+
+  cartTotal.innerText = "Total: R" + total
+}
+
 function addToCart(name, price, image){
+
   const existing = cart.find(item => item.name === name)
 
   if(existing){
@@ -41,9 +63,8 @@ function addToCart(name, price, image){
   }
 
   saveCart()
-  alert("Added to cart")
+  renderCart()
 }
-
 function renderProducts(containerId){
 
   const container = document.getElementById(containerId)
