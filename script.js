@@ -1,159 +1,155 @@
 let cart = JSON.parse(localStorage.getItem("cartData")) || []
 
 function saveCart(){
-localStorage.setItem("cartData",JSON.stringify(cart))
+  localStorage.setItem("cartData", JSON.stringify(cart))
 }
 
-function addToCart(name,price,image){
+function addToCart(name, price, image){
+  let item = cart.find(p => p.name === name)
 
-let item=cart.find(p=>p.name===name)
+  if(item){
+    item.qty++
+  } else {
+    cart.push({ name, price, image, qty: 1 })
+  }
 
-if(item){item.qty++}
-else{cart.push({name,price,image,qty:1})}
+  saveCart()
+  updateCart()
+  openCart()
+}
 
-saveCart()
-updateCart()
-openCart()
+function removeItem(i){
+  cart.splice(i, 1)
+  saveCart()
+  updateCart()
 }
 
 function updateCart(){
+  let items = document.getElementById("cart-items")
+  let totalEl = document.getElementById("cart-total")
 
-let items=document.getElementById("cart-items")
-let totalEl=document.getElementById("cart-total")
+  if(!items || !totalEl) return
 
-if(!items||!totalEl)return
+  items.innerHTML = ""
+  let total = 0
 
-items.innerHTML=""
-let total=0
+  cart.forEach((item, i) => {
+    let div = document.createElement("div")
+    div.className = "cart-item"
 
-cart.forEach((item,i)=>{
+    div.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <div class="cart-item-details">
+        <h3>${item.name}</h3>
+        <p class="price">R${item.price}</p>
+        <div class="cart-qty">Qty: ${item.qty}</div>
+        <button class="remove-btn" onclick="removeItem(${i})">Remove</button>
+      </div>
+    `
 
-let div=document.createElement("div")
+    items.appendChild(div)
+    total += item.price * item.qty
+  })
 
-div.innerHTML=`
-<img src="${item.image}">
-<h3>${item.name}</h3>
-<p class="price">R${item.price}</p>
-`
-
-items.appendChild(div)
-
-total+=item.price*item.qty
-
-})
-
-totalEl.innerText="Total: R"+total
-localStorage.setItem("cartTotal",total)
-
+  totalEl.innerText = "Total: R" + total
+  localStorage.setItem("cartTotal", total)
 }
 
 function openCart(){
-document.getElementById("cart").classList.add("open")
+  const cartEl = document.getElementById("cart")
+  if(cartEl) cartEl.classList.add("open")
 }
 
 function closeCart(){
-document.getElementById("cart").classList.remove("open")
+  const cartEl = document.getElementById("cart")
+  if(cartEl) cartEl.classList.remove("open")
 }
 
 function toggleCart(){
-document.getElementById("cart").classList.toggle("open")
+  const cartEl = document.getElementById("cart")
+  if(cartEl) cartEl.classList.toggle("open")
 }
 
 function goCheckout(){
-let total=localStorage.getItem("cartTotal")||0
-window.location.href="checkout.html?total="+total
+  let total = localStorage.getItem("cartTotal") || 0
+  window.location.href = "checkout.html?total=" + total
 }
 
-function renderProducts(containerId,limit=null){
+function createProductCard(p){
+  let div = document.createElement("div")
+  div.className = "product"
 
-if(typeof products === "undefined") return
+  div.innerHTML = `
+    <img src="${p.image}" alt="${p.name}">
+    <h3>${p.name}</h3>
+    <p class="price">R${p.price}</p>
+    <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}',${p.price},'${p.image}')">Add to Cart</button>
+  `
 
-let container=document.getElementById(containerId)
-if(!container) return
+  return div
+}
 
-container.innerHTML=""
+function renderProducts(containerId, limit = null){
+  if(typeof products === "undefined") return
 
-let list=products
-if(limit) list=products.slice(0,limit)
+  let container = document.getElementById(containerId)
+  if(!container) return
 
-list.forEach(p=>{
+  container.innerHTML = ""
 
-let div=document.createElement("div")
-div.className="product"
+  let list = products
 
-div.innerHTML=`
-<img src="${p.image}">
-<h3>${p.name}</h3>
-<p class="price">R${p.price}</p>
-<button onclick="addToCart('${p.name}',${p.price},'${p.image}')">Add to Cart</button>
-`
+  if(containerId === "home-products"){
+    const featuredNames = [
+      "Rooibos & Honey Bath Salt",
+      "Coastal Citrus Bath Salt",
+      "Complete Botanical Self-Care Ritual Set"
+    ]
 
-container.appendChild(div)
+    list = products.filter(p => featuredNames.includes(p.name))
+  } else if(limit){
+    list = products.slice(0, limit)
+  }
 
-})
-
+  list.forEach(p => {
+    container.appendChild(createProductCard(p))
+  })
 }
 
 function filterProducts(category){
+  let container = document.getElementById("shop-products")
+  if(!container) return
 
-let container=document.getElementById("shop-products")
-container.innerHTML=""
+  container.innerHTML = ""
 
-let filtered=products
+  let filtered = products
+  if(category !== "all"){
+    filtered = products.filter(p => p.category === category)
+  }
 
-if(category!="all"){
-filtered=products.filter(p=>p.category===category)
-}
-
-filtered.forEach(p=>{
-
-let div=document.createElement("div")
-div.className="product"
-
-div.innerHTML=`
-<img src="${p.image}">
-<h3>${p.name}</h3>
-<p class="price">R${p.price}</p>
-<button onclick="addToCart('${p.name}',${p.price},'${p.image}')">Add to Cart</button>
-`
-
-container.appendChild(div)
-
-})
-
+  filtered.forEach(p => {
+    container.appendChild(createProductCard(p))
+  })
 }
 
 function searchProducts(){
+  let inputEl = document.getElementById("searchInput")
+  let container = document.getElementById("shop-products")
 
-let input=document.getElementById("searchInput").value.toLowerCase()
+  if(!inputEl || !container) return
 
-let container=document.getElementById("shop-products")
-container.innerHTML=""
+  let input = inputEl.value.toLowerCase()
+  container.innerHTML = ""
 
-let filtered=products.filter(p=>p.name.toLowerCase().includes(input))
+  let filtered = products.filter(p => p.name.toLowerCase().includes(input))
 
-filtered.forEach(p=>{
-
-let div=document.createElement("div")
-div.className="product"
-
-div.innerHTML=`
-<img src="${p.image}">
-<h3>${p.name}</h3>
-<p class="price">R${p.price}</p>
-<button onclick="addToCart('${p.name}',${p.price},'${p.image}')">Add to Cart</button>
-`
-
-container.appendChild(div)
-
-})
-
+  filtered.forEach(p => {
+    container.appendChild(createProductCard(p))
+  })
 }
 
-window.addEventListener("load",function(){
-
-updateCart()
-renderProducts("home-products",3)
-renderProducts("shop-products")
-
+window.addEventListener("load", function(){
+  updateCart()
+  renderProducts("home-products")
+  renderProducts("shop-products")
 })
