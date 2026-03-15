@@ -278,6 +278,22 @@ body{
   cursor:pointer;
   font-weight:600;
 }
+.cart {
+  position: fixed;
+  top: 0;
+  right: -350px; /* hidden */
+  width: 350px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.cart.active {
+  right: 0; /* slides in */
+}
 
 .shop-controls{
   display:flex;
