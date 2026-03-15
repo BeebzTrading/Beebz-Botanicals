@@ -139,3 +139,4 @@ function renderFiltered(list){
 // RUN ON PAGE LOAD
 renderProducts("home-products")
 renderProducts("shop-products")
+renderCart()
