@@ -177,21 +177,21 @@ category:"bundle"
   {
 name:"Ceramic Soap Dish",
 price:139,
-image:"./images/christmas-bundle-cat.png",
+image:"./images/ceramic-soap-dish.png",
 category:"bath"
 },
 
   {
 name:"Waterfall Soap Dish - Self-Draining",
 price:149,
-image:"./images/christmas-bundle-cat.png",
+image:"./images/waterfall-soap-dish.png",
 category:"bath"
 },
 
   {
 name:"Soap Saver Pouch",
 price:129,
-image:"./images/christmas-bundle-cat.png",
+image:"./images/homemade-soap-bag.png",
 category:"bath"
 },
 
