@@ -41,6 +41,9 @@ function updateCart(){
       <img src="${item.image}" alt="${item.name}">
       <div class="cart-item-details">
         <h3>${item.name}</h3>
+        <p style="font-size:14px;opacity:0.7;">
+  ${p.description ? p.description.substring(0, 60) + "..." : ""}
+</p>
         <p class="price">R${item.price}</p>
         <div class="cart-qty">Qty: ${item.qty}</div>
         <button class="remove-btn" onclick="removeItem(${i})">Remove</button>
