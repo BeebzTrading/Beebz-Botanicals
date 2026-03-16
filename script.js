@@ -23,9 +23,16 @@ function renderCart(){
       <div class="cart-item-details">
         <h3>${item.name}</h3>
         <p>R${item.price}</p>
-        <div class="cart-qty">Qty: ${item.qty}</div>
+
+        <div class="cart-controls">
+          <button onclick="decreaseQty(${index})">−</button>
+          <span>${item.qty}</span>
+          <button onclick="increaseQty(${index})">+</button>
+        </div>
+
         <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
       </div>
+
       <strong>R${item.price * item.qty}</strong>
     `
 
@@ -34,6 +41,23 @@ function renderCart(){
   })
 
   cartTotal.innerText = "Total: R" + total
+}
+
+function increaseQty(index){
+  cart[index].qty++
+  saveCart()
+  renderCart()
+}
+
+function decreaseQty(index){
+  if(cart[index].qty > 1){
+    cart[index].qty--
+  } else {
+    cart.splice(index, 1)
+  }
+
+  saveCart()
+  renderCart()
 }
 
 function removeFromCart(index){
