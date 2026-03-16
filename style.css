@@ -760,3 +760,34 @@ body{
   flex-wrap: wrap;
   margin-top: 24px;
 }
+
+/* ===== BEST SELLERS FIX ===== */
+
+/* Ensure proper grid layout */
+.section:nth-of-type(3) .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Fix each card */
+.section:nth-of-type(3) .product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Fix image sizing (THIS is the key fix) */
+.section:nth-of-type(3) .product-card img {
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Prevent overflow issues */
+.section:nth-of-type(3) .product-card * {
+  max-width: 100%;
+}
