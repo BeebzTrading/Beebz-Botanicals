@@ -40,18 +40,11 @@ body{
 /* ===== HERO ===== */
 
 .hero{
-  min-height: 75vh;
   background: url('./images/main-background-final.jpg') no-repeat center;
-  background-size: contain; /* 🔥 THIS IS THE FIX */
-  background-color: #2f4f46; /* fills empty space cleanly */
-
+  background-size: cover;
+  padding: 120px 20px; /* simple vertical spacing */
+  text-align: center;
   color: white;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:60px 20px 80px;
 }
 
 .hero-content{
