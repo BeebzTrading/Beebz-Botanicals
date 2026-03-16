@@ -49,6 +49,10 @@ const container = document.getElementById("product-page")
 
 if(product){
 
+  const related = products
+    .filter(p => p.category === product.category && p.name !== product.name)
+    .slice(0,3)
+
   container.innerHTML = `
     <div style="max-width:1000px;margin:auto">
 
@@ -96,6 +100,33 @@ if(product){
 
       </div>
 
+    </div>
+
+    <!-- RELATED PRODUCTS -->
+    <div style="max-width:1000px;margin:60px auto">
+      <h2 style="text-align:center;margin-bottom:30px">You May Also Like</h2>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+
+        ${related.map(p => `
+          <div style="text-align:center;background:white;padding:15px;border-radius:12px">
+            
+            <a href="./product.html?id=${encodeURIComponent(p.name)}">
+              <img src="${p.image}" style="width:100%;border-radius:8px">
+              <h3 style="margin:10px 0">${p.name}</h3>
+            </a>
+
+            <p>R${p.price}</p>
+
+            <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')"
+              style="margin-top:10px;padding:10px 16px;background:#2f4f46;color:white;border:none;border-radius:30px">
+              Add to Cart
+            </button>
+
+          </div>
+        `).join("")}
+
+      </div>
     </div>
   `
 } else {
