@@ -94,6 +94,18 @@ body{
   gap: 20px;
 }
 
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .product{
   background:white;
   padding:20px;
