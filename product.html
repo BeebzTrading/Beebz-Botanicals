@@ -55,50 +55,40 @@ if(product){
     .slice(0,3)
 
   container.innerHTML = `
-    <div style="max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
-<div style="margin-bottom:15px;font-size:14px;">
-  <div style="max-width:1000px;margin:auto">
 
-  <!-- BACK BUTTON -->
-  <a href="./shop.html" style="display:inline-block;margin-bottom:20px;color:#2f4f46;text-decoration:none;font-weight:500;">
-    ← Back to Shop
-  </a>
+    <div style="max-width:1000px;margin:auto">
 
-  <!-- PRODUCT GRID -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
+      <!-- BACK BUTTON -->
+      <a href="./shop.html" style="display:inline-block;margin-bottom:20px;color:#2f4f46;text-decoration:none;font-weight:500;">
+        ← Back to Shop
+      </a>
 
-    <div>
-      <img src="${product.image}" style="width:100%;border-radius:12px">
-    </div>
+      <!-- PRODUCT GRID -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
 
-    <div style="text-align:left">
-      <!-- product info -->
-    </div>
+        <div>
+          <img src="${product.image}" style="width:100%;border-radius:12px">
+        </div>
 
-  </div>
+        <div style="text-align:left">
+          <h1>${product.name}</h1>
+          <p class="price" style="font-size:22px">R${product.price}</p>
 
-</div>
-      <div>
-        <img src="${product.image}" style="width:100%;border-radius:12px">
-      </div>
+          <p style="margin:20px 0">
+            ${product.description}
+          </p>
 
-      <div style="text-align:left">
-        <h1>${product.name}</h1>
-        <p class="price" style="font-size:22px">R${product.price}</p>
+          <h3>Ingredients</h3>
+          <p style="font-size:14px;opacity:0.8;margin-bottom:20px">
+            ${product.ingredients || "No ingredients listed"}
+          </p>
 
-        <p style="margin:20px 0">
-          ${product.description}
-        </p>
+          <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
+            style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
+            Add to Cart
+          </button>
+        </div>
 
-        <h3>Ingredients</h3>
-        <p style="font-size:14px;opacity:0.8;margin-bottom:20px">
-          ${product.ingredients || "No ingredients listed"}
-        </p>
-
-        <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
-          style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
-          Add to Cart
-        </button>
       </div>
 
     </div>
