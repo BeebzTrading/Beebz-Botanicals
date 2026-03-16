@@ -80,38 +80,13 @@ if(product){
             ${product.description}
           </p>
 
-          <h3>Ingredients</h3>
-          <p style="font-size:14px;opacity:0.8;margin-bottom:20px">
-            ${product.ingredients || "No ingredients listed"}
-          </p>
+        <h3>Ingredients</h3>
+<p style="font-size:14px;opacity:0.8;margin-bottom:20px">
+  ${product.ingredients || "No ingredients listed"}
+</p>
 
-          <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
-            style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
-            Add to Cart
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- RELATED PRODUCTS -->
-    <div style="max-width:1000px;margin:60px auto">
-      <h2 style="text-align:center;margin-bottom:30px">You May Also Like</h2>
-
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-
-        ${related.map(p => `
-          <div style="text-align:center;background:white;padding:15px;border-radius:12px">
-            
-            <a href="./product.html?id=${encodeURIComponent(p.name)}">
-              <img src="${p.image}" style="width:100%;border-radius:8px">
-              <h3 style="margin:10px 0">${p.name}</h3>
-            </a>
-
-            <p>R${p.price}</p>
-
-            <div style="margin:20px 0;display:flex;align-items:center;gap:10px">
+<!-- ✅ ADD THIS HERE -->
+<div style="margin:20px 0;display:flex;align-items:center;gap:10px">
 
   <button onclick="changeQty(-1)" style="padding:6px 12px">−</button>
 
@@ -121,7 +96,8 @@ if(product){
 
 </div>
 
-            <button onclick="addMultipleToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
+<!-- ✅ UPDATE BUTTON -->
+<button onclick="addMultipleToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
   style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
   Add to Cart
 </button>
