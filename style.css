@@ -1001,3 +1001,8 @@ footer.footer {
 .main-content {
   flex: 1;
 }
+
+/* REDUCE SPACE ABOVE BEST SELLERS */
+.section + .section h2 {
+  margin-top: -30px;
+}
