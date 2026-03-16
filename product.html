@@ -23,10 +23,8 @@ if(product){
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
 
-        <!-- ✅ FIXED GALLERY -->
         <div>
           <img id="main-product-image" src="${product.image}" style="width:100%;border-radius:12px">
-
           <div id="thumbnail-container" style="display:flex;gap:10px;margin-top:15px;flex-wrap:wrap"></div>
         </div>
 
@@ -34,9 +32,7 @@ if(product){
           <h1>${product.name}</h1>
           <p class="price" style="font-size:22px">R${product.price}</p>
 
-          <p style="margin:20px 0">
-            ${product.description}
-          </p>
+          <p style="margin:20px 0">${product.description}</p>
 
           <h3>Ingredients</h3>
           <p style="font-size:14px;opacity:0.8;margin-bottom:20px">
@@ -44,16 +40,15 @@ if(product){
           </p>
 
           <div style="margin:20px 0;display:flex;align-items:center;gap:10px">
-            <button onclick="changeQty(-1)" style="padding:6px 12px">−</button>
+            <button onclick="changeQty(-1)">−</button>
             <span id="qty">1</span>
-            <button onclick="changeQty(1)" style="padding:6px 12px">+</button>
+            <button onclick="changeQty(1)">+</button>
           </div>
 
           <button onclick="addMultipleToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
             style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
             Add to Cart
           </button>
-
         </div>
 
       </div>
@@ -67,19 +62,14 @@ if(product){
 
         ${related.map(p => `
           <div style="text-align:center;background:white;padding:15px;border-radius:12px">
-            
             <a href="./product.html?id=${encodeURIComponent(p.name)}">
               <img src="${p.image}" style="width:100%;border-radius:8px">
-              <h3 style="margin:10px 0">${p.name}</h3>
+              <h3>${p.name}</h3>
             </a>
-
             <p>R${p.price}</p>
-
-            <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')"
-              style="margin-top:10px;padding:10px 16px;background:#2f4f46;color:white;border:none;border-radius:30px">
+            <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')">
               Add to Cart
             </button>
-
           </div>
         `).join("")}
 
@@ -87,12 +77,19 @@ if(product){
     </div>
   `
 
-  // ✅ FIXED GALLERY LOGIC
+  // ✅ SAFE GALLERY (NO CRASH)
   const mainImage = document.getElementById("main-product-image")
   const thumbnailContainer = document.getElementById("thumbnail-container")
 
-  // ADD MAIN IMAGE AS FIRST THUMBNAIL
-  const allImages = [product.image, ...(product.images || [])]
+  let allImages = []
+
+  if(product.image){
+    allImages.push(product.image)
+  }
+
+  if(product.images && Array.isArray(product.images)){
+    product.images.forEach(img => allImages.push(img))
+  }
 
   allImages.forEach(img => {
     const thumb = document.createElement("img")
