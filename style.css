@@ -138,6 +138,10 @@ body{
   gap:2px;   /* 🔥 super tight */
 }
 
+.hero-description{
+  margin:5px 0 10px !important; /* 🔥 tighter */
+}
+
 .btn{
   margin-top:20px;
   background:white;
