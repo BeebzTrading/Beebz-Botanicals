@@ -133,6 +133,8 @@ function placeOrder(){
 }
 
 <script>
+document.addEventListener("DOMContentLoaded", function(){
+
 let cart = JSON.parse(localStorage.getItem("cartData")) || []
 
 let container = document.getElementById("checkout-items")
@@ -166,13 +168,9 @@ function renderCheckout(){
           <p style="margin:5px 0">R${item.price} x ${item.qty}</p>
 
           <div style="display:flex;align-items:center;gap:8px;margin-top:5px;">
-            <button onclick="changeQty(${index}, -1)" 
-              style="width:25px;height:25px;border:none;background:#eee;cursor:pointer;">−</button>
-            
+            <button onclick="changeQty(${index}, -1)">−</button>
             <span>${item.qty}</span>
-            
-            <button onclick="changeQty(${index}, 1)" 
-              style="width:25px;height:25px;border:none;background:#eee;cursor:pointer;">+</button>
+            <button onclick="changeQty(${index}, 1)">+</button>
           </div>
           
           <button onclick="removeFromCheckout(${index})"
@@ -220,11 +218,12 @@ function placeOrder(){
   alert("Thank you for your order! 🌿")
 
   localStorage.removeItem("cartData")
-
   window.location.href = "./index.html"
 }
 
 renderCheckout()
+
+})
 </script>
 
 <footer class="footer">
