@@ -131,6 +131,13 @@ body{
   margin-bottom:0px !important;
 }
 
+.hero-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;   /* THIS controls spacing */
+}
+
 .btn{
   margin-top:20px;
   background:white;
