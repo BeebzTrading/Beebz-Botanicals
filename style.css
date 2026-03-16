@@ -860,3 +860,25 @@ body{
 .product-card p {
   margin-bottom: 10px;
 }
+/* ===== BEST SELLERS TILE HEIGHT + SPACING FIX ===== */
+
+/* Make cards taller */
+.section:nth-of-type(3) .product-card {
+  min-height: 420px; /* increase height */
+  padding: 20px;     /* adds space inside the tile */
+  box-sizing: border-box;
+}
+
+/* Add breathing room between elements */
+.section:nth-of-type(3) .product-card h3 {
+  margin-top: 12px;
+}
+
+.section:nth-of-type(3) .product-card p {
+  margin: 10px 0 15px;
+}
+
+/* Keep buttons slightly higher and consistent */
+.section:nth-of-type(3) .product-card .btn {
+  margin-top: auto;
+}
