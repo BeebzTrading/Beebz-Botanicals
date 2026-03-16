@@ -132,38 +132,96 @@ function placeOrder(){
   window.location.href = "./index.html"
 }
 
- <script>
-const cart = JSON.parse(localStorage.getItem("cartData")) || []
+<script>
+let cart = JSON.parse(localStorage.getItem("cartData")) || []
 
-const container = document.getElementById("checkout-items")
-const totalEl = document.getElementById("checkout-total")
-
+let container = document.getElementById("checkout-items")
 let total = 0
 
-cart.forEach((item, index) => {
-  const div = document.createElement("div")
-  div.classList.add("cart-item")
+function renderCheckout(){
 
-  div.innerHTML = `
-    <img src="${item.image}">
-    <div>
-      <h3>${item.name}</h3>
-      <p>Qty: ${item.qty}</p>
-      <p>R${item.price * item.qty}</p>
-      <button onclick="removeItem(${index})">Remove</button>
-    </div>
-  `
+  container.innerHTML = ""
+  total = 0
 
-  container.appendChild(div)
-  total += item.price * item.qty
-})
+  if(cart.length === 0){
+    container.innerHTML = "<p>Your cart is empty.</p>"
+  } else {
 
-totalEl.innerText = "Total: R" + total
+    cart.forEach((item, index) => {
 
-function removeItem(index){
+      let div = document.createElement("div")
+
+      div.style.display = "flex"
+      div.style.alignItems = "center"
+      div.style.gap = "15px"
+      div.style.marginBottom = "20px"
+      div.style.paddingBottom = "10px"
+      div.style.borderBottom = "1px solid #eee"
+
+      div.innerHTML = `
+        <img src="${item.image}" style="width:70px;height:70px;object-fit:cover;border-radius:8px">
+        
+        <div style="flex:1;text-align:left">
+          <h3 style="margin:0">${item.name}</h3>
+          <p style="margin:5px 0">R${item.price} x ${item.qty}</p>
+
+          <div style="display:flex;align-items:center;gap:8px;margin-top:5px;">
+            <button onclick="changeQty(${index}, -1)" 
+              style="width:25px;height:25px;border:none;background:#eee;cursor:pointer;">−</button>
+            
+            <span>${item.qty}</span>
+            
+            <button onclick="changeQty(${index}, 1)" 
+              style="width:25px;height:25px;border:none;background:#eee;cursor:pointer;">+</button>
+          </div>
+          
+          <button onclick="removeFromCheckout(${index})"
+            style="background:none;border:none;color:#9b4d4d;cursor:pointer;font-size:13px;margin-top:6px;">
+            Remove
+          </button>
+        </div>
+
+        <strong>R${item.price * item.qty}</strong>
+      `
+
+      container.appendChild(div)
+
+      total += item.price * item.qty
+    })
+  }
+
+  document.getElementById("checkout-total").innerText = "Total: R" + total
+}
+
+function changeQty(index, amount){
+  cart[index].qty += amount
+
+  if(cart[index].qty <= 0){
+    cart.splice(index, 1)
+  }
+
+  localStorage.setItem("cartData", JSON.stringify(cart))
+  renderCheckout()
+}
+
+function removeFromCheckout(index){
   cart.splice(index, 1)
   localStorage.setItem("cartData", JSON.stringify(cart))
-  location.reload()
+  renderCheckout()
+}
+
+function placeOrder(){
+
+  if(cart.length === 0){
+    alert("Your cart is empty.")
+    return
+  }
+
+  alert("Thank you for your order! 🌿")
+
+  localStorage.removeItem("cartData")
+
+  window.location.href = "./index.html"
 }
 
 renderCheckout()
