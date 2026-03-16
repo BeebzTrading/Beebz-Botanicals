@@ -970,3 +970,18 @@ body{
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== FIX FOOTER FULL WIDTH ===== */
+
+.footer {
+  width: 100%;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove any container restriction */
+footer.footer {
+  padding: 30px 20px;
+}
