@@ -46,7 +46,7 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:80px 20px 100px; /* added top + bottom space */
+  padding:60px 20px 80px; /* added top + bottom space */
 }
 
 .hero h1{
