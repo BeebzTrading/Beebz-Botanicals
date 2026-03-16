@@ -38,7 +38,7 @@ body{
 }
 
 .hero{
-  min-height: 85vh; /* changed from fixed height */
+  min-height: 75vh; /* changed from fixed height */
   background:#2f4f46;
   color:white;
   display:flex;
