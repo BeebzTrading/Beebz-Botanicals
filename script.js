@@ -241,3 +241,17 @@ const observer = new IntersectionObserver(entries => {
 });
 
 faders.forEach(el => observer.observe(el));
+
+let currentQty = 1;
+
+function changeQty(amount){
+  currentQty += amount;
+  if(currentQty < 1) currentQty = 1;
+  document.getElementById("qty").innerText = currentQty;
+}
+
+function addMultipleToCart(name, price, image){
+  for(let i = 0; i < currentQty; i++){
+    addToCart(name, price, image);
+  }
+}
