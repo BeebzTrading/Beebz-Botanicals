@@ -1077,3 +1077,12 @@ footer.footer {
 .product-card .btn + .btn {
   margin-top: 16px;
 }
+
+/* FORCE HERO TEXT TO WHITE */
+.hero,
+.hero h1,
+.hero p,
+.hero-subtitle,
+.hero-description {
+  color: #ffffff !important;
+}
