@@ -1290,4 +1290,13 @@ html {
   color:inherit;
 }
 
+.back-link{
+  display:block;
+  margin-bottom:20px;
+  text-align:left;
+  color:#2f4f46;
+  font-weight:500;
+  text-decoration:none;
+}
+
 
