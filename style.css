@@ -980,7 +980,20 @@ body{
   border-radius: 0 !important;
   box-shadow: none !important;
 }
+/* ===== STICK FOOTER TO BOTTOM ===== */
 
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main, .section {
+  flex: 1;
+}
 /* Remove any container restriction */
 footer.footer {
   padding: 30px 20px;
