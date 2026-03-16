@@ -633,11 +633,6 @@ body{
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.product:hover,
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
-}
 
 /* BADGES */
 .badge {
@@ -802,4 +797,30 @@ body{
   .section:nth-of-type(3) .product-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* FIX IMAGE ZOOM ISSUE (BEST SELLERS) */
+
+/* Prevent image from scaling weirdly */
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Ensure card contains everything */
+.product-card {
+  overflow: hidden;
+}
+
+/* KEEP hover effect ONLY on card, not image */
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Prevent any inherited image scaling */
+.product-card img:hover {
+  transform: none !important;
 }
