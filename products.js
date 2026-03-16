@@ -4,90 +4,137 @@ const products = [
 name:"Highveld Rose Soap",
 price:59,
 image:"./images/highveld-rose-box-cat.png",
+images: [
+"./images/highveld-rose-1.jpg",
+"./images/highveld-rose-2.jpg",
+"./images/highveld-rose-3.jpg"
+],
 category:"soap",
 description:"A romantic floral soap scented with rose, geranium and palmarosa. Made with olive oil, coconut oil and shea butter, it produces a creamy lather that gently cleanses while leaving skin soft and nourished.",
- ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g."
+ingredients:"Ingredients: Olea Europaea (Olive) Oil..."
 },
 
 {
 name:"Jacaranda Bloom Soap",
 price:59,
 image:"./images/jacaranda-bloom-box-cat.png",
+images: [
+"./images/jacaranda-bloom-1.jpg",
+"./images/jacaranda-bloom-2.jpg",
+"./images/jacaranda-bloom-3.jpg"
+],
 category:"soap",
- description:"A soothing blend of lavender and mandarin blossom creates a soft floral-citrus fragrance. Made with olive oil, coconut oil and shea butter, this botanical soap produces a gentle, creamy lather that cleanses and leaves skin feeling soft and refreshed.",
- ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g."
+description:"A soothing blend of lavender...",
+ingredients:"Ingredients: Olea Europaea (Olive) Oil..."
 },
 
 {
 name:"Lily of the Vale Soap",
 price:59,
 image:"./images/lily-of-the-vale-box-cat.png",
+images: [
+"./images/lily-of-the-vale-1.jpg",
+"./images/lily-of-the-vale-2.jpg",
+"./images/lily-of-the-vale-3.jpg"
+],
 category:"soap",
- description:"An elegant floral blend of white blossoms and powdery petals, softened with vetiver and warm musk for a sophisticated, lingering scent. Made with olive oil, coconut oil, shea butter, jojoba oil and sunflower oil.",
- ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g."
+description:"An elegant floral blend...",
+ingredients:"Ingredients: Olea Europaea (Olive) Oil..."
 },
 
 {
 name:"Port Lizzie Soap",
 price:59,
 image:"./images/port-lizzie-box-cat.png",
+images: [
+"./images/port-lizzie-1.jpg",
+"./images/port-lizzie-2.jpg"
+],
 category:"soap",
- description:"A fresh coastal blend of lemongrass and lime, layered with cedarwood, wood sage and sea salt for a bright ocean-inspired fragrance. Made with olive oil, coconut oil and shea butter.",
- ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g."
+description:"A fresh coastal blend...",
+ingredients:"Ingredients: Olea Europaea (Olive) Oil..."
 },
 
 {
 name:"Pacific Waters Soap",
 price:59,
 image:"./images/pacific-waters-box-cat.png",
+images: [
+"./images/pacific-waters-1.jpg",
+"./images/pacific-waters-2.jpg",
+"./images/pacific-waters-3.jpg"
+],
 category:"soap",
- description:"A fresh, refined blend of rosemary, watermint and lavender, with warm notes of sandalwood, tobacco and amber. Made with olive oil, coconut oil and shea butter, and enriched with activated charcoal and seaweed powder to gently cleanse and refresh the skin.",
- ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g."
+description:"A fresh, refined blend...",
+ingredients:"Ingredients: Olea Europaea (Olive) Oil..."
 },
 
 {
 name:"Seashells on the Seaboard Soap",
 price:59,
 image:"./images/seashells-on-the-seaboard-box-cat.png",
+images: [
+"./images/seashells-seaboard-1.jpg",
+"./images/seashells-seaboard-2.jpg"
+],
 category:"soap",
- description:"A bright, coastal-inspired blend of lemongrass and sweet orange, grounded with cedarwood and patchouli for a fresh citrus scent with warm earthy notes. Inspired by Table Mountain and SA’s sparkling shoreline",
-ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g." 
+description:"A bright coastal blend...",
+ingredients:"Ingredients: Olea Europaea (Olive) Oil..."
 },
 
 {
 name:"Just Beachy Soap",
 price:59,
 image:"./images/just-beachy-box-cat.png",
+images: [
+"./images/just-beachy-1.jpg",
+"./images/just-beachy-2.jpg"
+],
 category:"soap",
- description:"A fresh seaside blend of neroli, lemon and eucalyptus, balanced with patchouli for a bright, uplifting ocean-inspired scent. Made with a nourishing blend of extra virgin olive oil, coconut oil, shea butter, castor oil, and responsibly sourced palm oil.",
- ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g."
+description:"A fresh seaside blend...",
+ingredients:"Ingredients: Olea Europaea (Olive) Oil..."
 },
 
 {
 name:"La Vie in Rose Soap",
 price:59,
 image:"./images/la-vie-in-rose-box-cat.png",
+images: [
+"./images/la-vie-in-rose-1.jpg",
+"./images/la-vie-in-rose-2.jpg",
+"./images/la-vie-in-rose-3.jpg"
+],
 category:"soap",
- description:"A soft floral blend of rose, geranium and palmarosa creates a classic, elegant fragrance. Made with olive oil, coconut oil and shea butter. Fully encompassing the timeless scent of the Rose.",
- ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g."
+description:"A soft floral blend...",
+ingredients:"Ingredients: Olea Europaea (Olive) Oil..."
 },
 
 {
 name:"Protea Party Soap",
 price:59,
 image:"./images/protea-party-box-cat.png",
+images: [
+"./images/protea-party-1.jpg",
+"./images/protea-party-2.jpg",
+"./images/protea-party-3.jpg"
+],
 category:"soap",
- description:"An uplifting blend of geranium, lemon and cedarwood creates a fresh, invigorating fragrance. Made with olive oil, coconut oil and shea butter, and enriched with poppy seeds for gentle exfoliation. Inspired by the delicate fragrance of the Protea.",
- ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g."
+description:"An uplifting blend...",
+ingredients:"Ingredients: Olea Europaea (Olive) Oil..."
 },
 
 {
 name:"Boulders Cove Soap",
 price:59,
 image:"./images/boulders-cove-box-cat.png",
+images: [
+"./images/boulders-cove-1.jpg",
+"./images/boulders-cove-2.jpg",
+"./images/boulders-cove-3.jpg"
+],
 category:"soap",
- ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g.",
- description:"A fresh coastal blend of grapefruit and litsea cubeba, balanced with lavender, cedarwood, geranium and patchouli for a bright citrus scent with earthy undertones. Made with olive oil, coconut oil and shea butter."
+description:"A fresh coastal blend...",
+ingredients:"Ingredients: Olea Europaea (Olive) Oil..."
 },
 
 {
