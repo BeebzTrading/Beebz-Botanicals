@@ -43,21 +43,12 @@ function removeFromCart(index){
 }
 
 function addToCart(name, price, image){
-  const existing = cart.find(item => item.name === name)
+  cartPanel.classList.add("open")
 
-  if(existing){
-    existing.qty++
-  } else {
-    cart.push({ name, price, image, qty: 1 })
-  }
-
-  saveCart()
-  renderCart()
-
-  const cartPanel = document.getElementById("cart")
-  if(cartPanel){
-    cartPanel.classList.add("open")
-  }
+const overlay = document.getElementById("cart-overlay")
+if(overlay){
+  overlay.classList.add("active")
+}
 }
 
 function renderProducts(containerId){
