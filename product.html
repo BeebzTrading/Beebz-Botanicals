@@ -39,8 +39,8 @@
 <script src="./products.js"></script>
 <script src="./script.js"></script>
 
-<script>
 
+<script>
 const params = new URLSearchParams(window.location.search)
 const productName = params.get("id")
 
@@ -50,35 +50,56 @@ const container = document.getElementById("product-page")
 
 if(product){
   container.innerHTML = `
-    <div style="max-width:900px;margin:auto;text-align:center">
+    <div style="max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
 
-      <img src="${product.image}" style="width:100%;max-width:400px;border-radius:12px">
+      <!-- IMAGE -->
+      <div>
+        <img src="${product.image}" style="width:100%;border-radius:12px">
+      </div>
 
-      <h1 style="margin-top:20px">${product.name}</h1>
+      <!-- INFO -->
+      <div style="text-align:left">
 
-      <p class="price" style="font-size:20px">R${product.price}</p>
+        <h1>${product.name}</h1>
 
-      <p style="max-width:600px;margin:20px auto">
-        ${product.description}
-      </p>
+        <p class="price" style="font-size:22px">R${product.price}</p>
 
-      <h3 style="margin-top:20px">Ingredients</h3>
-      <p style="max-width:600px;margin:10px auto;font-size:14px;opacity:0.8">
-        ${product.ingredients || "No ingredients listed"}
-      </p>
+        <p style="margin:20px 0">
+          ${product.description}
+        </p>
 
-      <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
-        style="margin-top:20px;padding:12px 24px;background:#2f4f46;color:white;border:none;border-radius:30px">
-        Add to Cart
-      </button>
+        <h3>Ingredients</h3>
+        <p style="font-size:14px;opacity:0.8;margin-bottom:20px">
+          ${product.ingredients || "No ingredients listed"}
+        </p>
+
+        <!-- QUANTITY -->
+        <div style="margin-bottom:20px">
+          <button onclick="changeQty(-1)">−</button>
+          <span id="qty">1</span>
+          <button onclick="changeQty(1)">+</button>
+        </div>
+
+        <!-- ADD TO CART -->
+        <button onclick="addMultipleToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
+          style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
+          Add to Cart
+        </button>
+
+      </div>
 
     </div>
+
+    <!-- BENEFITS SECTION -->
+    <div style="max-width:800px;margin:50px auto;text-align:center">
+      <h2>Why You'll Love It</h2>
+      <p style="opacity:0.8">
+        Crafted with botanical ingredients, this product is designed to gently nourish your skin while creating a calming, luxurious self-care experience. Perfect for daily use or indulgent rituals.
+      </p>
+    </div>
   `
-} else {
-  container.innerHTML = "<p>Product not found</p>"
 }
 </script>
-
 <footer class="footer">
 
  <div class="footer-links">
