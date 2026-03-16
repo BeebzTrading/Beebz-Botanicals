@@ -64,17 +64,13 @@ function renderProducts(containerId){
   const container = document.getElementById(containerId)
   if(!container || typeof products === "undefined") return
 
-  // ✅ FIX: prevent duplicate rendering
-  if (container.dataset.loaded === "true") return
-  container.dataset.loaded = "true"
+  container.innerHTML = ""
 
   let list = products
 
   if(containerId === "home-products"){
     list = products.slice(0, 3)
   }
-
-  container.innerHTML = ""
 
   list.forEach(p => {
     const div = document.createElement("div")
@@ -160,8 +156,12 @@ function goCheckout(){
 }
 
 document.addEventListener("DOMContentLoaded", function(){
-  renderProducts("home-products")
-  renderProducts("shop-products")
+
+
+  if(document.getElementById("shop-products")){
+    renderProducts("shop-products")
+  }
+
   renderCart()
 })
 
