@@ -1285,5 +1285,9 @@ html {
   line-height:1.6;
 }
 
+.product a{
+  text-decoration:none;
+  color:inherit;
+}
 
 
