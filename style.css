@@ -1236,37 +1236,42 @@ html {
 
 /* ===== FORCE HERO TO BE TIGHT (FINAL FIX) ===== */
 
+/* ===== FINAL HERO FIX (BALANCED TOP & BOTTOM) ===== */
+
 .hero{
-  min-height: auto !important;
-  padding: 0 !important;
+  min-height: 60vh !important;
+  padding: 40px 20px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
 }
 
 .hero-content{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0 !important;
+  gap: 6px !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
 .hero-logo{
-  height: 80px !important;
+  height: 120px !important;
   margin: 0 !important;
   display: block;
 }
 
 .hero h1{
   margin: 0 !important;
-  line-height: 1 !important;
+  line-height: 1.05 !important;
 }
 
 .hero-description{
-  margin: 5px 0 !important;
+  margin: 8px 0 12px !important;
 }
 
 .hero .btn{
-  margin-top: 8px !important;
+  margin-top: 12px !important;
 }
 
 
