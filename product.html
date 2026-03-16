@@ -111,10 +111,20 @@ if(product){
 
             <p>R${p.price}</p>
 
-            <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')"
-              style="margin-top:10px;padding:10px 16px;background:#2f4f46;color:white;border:none;border-radius:30px">
-              Add to Cart
-            </button>
+            <div style="margin:20px 0;display:flex;align-items:center;gap:10px">
+
+  <button onclick="changeQty(-1)" style="padding:6px 12px">−</button>
+
+  <span id="qty">1</span>
+
+  <button onclick="changeQty(1)" style="padding:6px 12px">+</button>
+
+</div>
+
+            <button onclick="addMultipleToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
+  style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
+  Add to Cart
+</button>
 
           </div>
         `).join("")}
