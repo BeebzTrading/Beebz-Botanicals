@@ -23,21 +23,17 @@
 <section class="section">
 <h2>Order Summary</h2>
 
-<div id="checkout-items" style="max-width:700px;margin:auto;"></div>
+<div id="checkout-items"></div>
 
-<h3 id="checkout-total" style="margin-top:30px;">Total: R0</h3>
+<h2 id="checkout-total">Total: R0</h2>
 
-<div style="margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+<button class="checkout-btn">Place Order</button>
 
- <a href="javascript:void(0)" onclick="placeOrder()" class="btn">
-  Place Order
-</a>
+<a href="./shop.html" class="return-btn">← Return to Shopping</a>
 
-  <a href="./shop.html" class="btn">
-    Continue Shopping
-  </a>
-
-</div>
+<p style="margin-top:10px;font-size:14px;opacity:0.7;">
+  Secure checkout • Handcrafted in South Africa • Premium quality guaranteed
+</p>
 
 </section>
 
@@ -134,6 +130,40 @@ function placeOrder(){
   localStorage.removeItem("cartTotal")
 
   window.location.href = "./index.html"
+}
+
+ <script>
+const cart = JSON.parse(localStorage.getItem("cartData")) || []
+
+const container = document.getElementById("checkout-items")
+const totalEl = document.getElementById("checkout-total")
+
+let total = 0
+
+cart.forEach((item, index) => {
+  const div = document.createElement("div")
+  div.classList.add("cart-item")
+
+  div.innerHTML = `
+    <img src="${item.image}">
+    <div>
+      <h3>${item.name}</h3>
+      <p>Qty: ${item.qty}</p>
+      <p>R${item.price * item.qty}</p>
+      <button onclick="removeItem(${index})">Remove</button>
+    </div>
+  `
+
+  container.appendChild(div)
+  total += item.price * item.qty
+})
+
+totalEl.innerText = "Total: R" + total
+
+function removeItem(index){
+  cart.splice(index, 1)
+  localStorage.setItem("cartData", JSON.stringify(cart))
+  location.reload()
 }
 
 renderCheckout()
