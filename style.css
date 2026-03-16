@@ -1019,3 +1019,6 @@ footer.footer {
 .product-card .btn + .btn {
   margin-top: 12px;
 }
+.product-card .btn + .btn {
+  margin-top: 16px;
+}
