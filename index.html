@@ -49,30 +49,39 @@
   <div class="product-grid">
 
     <div class="product-card">
-      <img src="./images/premium-collection-cat-1.jpg" alt="Soap Collection">
+      <img src="./premiun-collection-cat-1.png" alt="Soap Collection">
       <h3>Signature Botanical Soap Collection</h3>
       <p>Our most-loved handcrafted soaps, designed to cleanse gently while leaving skin soft and delicately scented.</p>
-      <button onclick="addToCart(0)" class="btn">Add to Cart</button>
-      <a href="./shop.html" class="btn">View Product</a>
+
+      <button onclick="addToCart('Signature Botanical Soap Collection', 79, './images/soap.jpg')" class="btn">
+        Add to Cart
+      </button>
+
+      <a href="./shop.html?product=0" class="btn">View Product</a>
+    </div>
+
+    <div class="product-card">
+      <img src="./images/rooibois-and-honey-salt-1.png" alt="Bath Salt">
+      <h3>Rooibos & Honey Bath Salt</h3>
+      <p>A soothing blend crafted to relax the body, ease tension, and elevate your bath into a calming ritual.</p>
+
+      <button onclick="addToCart('Rooibos & Honey Bath Salt', 89, './images/salt.jpg')" class="btn">
+        Add to Cart
+      </button>
+
       <a href="./shop.html?product=1" class="btn">View Product</a>
     </div>
 
     <div class="product-card">
-      <img src="./images/rooibos-and-honey-salt-1.png" alt="Bath Salt">
-      <h3>Rooibos & Honey Bath Salt</h3>
-      <p>A soothing blend crafted to relax the body, ease tension, and elevate your bath into a calming ritual.</p>
-      <button onclick="addToCart(1)" class="btn">Add to Cart</button>
-      <a href="./shop.html" class="btn">View Product</a>
-      <a href="./shop.html?product=0" class="btn">View Product</a>
-<a href="./shop.html?product=1" class="btn">View Product</a>
-    </div>
-
-    <div class="product-card">
-      <img src="./images/complete-botanical-self-care-ritual.jpg" alt="Bundle">
+      <img src="./images/complete-botanical-self-care-ritual-set.jpg" alt="Bundle">
       <h3>Botanical Ritual Set</h3>
       <p>Our signature self-care experience — a curated collection designed for full-body relaxation and indulgence.</p>
-      <button onclick="addToCart(4)" class="btn">Add to Cart</button>
-<a href="./shop.html?product=4" class="btn">View Product</a>
+
+      <button onclick="addToCart('Botanical Ritual Set', 199, './images/bundle.jpg')" class="btn">
+        Add to Cart
+      </button>
+
+      <a href="./shop.html?product=4" class="btn">View Product</a>
     </div>
 
   </div>
