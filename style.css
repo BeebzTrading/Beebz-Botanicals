@@ -882,3 +882,33 @@ body{
 .section:nth-of-type(3) .product-card .btn {
   margin-top: auto;
 }
+
+/* ===== FORCE BEST SELLERS TILE FIX ===== */
+
+/* Target ONLY best sellers (homepage) */
+.section .product-grid .product-card {
+  min-height: 480px !important;
+  padding: 25px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+}
+
+/* Add breathing room inside */
+.section .product-grid .product-card h3 {
+  margin-top: 15px !important;
+}
+
+.section .product-grid .product-card p {
+  margin: 12px 0 18px !important;
+}
+
+/* Push buttons to bottom cleanly */
+.section .product-grid .product-card .btn {
+  margin-top: auto !important;
+}
+
+.product-card {
+  border-radius: 16px;
+}
