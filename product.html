@@ -39,7 +39,6 @@
 <script src="./products.js"></script>
 <script src="./script.js"></script>
 
-
 <script>
 const params = new URLSearchParams(window.location.search)
 const productName = params.get("id")
@@ -50,20 +49,15 @@ const container = document.getElementById("product-page")
 
 if(product){
 
-  const related = products
-    .filter(p => p.category === product.category && p.name !== product.name)
-    .slice(0,3)
-
   container.innerHTML = `
-
     <div style="max-width:1000px;margin:auto">
 
       <!-- BACK BUTTON -->
-     <div style="width:100%;text-align:left;">
-  <a href="./shop.html" style="display:inline-block;margin-bottom:20px;color:#2f4f46;text-decoration:none;font-weight:500;">
-    ← Back to Shop
-  </a>
-</div>
+      <div style="width:100%;text-align:left;">
+        <a href="./shop.html" style="display:inline-block;margin-bottom:20px;color:#2f4f46;text-decoration:none;font-weight:500;">
+          ← Back to Shop
+        </a>
+      </div>
 
       <!-- PRODUCT GRID -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
@@ -80,29 +74,36 @@ if(product){
             ${product.description}
           </p>
 
-        <h3>Ingredients</h3>
-<p style="font-size:14px;opacity:0.8;margin-bottom:20px">
-  ${product.ingredients || "No ingredients listed"}
-</p>
+          <h3>Ingredients</h3>
+          <p style="font-size:14px;opacity:0.8;margin-bottom:20px">
+            ${product.ingredients || "No ingredients listed"}
+          </p>
 
-
-
-<!-- ✅ UPDATE BUTTON -->
-<button onclick="addMultipleToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
-  style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
-  Add to Cart
-</button>
-
+          <!-- QUANTITY -->
+          <div style="margin:20px 0;display:flex;align-items:center;gap:10px">
+            <button onclick="changeQty(-1)" style="padding:6px 12px">−</button>
+            <span id="qty">1</span>
+            <button onclick="changeQty(1)" style="padding:6px 12px">+</button>
           </div>
-        `).join("")}
+
+          <!-- ADD TO CART -->
+          <button onclick="addMultipleToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
+            style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
+            Add to Cart
+          </button>
+
+        </div>
 
       </div>
+
     </div>
   `
+} else {
+  container.innerHTML = "<p style='text-align:center'>Product not found</p>"
 }
 </script>
-<footer class="footer">
 
+<footer class="footer">
  <div class="footer-links">
   <a href="./privacy.html">Privacy Policy</a>
   <a href="./terms.html">Terms</a>
@@ -116,7 +117,6 @@ if(product){
   <p class="footer-copy">
     © 2026 Beebz Botanicals
   </p>
-
 </footer>
 
 </body>
