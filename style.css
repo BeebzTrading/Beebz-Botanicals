@@ -126,6 +126,12 @@ body{
   position: relative;
   z-index: 2;
 }
+
+.hero-logo{
+  height:150px;   /* increase this */
+  margin-bottom:20px;
+}
+
 .btn{
   margin-top:20px;
   background:white;
@@ -1217,6 +1223,7 @@ html {
 .btn:hover {
   transform: translateY(-2px);
 }
+
 
 
 
