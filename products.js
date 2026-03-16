@@ -101,7 +101,7 @@ name:"Coastal Citrus Bath Salt",
 price:129,
 image:"./images/coastal-citrus-salt-5.jpeg",
 category:"bath",
- description:"A refreshing coastal-inspired bath soak infused with bright citrus notes and mineral-rich salts. Designed to help relax the body while gently revitalising the skin, this uplifting blend brings the fresh energy of the South African coastline to your bath."
+ description:"An uplifting fusion of citrus botanicals and premium bath salts, crafted to energise the senses while soothing tired muscles. This refreshing blend transforms your bath into a revitalising escape."
 },
 
 {
@@ -109,7 +109,7 @@ name:"Rooibos & Honey Bath Salt",
 price:129,
 image:"./images/rooibos-and-honey-salt-1.png",
 category:"bath",
- description:"Inspired by South Africa’s famous rooibos plant, this warm botanical bath soak blends rooibos, honey notes and mineral salts for a comforting and nourishing soak."
+ description:"A soothing blend of mineral-rich salts infused with calming rooibos and naturally comforting honey notes. Designed to relax the body, ease tension, and leave your skin feeling soft and restored. Perfect for unwinding after a long day."
 },
 
 {
@@ -236,14 +236,14 @@ name:"Complete Botanical Self-Care Ritual Set",
 price:499,
 image:"./images/complete-botanical-self-care-ritual.jpg",
 category:"bundle",
-   description:"Each element in the collection has been thoughtfully selected to create a complete spa-like experience at home. From nourishing botanical soap and mineral-rich bath salts to calming botanical bath tea and aromatic shower steamers, every product works together to promote relaxation while leaving skin feeling soft, refreshed and rejuvenated."
+   description:"Our signature self-care experience. The Botanical Ritual Set combines our most loved products into one indulgent collection, designed to relax the body, nourish the skin, and elevate your entire bathing ritual. The perfect gift or personal treat."
 },
 
   {
-name:"Premium Signature Soap Collection",
+name:"Signature Botanical Soap Collection",
 price:249,
 image:"./images/premium-collection-cat-1.jpg",
 category:"bundle",
-   description:"Including our South African Botanical Scents such as Pacific Waters, Jacaranda Bloom, Highveld Rose, Protea Party and Just Beachy, South Africa’s finest botanicals, beautifully crafted."
+   description:"A luxurious collection of handcrafted soaps infused with botanical extracts and nourishing oils. Each bar is carefully formulated to cleanse gently while leaving your skin soft, hydrated, and delicately scented. Designed to turn your daily routine into a moment of indulgence."
 },
 ];
