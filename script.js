@@ -43,12 +43,26 @@ function removeFromCart(index){
 }
 
 function addToCart(name, price, image){
-  cartPanel.classList.add("open")
+  const existing = cart.find(item => item.name === name)
 
-const overlay = document.getElementById("cart-overlay")
-if(overlay){
-  overlay.classList.add("active")
-}
+  if(existing){
+    existing.qty++
+  } else {
+    cart.push({ name, price, image, qty: 1 })
+  }
+
+  saveCart()
+  renderCart()
+
+  const cartPanel = document.getElementById("cart")
+  if(cartPanel){
+    cartPanel.classList.add("open")
+  }
+
+  const overlay = document.getElementById("cart-overlay")
+  if(overlay){
+    overlay.classList.add("active")
+  }
 }
 
 function renderProducts(containerId){
