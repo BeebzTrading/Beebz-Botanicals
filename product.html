@@ -57,7 +57,26 @@ if(product){
   container.innerHTML = `
     <div style="max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
 <div style="margin-bottom:15px;font-size:14px;">
-  <a href="./shop.html">← Back to Shop</a>
+  <div style="max-width:1000px;margin:auto">
+
+  <!-- BACK BUTTON -->
+  <a href="./shop.html" style="display:inline-block;margin-bottom:20px;color:#2f4f46;text-decoration:none;font-weight:500;">
+    ← Back to Shop
+  </a>
+
+  <!-- PRODUCT GRID -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
+
+    <div>
+      <img src="${product.image}" style="width:100%;border-radius:12px">
+    </div>
+
+    <div style="text-align:left">
+      <!-- product info -->
+    </div>
+
+  </div>
+
 </div>
       <div>
         <img src="${product.image}" style="width:100%;border-radius:12px">
