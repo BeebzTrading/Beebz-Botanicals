@@ -1278,6 +1278,12 @@ html {
   margin-bottom: 10px !important;
 }
 
+.ingredients{
+  font-size:14px;
+  opacity:0.8;
+  margin-top:10px;
+  line-height:1.6;
+}
 
 
 
