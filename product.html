@@ -85,16 +85,7 @@ if(product){
   ${product.ingredients || "No ingredients listed"}
 </p>
 
-<!-- ✅ ADD THIS HERE -->
-<div style="margin:20px 0;display:flex;align-items:center;gap:10px">
 
-  <button onclick="changeQty(-1)" style="padding:6px 12px">−</button>
-
-  <span id="qty">1</span>
-
-  <button onclick="changeQty(1)" style="padding:6px 12px">+</button>
-
-</div>
 
 <!-- ✅ UPDATE BUTTON -->
 <button onclick="addMultipleToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
