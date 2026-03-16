@@ -39,23 +39,20 @@ body{
 
 /* ===== NEXT LEVEL HERO ===== */
 
+/* ===== FIXED HERO (RESTORED IMAGE) ===== */
+
 .hero{
   position: relative;
-  min-height: 78vh;
+  min-height: 75vh;
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
   padding:60px 20px;
 
-  background:
-    linear-gradient(rgba(47,79,70,0.65), rgba(47,79,70,0.75)),
-    url('./images/main-background-final.jpg');
-
+  background: url('./images/main-background-final.jpg');
   background-size: cover;
   background-position: center;
-
-  animation: heroMove 25s ease-in-out infinite alternate;
 }
 
 /* CONTENT WRAPPER */
@@ -96,10 +93,7 @@ body{
 }
 
 /* BACKGROUND MOVEMENT */
-@keyframes heroMove {
-  0% { background-position: center top; }
-  100% { background-position: center bottom; }
-}
+
 
 /* TEXT FADE-IN */
 @keyframes fadeUp {
@@ -112,13 +106,7 @@ body{
     transform: translateY(0);
   }
 }
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
-  pointer-events: none; 
-}
+
 
 .btn{
   margin-top:20px;
