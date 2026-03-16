@@ -147,7 +147,7 @@ category:"bundle",
  {
 name:"Floral Collection Bundle",
 price:159,
-image:"./images/floral-collection-cat.png",
+image:"./images/floral-collection-cat.jpg",
 category:"bundle",
  description:"Including Fragrant Scents such as Jacaranda Bloom, Highveld Rose and Lily of the Vale. For a blooming moment of self-care"
 },
