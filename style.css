@@ -38,17 +38,22 @@ body{
 }
 
 .hero{
-  min-height: 75vh; /* changed from fixed height */
-  background:#2f4f46;
+  min-height: 75vh;
   color:white;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:60px 20px 80px; /* added top + bottom space */
-}
+  padding:60px 20px 80px;
 
+  background:
+    linear-gradient(rgba(47,79,70,0.7), rgba(47,79,70,0.7)),
+    url('./images/main-background-final.jpg');
+
+  background-size: cover;
+  background-position: center;
+}
 .hero h1{
   font-family:'Playfair Display',serif;
   font-size:48px;
