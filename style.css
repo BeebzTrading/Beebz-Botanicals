@@ -122,8 +122,8 @@ body{
 }
 
 .hero-logo{
-  height:260px !important;
-  margin:0 !important;
+  height:180px !important;
+  max-width:90%;
 }
 
 .hero h1{
