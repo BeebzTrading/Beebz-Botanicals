@@ -37,76 +37,52 @@ body{
   color:#2f4f46;
 }
 
-/* ===== NEXT LEVEL HERO ===== */
-
-/* ===== FIXED HERO (RESTORED IMAGE) ===== */
+/* ===== HERO ===== */
 
 .hero{
-  position: relative;
   min-height: 75vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:60px 20px;
-
   background: url('./images/main-background-final.jpg');
   background-size: cover;
   background-position: center;
+  color: white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:60px 20px 80px;
 }
 
-/* CONTENT WRAPPER */
 .hero-content{
   max-width: 700px;
-  animation: fadeUp 1.2s ease forwards;
 }
 
-/* SUBTITLE */
 .hero-subtitle{
   font-size: 13px;
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 12px;
   opacity: 0.8;
+  color: #ffffff;
 }
 
-/* MAIN TITLE */
 .hero h1{
   font-family:'Playfair Display',serif;
   font-size:52px;
   line-height:1.2;
   margin-bottom:20px;
   font-weight:500;
+  color:#ffffff;
 }
 
-/* DESCRIPTION */
-.hero-description{
+.hero-description,
+.hero p{
   font-size:17px;
   line-height:1.7;
   opacity:0.9;
   margin-bottom:30px;
+  color:#ffffff;
 }
-
-/* BUTTON */
-.hero-btn{
-  margin-top:10px;
-}
-
-/* BACKGROUND MOVEMENT */
-
-
-/* TEXT FADE-IN */
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 
 .btn{
   margin-top:20px;
