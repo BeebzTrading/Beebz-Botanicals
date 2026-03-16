@@ -824,3 +824,39 @@ body{
 .product-card img:hover {
   transform: none !important;
 }
+
+/* CENTER BADGES UNDER IMAGE */
+.product-card .badge-row {
+  justify-content: center;
+  text-align: center;
+}
+
+.product-card .badge {
+  text-align: center;
+}
+
+/* FIX PRODUCT CARD LAYOUT */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* CONTENT AREA */
+.product-card p {
+  flex-grow: 1;
+}
+
+/* BUTTON SPACING */
+.product-card .btn {
+  margin-top: 10px;
+}
+
+.product-card h3 {
+  margin-top: 10px;
+}
+
+.product-card p {
+  margin-bottom: 10px;
+}
