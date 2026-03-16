@@ -38,7 +38,7 @@ body{
 }
 
 .hero{
-  height:70vh;
+  min-height: 85vh; /* changed from fixed height */
   background:#2f4f46;
   color:white;
   display:flex;
@@ -46,7 +46,7 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:0 20px;
+  padding:80px 20px 100px; /* added top + bottom space */
 }
 
 .hero h1{
@@ -59,6 +59,9 @@ body{
   font-size:18px;
   max-width:600px;
   line-height:1.6;
+}
+.hero .btn{
+  margin-top:30px;
 }
 
 .btn{
