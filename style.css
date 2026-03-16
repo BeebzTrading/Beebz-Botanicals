@@ -1009,3 +1009,13 @@ footer.footer {
 .section + .section h2 {
   margin-top: -30px;
 }
+
+/* SPACE BETWEEN BUTTONS IN PRODUCT CARDS */
+.product-card .btn {
+  margin-top: 10px;
+}
+
+/* extra spacing specifically between stacked buttons */
+.product-card .btn + .btn {
+  margin-top: 12px;
+}
