@@ -998,3 +998,6 @@ main, .section {
 footer.footer {
   padding: 30px 20px;
 }
+.main-content {
+  flex: 1;
+}
