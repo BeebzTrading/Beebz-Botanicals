@@ -41,9 +41,10 @@ body{
 
 .hero{
   min-height: 75vh;
-  background: url('./images/main-background-final.jpg');
-  background-size: cover;
-  background-position: center;
+  background: url('./images/main-background-final.jpg') no-repeat center;
+  background-size: contain; /* 🔥 THIS IS THE FIX */
+  background-color: #2f4f46; /* fills empty space cleanly */
+
   color: white;
   display:flex;
   flex-direction:column;
