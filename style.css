@@ -1299,4 +1299,18 @@ html {
   text-decoration:none;
 }
 
+.qty-box{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.qty-box button{
+  border:none;
+  background:#eee;
+  padding:6px 12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
 
