@@ -49,22 +49,22 @@ const product = products.find(p => p.name === productName)
 const container = document.getElementById("product-page")
 
 if(product){
+
+  const related = products
+    .filter(p => p.category === product.category && p.name !== product.name)
+    .slice(0,3)
+
   container.innerHTML = `
     <div style="max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
-   <div style="margin-bottom:15px;font-size:14px;">
+<div style="margin-bottom:15px;font-size:14px;">
   <a href="./shop.html">← Back to Shop</a>
 </div>
-
-      <!-- IMAGE -->
       <div>
         <img src="${product.image}" style="width:100%;border-radius:12px">
       </div>
 
-      <!-- INFO -->
       <div style="text-align:left">
-
         <h1>${product.name}</h1>
-
         <p class="price" style="font-size:22px">R${product.price}</p>
 
         <p style="margin:20px 0">
@@ -76,29 +76,39 @@ if(product){
           ${product.ingredients || "No ingredients listed"}
         </p>
 
-        <!-- QUANTITY -->
-        <div style="margin-bottom:20px">
-          <button onclick="changeQty(-1)">−</button>
-          <span id="qty">1</span>
-          <button onclick="changeQty(1)">+</button>
-        </div>
-
-        <!-- ADD TO CART -->
-        <button onclick="addMultipleToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
+        <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
           style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
           Add to Cart
         </button>
-
       </div>
 
     </div>
 
-    <!-- BENEFITS SECTION -->
-    <div style="max-width:800px;margin:50px auto;text-align:center">
-      <h2>Why You'll Love It</h2>
-      <p style="opacity:0.8">
-        Crafted with botanical ingredients, this product is designed to gently nourish your skin while creating a calming, luxurious self-care experience. Perfect for daily use or indulgent rituals.
-      </p>
+    <!-- RELATED PRODUCTS -->
+    <div style="max-width:1000px;margin:60px auto">
+      <h2 style="text-align:center;margin-bottom:30px">You May Also Like</h2>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+
+        ${related.map(p => `
+          <div style="text-align:center;background:white;padding:15px;border-radius:12px">
+            
+            <a href="./product.html?id=${encodeURIComponent(p.name)}">
+              <img src="${p.image}" style="width:100%;border-radius:8px">
+              <h3 style="margin:10px 0">${p.name}</h3>
+            </a>
+
+            <p>R${p.price}</p>
+
+            <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')"
+              style="margin-top:10px;padding:10px 16px;background:#2f4f46;color:white;border:none;border-radius:30px">
+              Add to Cart
+            </button>
+
+          </div>
+        `).join("")}
+
+      </div>
     </div>
   `
 }
