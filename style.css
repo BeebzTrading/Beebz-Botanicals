@@ -128,10 +128,10 @@ body{
 }
 
 .hero-logo{
-  height:260px !important;
+  height:280px !important;
   width:auto;
   display:block;
-  margin:0 auto 20px;
+  margin:0 auto 8px;
 }
 
 .btn{
