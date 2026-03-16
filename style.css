@@ -1086,3 +1086,72 @@ footer.footer {
 .hero-description {
   color: #ffffff !important;
 }
+
+/* FORCE HERO TEXT TO WHITE */
+.hero,
+.hero h1,
+.hero p,
+.hero-subtitle,
+.hero-description {
+  color: #ffffff !important;
+}
+/* FORCE HERO TEXT TO WHITE */
+.hero,
+.hero h1,
+.hero p,
+.hero-subtitle,
+.hero-description {
+  color: #ffffff !important;
+}
+.hero-btn {
+  background: transparent;
+  border: 1.5px solid white;
+  color: white;
+}
+
+.hero-btn:hover {
+  background: white;
+  color: #2f4f46;
+}
+
+/* ===== HERO BUTTON WITH ARROW ===== */
+
+.hero-btn {
+  background: #ffffff;
+  color: #2f4f46;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(255,255,255,0.15);
+}
+
+/* ARROW */
+.hero-btn .arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+/* HOVER EFFECT */
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ARROW MOVEMENT */
+.hero-btn:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* CLICK */
+.hero-btn:active {
+  transform: translateY(0);
+}
+.hero-btn {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
