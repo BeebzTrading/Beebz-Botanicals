@@ -1239,9 +1239,6 @@ html {
 .hero{
   min-height: auto !important;
   padding: 0 !important;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 .hero-content{
