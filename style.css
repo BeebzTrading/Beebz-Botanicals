@@ -427,6 +427,19 @@ body{
 .trust-badges {
   margin-bottom: 20px;
 }
+/* BEST SELLERS (HOMEPAGE ONLY) */
+.section .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.section .product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
 .trust-badges p {
   font-size: 14px;
