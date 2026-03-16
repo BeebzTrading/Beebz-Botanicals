@@ -64,6 +64,10 @@ function renderProducts(containerId){
   const container = document.getElementById(containerId)
   if(!container || typeof products === "undefined") return
 
+  // ✅ FIX: prevent duplicate rendering
+  if (container.dataset.loaded === "true") return
+  container.dataset.loaded = "true"
+
   let list = products
 
   if(containerId === "home-products"){
@@ -167,7 +171,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const productIndex = params.get("product");
 
   if (productIndex !== null) {
-    const productCards = document.querySelectorAll(".product-card");
+    const productCards = document.querySelectorAll(".product");
 
     if (productCards[productIndex]) {
       productCards[productIndex].scrollIntoView({
@@ -175,7 +179,6 @@ window.addEventListener("DOMContentLoaded", () => {
         block: "center"
       });
 
-      // Optional highlight effect
       productCards[productIndex].style.border = "2px solid #000";
       setTimeout(() => {
         productCards[productIndex].style.border = "none";
