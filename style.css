@@ -1234,6 +1234,44 @@ html {
   transform: translateY(-2px);
 }
 
+/* ===== FORCE HERO TO BE TIGHT (FINAL FIX) ===== */
+
+.hero{
+  min-height: auto !important;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.hero-logo{
+  height: 260px !important;
+  margin: 0 !important;
+  display: block;
+}
+
+.hero h1{
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+
+.hero-description{
+  margin: 5px 0 !important;
+}
+
+.hero .btn{
+  margin-top: 8px !important;
+}
+
 
 
 
