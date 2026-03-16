@@ -413,3 +413,22 @@ body{
   text-decoration: none;
   color: inherit;
 }
+.features {
+  display: grid;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.features p {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.trust-badges {
+  margin-bottom: 20px;
+}
+
+.trust-badges p {
+  font-size: 14px;
+  opacity: 0.8;
+}
