@@ -560,3 +560,23 @@ body{
   margin-top: 20px;
   cursor: pointer;
 }
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.cart-controls button {
+  padding: 4px 10px;
+  border: none;
+  background: #eee;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-controls span {
+  min-width: 20px;
+  text-align: center;
+}
