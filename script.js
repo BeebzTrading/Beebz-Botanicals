@@ -157,8 +157,10 @@ function goCheckout(){
 
 document.addEventListener("DOMContentLoaded", function(){
 
+  const shopContainer = document.getElementById("shop-products")
 
-  if(document.getElementById("shop-products")){
+  if(shopContainer){
+    // ✅ ALWAYS render products first (required for filter/search)
     renderProducts("shop-products")
   }
 
