@@ -39,7 +39,7 @@
 
 <script>
 const params = new URLSearchParams(window.location.search)
-const productName = decodeURIComponent(params.get("id"))
+const productName = params.get("id")
 
 const product = products.find(p => p.name === productName)
 
@@ -56,9 +56,10 @@ if(product){
       <p class="price" style="font-size:20px">R${product.price}</p>
 
       <p style="max-width:600px;margin:20px auto">
-  ${product.description}
-</p>
-      <button onclick="addToCart('${product.name}',${product.price},'${product.image}')"
+        ${product.description}
+      </p>
+
+      <button onclick="addToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
         style="margin-top:20px;padding:12px 24px;background:#2f4f46;color:white;border:none;border-radius:30px">
         Add to Cart
       </button>
@@ -70,8 +71,7 @@ if(product){
 }
 </script>
 
-</body>
-   <footer class="footer">
+<footer class="footer">
 
  <div class="footer-links">
   <a href="./privacy.html">Privacy Policy</a>
@@ -88,5 +88,6 @@ if(product){
   </p>
 
 </footer>
-  
+
+</body>
 </html>
