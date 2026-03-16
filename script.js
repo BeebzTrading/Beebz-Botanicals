@@ -139,16 +139,28 @@ function searchProducts(){
 
 function toggleCart(){
   const cartPanel = document.getElementById("cart")
+  const overlay = document.getElementById("cart-overlay")
+
   if(!cartPanel) return
 
   cartPanel.classList.toggle("open")
+
+  if(overlay){
+    overlay.classList.toggle("active")
+  }
 }
 
 function closeCart(){
   const cartPanel = document.getElementById("cart")
+  const overlay = document.getElementById("cart-overlay")
+
   if(!cartPanel) return
 
   cartPanel.classList.remove("open")
+
+  if(overlay){
+    overlay.classList.remove("active")
+  }
 }
 
 function goCheckout(){
