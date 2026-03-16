@@ -160,3 +160,26 @@ document.addEventListener("DOMContentLoaded", function(){
   renderProducts("shop-products")
   renderCart()
 })
+
+// HANDLE PRODUCT LINK FROM HOMEPAGE
+window.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const productIndex = params.get("product");
+
+  if (productIndex !== null) {
+    const productCards = document.querySelectorAll(".product-card");
+
+    if (productCards[productIndex]) {
+      productCards[productIndex].scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+      // Optional highlight effect
+      productCards[productIndex].style.border = "2px solid #000";
+      setTimeout(() => {
+        productCards[productIndex].style.border = "none";
+      }, 2000);
+    }
+  }
+});
