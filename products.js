@@ -1,4 +1,5 @@
 <script>
+  const products [
 window.onload = function(){
 
   const params = new URLSearchParams(window.location.search);
@@ -81,5 +82,5 @@ window.onload = function(){
     thumbs.appendChild(img);
   }
 
-}
+}];
 </script>
