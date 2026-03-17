@@ -1488,6 +1488,20 @@ html {
   margin-left: 6px;
 }
 
+body {
+  letter-spacing: 0.3px;
+}
+
+h1, h2 {
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .product-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 .section {
   border-top: 1px solid #eee;
   padding-top: 40px;
