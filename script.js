@@ -138,7 +138,7 @@ function renderFiltered(list){
     div.classList.add("product")
 
     div.innerHTML = `
-      <a href="./product.html?id=${encodeURIComponent(p.name)}">
+      <a href="./product.html?id=${p.id}">
         <img src="${p.image}" alt="${p.name}">
         <h3>${p.name}</h3>
       </a>
