@@ -346,6 +346,14 @@ const products = [
     name: "Ceramic Soap Dish",
     price: 139,
     image: "./images/ceramic-soap-dish.png",
+    images: [
+  "./images/ceramic-soap-dish-1.jpg",
+  "./images/ceramic-soap-dish-2.jpg",
+  "./images/ceramic-soap-dish-3.jpg",
+  "./images/ceramic-soap-dish-4.jpg",
+  "./images/ceramic-soap-dish-5.jpg",
+  "./images/ceramic-soap-dish-6.jpg"
+],
     category: "bath",
     description: "Material: Glazed ceramic Size: 12 cm × 10 cm × 3 cm Weight: 200 g Origin: Locally made. Key Features:• Durable glazed ceramic construction • Branch-style raised design allows water drainage • Easy to clean and maintain"
   },
@@ -355,6 +363,12 @@ const products = [
     name: "Waterfall Soap Dish - Self-Draining",
     price: 149,
     image: "./images/waterfall-soap-dish.png",
+    images: [
+  "./images/waterfall-soap-dish-1.jpg",
+  "./images/waterfall-soap-dish-2.jpg",
+  "./images/waterfall-soap-dish-3.jpg",
+  "./images/waterfall-soap-dish-4.jpg"
+],
     category: "bath",
     description: "Material: Glazed ceramic with decorative metal accent Size: 14 cm × 9 cm × 10 cm Weight: 320 g Origin: Locally made. Key Features:• Elegant leaf-inspired decorative design • Waterfall drainage structure helps keep soap dry"
   },
@@ -364,6 +378,12 @@ const products = [
     name: "Soap Saver Pouch",
     price: 129,
     image: "./images/homemade-soap-bag.png",
+    images: [
+  "./images/soap-bag-1.jpg",
+  "./images/soap-bag-2.jpg",
+  "./images/soap-bag-3.jpg",
+  "./images/soap-bag-4.jpg"
+],
     category: "bath",
     description: "Material: Natural twine Size: 13 cm × 9 cm Weight: 15 g Origin: Locally made. Key Features • Natural material that creates a richer lather with less soap • Gentle exfoliation for smoother skin • Extends the life of soap by collecting small pieces"
   },
