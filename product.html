@@ -6,30 +6,15 @@ window.onload = function(){
 
   const container = document.getElementById("product-page");
 
-  // SAFETY CHECK
+  // safety check
   if(typeof products === "undefined"){
     container.innerHTML = "<p style='text-align:center'>Error loading products</p>";
     return;
   }
 
-  // CLEAN MATCH
-  let product = null;
+  // ✅ CLEAN FIX (THIS WAS YOUR BUG)
+  let product = products.find(p => p.id === rawId);
 
-  for(let i = 0; i < products.length; i++){
-    if(products[i].id === rawId){
-      let product = null;
-     let product = null;
-
-for(let i = 0; i < products.length; i++){
-  if(products[i].id === rawId){
-    product = products[i];
-    break;
-  }
-}
-    }
-  }
-
-  // IF NOT FOUND → SHOW ERROR (NO CRASH)
   if(!product){
     container.innerHTML = "<p style='text-align:center'>Product not found</p>";
     console.log("URL:", rawId);
@@ -37,7 +22,7 @@ for(let i = 0; i < products.length; i++){
     return;
   }
 
-  // RENDER PRODUCT
+  // render product
   container.innerHTML = `
     <div style="max-width:1000px;margin:auto">
 
@@ -64,7 +49,7 @@ for(let i = 0; i < products.length; i++){
     </div>
   `;
 
-  // IMAGE GALLERY (SAFE)
+  // gallery
   const main = document.getElementById("main-image");
   const thumbs = document.getElementById("thumbs");
 
