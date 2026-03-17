@@ -136,6 +136,11 @@ const products = [
     name: "Boulders Cove Soap",
     price: 59,
     image: "./images/boulders-cove-box-cat.png",
+    images: [
+      "./images/boulders-cove-1.jpg",
+      "./images/boulders-cove-2.jpg",
+      "./images/boulders-cove-3.jpg"
+    ],
     category: "soap",
     ingredients: "Ingredients: Olea Europaea (Olive) Oil, Cocos Nucifera (Coconut) Oil, Butyrospermum Parkii (Shea Butter), Aqua (Water), Sodium Hydroxide, Fragrance (Parfum), Cosmetic Colourants. Weight: 100g.",
     description: "A fresh coastal blend of grapefruit and litsea cubeba, balanced with lavender, cedarwood, geranium and patchouli for a bright citrus scent with earthy undertones. Made with olive oil, coconut oil and shea butter."
@@ -146,11 +151,6 @@ const products = [
     name: "Highveld Rose Bath Salt",
     price: 129,
     image: "./images/highveld-rose-salt-2.jpeg",
-    images: [
-      "./images/boulders-cove-1.jpg",
-      "./images/boulders-cove-2.jpg",
-      "./images/boulders-cove-3.jpg"
-    ],
     category: "bath",
     description: "A calming floral bath soak infused with delicate rose fragrance and mineral-rich salts. Designed to relax the body while leaving skin feeling soft and refreshed.",
     ingredients: "Ingredients: Magnesium Sulphate (Epsom Salt), Sodium Chloride (Sea Salt), Natural Botanicals (including Rose Petals, Lavender Buds, Citrus Peel or Rooibos), Fragrance (Parfum), Cosmetic Colourants. Weight: 250g."
