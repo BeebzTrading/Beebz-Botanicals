@@ -1,14 +1,21 @@
 <script>
-const params = new URLSearchParams(window.location.search)
-const productName = decodeURIComponent(params.get("id") || "")
+document.addEventListener("DOMContentLoaded", function(){
 
-const product = products.find(p => 
-  p.name.toLowerCase().trim() === productName.toLowerCase().trim()
-)
+  const params = new URLSearchParams(window.location.search)
+  const productName = decodeURIComponent(params.get("id") || "").trim().toLowerCase()
 
-const container = document.getElementById("product-page")
+  const product = products.find(p => 
+    p.name.trim().toLowerCase() === productName
+  )
 
-if(product){
+  const container = document.getElementById("product-page")
+
+  // 🛑 STOP CRASHING
+  if(!product){
+    container.innerHTML = "<p style='text-align:center'>Product not found</p>"
+    console.error("Product not found:", productName)
+    return
+  }
 
   const related = products
     .filter(p => p.category === product.category && p.name !== product.name)
@@ -18,93 +25,56 @@ if(product){
     <div style="max-width:1000px;margin:auto">
 
       <div style="width:100%;text-align:left;">
-        <a href="./shop.html" style="display:inline-block;margin-bottom:20px;color:#2f4f46;text-decoration:none;font-weight:500;">
-          ← Back to Shop
-        </a>
+        <a href="./shop.html">← Back to Shop</a>
       </div>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
 
-        <!-- IMAGE -->
         <div>
           <img id="main-product-image" src="${product.image}" style="width:100%;border-radius:12px">
-          <div id="thumbnail-container" style="display:flex;gap:10px;margin-top:15px;flex-wrap:wrap"></div>
+          <div id="thumbnail-container" style="display:flex;gap:10px;margin-top:10px"></div>
         </div>
 
-        <!-- INFO -->
-        <div style="text-align:left">
+        <div>
           <h1>${product.name}</h1>
-          <p class="price" style="font-size:22px">R${product.price}</p>
+          <p>R${product.price}</p>
+          <p>${product.description}</p>
 
-          <p style="margin:20px 0">${product.description}</p>
-
-          <h3>Ingredients</h3>
-          <p style="font-size:14px;opacity:0.8;margin-bottom:20px">
-            ${product.ingredients || "No ingredients listed"}
-          </p>
-
-          <div style="margin:20px 0;display:flex;align-items:center;gap:10px">
+          <div>
             <button onclick="changeQty(-1)">−</button>
             <span id="qty">1</span>
             <button onclick="changeQty(1)">+</button>
           </div>
 
-          <button onclick="addMultipleToCart('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')"
-            style="padding:14px 28px;background:#2f4f46;color:white;border:none;border-radius:30px">
+          <button onclick="addMultipleToCart('${product.name}', ${product.price}, '${product.image}')">
             Add to Cart
           </button>
         </div>
 
       </div>
     </div>
-
-    <!-- RELATED -->
-    <div style="max-width:1000px;margin:60px auto">
-      <h2 style="text-align:center;margin-bottom:30px">You May Also Like</h2>
-
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-        ${related.map(p => `
-          <div style="text-align:center;background:white;padding:15px;border-radius:12px">
-            <a href="./product.html?id=${encodeURIComponent(p.name)}">
-              <img src="${p.image}" style="width:100%;border-radius:8px">
-              <h3>${p.name}</h3>
-            </a>
-            <p>R${p.price}</p>
-            <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')">
-              Add to Cart
-            </button>
-          </div>
-        `).join("")}
-      </div>
-    </div>
   `
 
-  // ✅ SAFE IMAGE GALLERY (NO CRASH)
+  // ✅ SAFE GALLERY
   const mainImage = document.getElementById("main-product-image")
   const thumbnailContainer = document.getElementById("thumbnail-container")
 
   let allImages = []
 
-  if(product.image){
-    allImages.push(product.image)
-  }
-
+  if(product.image) allImages.push(product.image)
   if(product.images && Array.isArray(product.images)){
-    for(let i = 0; i < product.images.length; i++){
+    for(let i=0;i<product.images.length;i++){
       allImages.push(product.images[i])
     }
   }
 
-  for(let i = 0; i < allImages.length; i++){
+  for(let i=0;i<allImages.length;i++){
     const img = allImages[i]
 
     const thumb = document.createElement("img")
     thumb.src = img
-    thumb.style.width = "70px"
-    thumb.style.height = "70px"
-    thumb.style.objectFit = "cover"
+    thumb.style.width = "60px"
     thumb.style.cursor = "pointer"
-    thumb.style.borderRadius = "6px"
 
     thumb.onclick = function(){
       mainImage.src = img
@@ -113,7 +83,5 @@ if(product){
     thumbnailContainer.appendChild(thumb)
   }
 
-} else {
-  container.innerHTML = "<p style='text-align:center'>Product not found</p>"
-}
+})
 </script>
