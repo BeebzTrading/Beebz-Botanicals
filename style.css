@@ -1585,3 +1585,9 @@ button {
 .product img:hover {
   transform: scale(1.05);
 }
+
+#cart-items p {
+  text-align: center;
+  color: #777;
+  margin-top: 20px;
+}
