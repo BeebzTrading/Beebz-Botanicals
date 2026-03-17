@@ -151,6 +151,11 @@ const products = [
     name: "Highveld Rose Bath Salt",
     price: 129,
     image: "./images/highveld-rose-salt-2.jpeg",
+    images: [
+  "./images/highveld-rose-salt-2.jpeg",
+  "./images/highveld-rose-salt-3.jpg",
+  "./images/highveld-rose-salt-4.jpg"
+],
     category: "bath",
     description: "A calming floral bath soak infused with delicate rose fragrance and mineral-rich salts. Designed to relax the body while leaving skin feeling soft and refreshed.",
     ingredients: "Ingredients: Magnesium Sulphate (Epsom Salt), Sodium Chloride (Sea Salt), Natural Botanicals (including Rose Petals, Lavender Buds, Citrus Peel or Rooibos), Fragrance (Parfum), Cosmetic Colourants. Weight: 250g."
@@ -161,6 +166,12 @@ const products = [
     name: "Lavender Fynbos Bath Salt",
     price: 129,
     image: "./images/lavender-fynbos-salt-4.jpeg",
+    images: [
+  "./images/lavender-fynbos-salt-1.jpg",
+  "./images/lavender-fynbos-salt-2.jpeg",
+  "./images/lavender-fynbos-salt-3.jpg",
+  "./images/lavender-fynbos-salt-4.jpeg"
+],
     category: "bath",
     description: "A soothing blend of lavender and herbal botanicals inspired by South Africa’s natural fynbos landscapes. Perfect for unwinding after a long day.",
     ingredients: "Ingredients: Magnesium Sulphate (Epsom Salt), Sodium Chloride (Sea Salt), Natural Botanicals (including Rose Petals, Lavender Buds, Citrus Peel or Rooibos), Fragrance (Parfum), Cosmetic Colourants. Weight: 250g."
@@ -171,6 +182,12 @@ const products = [
     name: "Coastal Citrus Bath Salt",
     price: 129,
     image: "./images/coastal-citrus-salt-5.jpeg",
+    images: [
+  "./images/coastal-citrus-salt-1.jpg",
+  "./images/coastal-citrus-salt-2.jpeg",
+  "./images/coastal-citrus-salt-3.jpeg",
+  "./images/coastal-citrus-salt-4.jpg"
+],
     category: "bath",
     description: "An uplifting fusion of citrus botanicals and premium bath salts, crafted to energise the senses while soothing tired muscles. This refreshing blend transforms your bath into a revitalising escape.",
     ingredients: "Ingredients: Magnesium Sulphate (Epsom Salt), Sodium Chloride (Sea Salt), Natural Botanicals (including Rose Petals, Lavender Buds, Citrus Peel or Rooibos), Fragrance (Parfum), Cosmetic Colourants. Weight: 250g."
@@ -181,6 +198,12 @@ const products = [
     name: "Rooibos & Honey Bath Salt",
     price: 129,
     image: "./images/rooibos-and-honey-salt-1.png",
+    images: [
+  "./images/rooibos-and-honey-salt-2.jpeg",
+  "./images/rooibos-and-honey-salt-3.jpeg",
+  "./images/rooibos-and-honey-salt-4.jpeg",
+  "./images/rooibos-and-honey-salt-5.jpeg"
+],
     category: "bath",
     description: "A soothing blend of mineral-rich salts infused with calming rooibos and naturally comforting honey notes. Designed to relax the body, ease tension, and leave your skin feeling soft and restored. Perfect for unwinding after a long day.",
     ingredients: "Ingredients: Magnesium Sulphate (Epsom Salt), Sodium Chloride (Sea Salt), Natural Botanicals (including Rose Petals, Lavender Buds, Citrus Peel or Rooibos), Fragrance (Parfum), Cosmetic Colourants. Weight: 250g."
