@@ -69,33 +69,96 @@ window.onload = function(){
     return;
   }
 
-  container.innerHTML = `
-    <div style="max-width:1000px;margin:auto">
+container.innerHTML = `
+  <div style="max-width:1100px;margin:40px auto;padding:0 20px;">
 
-   <a href="./shop.html" class="back-btn">
-  ← Back to Shop
-</a>
+    <a href="./shop.html" class="back-btn">← Back to Shop</a>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
+    <div style="
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:start;
+      margin-top:20px;
+    ">
 
-        <div>
-          <img id="main-image" src="${product.image}" style="width:100%">
-          <div id="thumbs" style="display:flex;gap:10px;margin-top:10px"></div>
-        </div>
-
-        <div>
-          <h1>${product.name}</h1>
-          <p>R${product.price}</p>
-          <p>${product.description}</p>
-
-          <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">
-            Add to Cart
-          </button>
-        </div>
-
+      <div>
+        <img id="main-image" src="${product.image}" style="
+          width:100%;
+          border-radius:12px;
+          display:block;
+        ">
+        <div id="thumbs" style="
+          display:flex;
+          gap:12px;
+          margin-top:15px;
+          flex-wrap:wrap;
+        "></div>
       </div>
+
+      <div style="padding-top:10px;">
+        <h1 style="
+          font-size:32px;
+          margin-bottom:10px;
+        ">${product.name}</h1>
+
+        <p style="
+          font-size:24px;
+          font-weight:600;
+          margin-bottom:18px;
+        ">R${product.price}</p>
+
+        <p style="
+          line-height:1.7;
+          margin-bottom:18px;
+        ">${product.description}</p>
+
+        <p style="
+          line-height:1.7;
+          margin-bottom:25px;
+        ">
+          <strong>Ingredients:</strong> ${product.ingredients || "Ingredients not available."}
+        </p>
+
+        <div style="
+          display:flex;
+          align-items:center;
+          gap:12px;
+          margin-bottom:20px;
+        ">
+          <label for="quantity" style="font-weight:500;">Quantity:</label>
+          <input 
+            id="quantity" 
+            type="number" 
+            min="1" 
+            value="1"
+            style="
+              width:70px;
+              padding:8px;
+              border:1px solid #ccc;
+              border-radius:6px;
+              font-size:16px;
+            "
+          >
+        </div>
+
+        <button id="add-to-cart-btn" style="
+          padding:12px 24px;
+          border:none;
+          border-radius:8px;
+          background:#e8dcd1;
+          color:#333;
+          font-size:16px;
+          font-weight:600;
+          cursor:pointer;
+        ">
+          Add to Cart
+        </button>
+      </div>
+
     </div>
-  `;
+  </div>
+`;
 
   const main = document.getElementById("main-image");
   const thumbs = document.getElementById("thumbs");
