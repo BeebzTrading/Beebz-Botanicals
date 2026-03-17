@@ -1505,3 +1505,8 @@ h1, h2 {
   border-top: 1px solid #eee;
   padding-top: 40px;
 }
+
+#cart-count {
+  font-weight: 600;
+  color: #555;
+}
