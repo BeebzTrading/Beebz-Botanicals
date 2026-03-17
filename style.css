@@ -1385,3 +1385,7 @@ html {
   text-align: center;
 }
 
+.quantity-wrapper button:hover {
+  background: #d8c8bb;
+}
+
