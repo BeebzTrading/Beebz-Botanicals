@@ -194,6 +194,23 @@ function changeQty(index, amount){
   }, 150);
 }
 
+function handleFadeIn() {
+  const elements = document.querySelectorAll(".fade-in");
+
+ elements.forEach((el, index) => {
+  const rect = el.getBoundingClientRect();
+
+  if (rect.top < window.innerHeight - 50) {
+    setTimeout(() => {
+      el.classList.add("show");
+    }, index * 100);
+  }
+});
+}
+
+window.addEventListener("scroll", handleFadeIn);
+window.addEventListener("load", handleFadeIn);
+
 window.onload = function(){
   if(typeof products === "undefined") return;
 
