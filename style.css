@@ -1631,3 +1631,41 @@ button {
 #main-image {
   transition: opacity 0.3s ease;
 }
+
+@media (max-width: 768px) {
+  .product-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+#thumbs {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+#thumbs img {
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .cart {
+    width: 100%;
+    right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  button {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    padding: 0 10px;
+  }
+}
+
+.quantity-wrapper button {
+  min-width: 40px;
+  min-height: 40px;
+}
