@@ -160,26 +160,41 @@ container.innerHTML = `
   </div>
 `;
 
-  const main = document.getElementById("main-image");
-  const thumbs = document.getElementById("thumbs");
+  const addBtn = document.getElementById("add-to-cart-btn");
+const quantityInput = document.getElementById("quantity");
 
-  let images = [];
+addBtn.onclick = function () {
+  const quantity = parseInt(quantityInput.value) || 1;
 
-  if(product.image) images.push(product.image);
-  if(product.images) images.push(...product.images);
-
-  images.forEach(imgSrc => {
-    const img = document.createElement("img");
-    img.src = imgSrc;
-    img.style.width = "60px";
-    img.style.cursor = "pointer";
-
-    img.onclick = () => main.src = imgSrc;
-
-    thumbs.appendChild(img);
-  });
-
+  for (let i = 0; i < quantity; i++) {
+    addToCart(product.name, product.price, product.image);
+  }
 };
+
+  const main = document.getElementById("main-image");
+const thumbs = document.getElementById("thumbs");
+
+let images = [];
+
+if (product.image) images.push(product.image);
+if (product.images) images.push(...product.images);
+
+images.forEach(imgSrc => {
+  const img = document.createElement("img");
+  img.src = imgSrc;
+  img.style.width = "70px";
+  img.style.height = "70px";
+  img.style.objectFit = "cover";
+  img.style.cursor = "pointer";
+  img.style.borderRadius = "8px";
+  img.style.border = "1px solid #ddd";
+
+  img.onclick = () => main.src = imgSrc;
+
+  thumbs.appendChild(img);
+});
+
+  
 </script>
   <footer class="footer">
 
