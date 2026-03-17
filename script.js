@@ -175,14 +175,23 @@ function goCheckout(){
 }
 
 function changeQty(index, amount){
-  cart[index].qty += amount;
+  const items = document.querySelectorAll(".cart-item");
+  const itemEl = items[index];
 
-  if(cart[index].qty < 1){
-    cart.splice(index, 1);
+  if(itemEl){
+    itemEl.classList.add("updating");
   }
 
-  saveCart();
-  renderCart();
+  setTimeout(() => {
+    cart[index].qty += amount;
+
+    if(cart[index].qty < 1){
+      cart.splice(index, 1);
+    }
+
+    saveCart();
+    renderCart();
+  }, 150);
 }
 
 window.onload = function(){
