@@ -1604,3 +1604,8 @@ button {
   opacity: 0.5;
   transform: translateY(3px);
 }
+
+#cart-total.updating {
+  opacity: 0.5;
+  transform: translateY(3px) scale(0.98);
+}
