@@ -15,6 +15,12 @@ function renderCart() {
   cartItems.innerHTML = "<p>Your cart is empty</p>";
   cartTotal.innerText = "Total: R0";
 
+    const checkoutBtn = document.getElementById("checkout-btn");
+
+if (checkoutBtn) {
+  checkoutBtn.disabled = cart.length === 0;
+}
+
   // update cart count too
   const countEl = document.getElementById("cart-count");
   if (countEl) countEl.innerText = 0;
