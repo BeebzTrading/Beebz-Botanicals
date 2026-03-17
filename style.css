@@ -1805,3 +1805,59 @@ button {
     width: auto;  /* fixes full-width button issue */
   }
 }
+
+/* ===== HARD RESET CART (FINAL CLEAN FIX) ===== */
+
+/* Hide cart completely off-screen */
+.cart {
+  position: fixed !important;
+  top: 0 !important;
+  right: -100vw !important;
+  width: 320px !important;
+  height: 100vh !important;
+  background: white !important;
+  padding: 20px !important;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.1) !important;
+  transition: right 0.3s ease !important;
+  z-index: 9999 !important;
+  overflow-y: auto !important;
+}
+
+/* Show cart only when open */
+.cart.open {
+  right: 0 !important;
+}
+
+/* Mobile full screen cart */
+@media (max-width: 600px) {
+  .cart {
+    width: 100vw !important;
+    right: -100vw !important;
+  }
+
+  .cart.open {
+    right: 0 !important;
+  }
+}
+
+/* ===== CART BUTTON (ONLY THING VISIBLE) ===== */
+
+.cart-toggle {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  width: auto !important;
+  padding: 12px 18px !important;
+  border-radius: 30px !important;
+  background: #2f4f46 !important;
+  color: white !important;
+  z-index: 10000 !important;
+}
+
+/* ===== FIX GLOBAL BUTTON BREAK ===== */
+
+@media (max-width: 600px) {
+  button {
+    width: auto !important;
+  }
+}
