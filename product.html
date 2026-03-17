@@ -165,7 +165,7 @@ window.onload = function(){
     recommended = products.filter(p => p.id !== product.id);
   }
 
-  recommended.slice(0, 4).forEach(p => {
+  recommended.slice(0, 3).forEach(p => {
     const div = document.createElement("div");
     div.classList.add("product");
 
