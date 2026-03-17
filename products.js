@@ -1,150 +1,85 @@
-const products = [
+<script>
+window.onload = function(){
 
-{
-  id: "highveld-rose",
-  name: "Highveld Rose Soap",
-  price: 59,
-  image: "./images/highveld-rose-box-cat.png",
-  images: [
-    "./images/highveld-rose-1.jpg",
-    "./images/highveld-rose-2.jpg",
-    "./images/highveld-rose-3.jpg"
-  ],
-  category: "soap",
-  description: "A romantic floral soap with rose, geranium and palmarosa.",
-  ingredients: "Olive oil, coconut oil, shea butter"
-},
+  const params = new URLSearchParams(window.location.search);
+  const rawId = params.get("id");
 
-{
-  id: "jacaranda-bloom",
-  name: "Jacaranda Bloom Soap",
-  price: 59,
-  image: "./images/jacaranda-bloom-box-cat.png",
-  images: [
-    "./images/jacaranda-bloom-1.jpg",
-    "./images/jacaranda-bloom-2.jpg",
-    "./images/jacaranda-bloom-3.jpg"
-  ],
-  category: "soap",
-  description: "A calming floral blend inspired by jacaranda blossoms.",
-  ingredients: "Olive oil, coconut oil, shea butter"
-},
+  const container = document.getElementById("product-page");
 
-{
-  id: "lily-of-the-vale",
-  name: "Lily of the Vale Soap",
-  price: 59,
-  image: "./images/lily-of-the-vale-box-cat.png",
-  images: [
-    "./images/lily-of-the-valley-1.jpg",
-    "./images/lily-of-the-valley-2.jpg",
-    "./images/lily-of-the-valley-3.jpg"
-  ],
-  category: "soap",
-  description: "A soft and elegant floral scent.",
-  ingredients: "Olive oil, coconut oil, shea butter"
-},
+  if(typeof products === "undefined"){
+    container.innerHTML = "<p style='text-align:center'>Error loading products</p>";
+    return;
+  }
 
-{
-  id: "port-lizzie",
-  name: "Port Lizzie Soap",
-  price: 59,
-  image: "./images/port-lizzie-box-cat.png",
-  images: [
-    "./images/port-lizzie-1.jpg",
-    "./images/port-lizzie-2.jpg"
-  ],
-  category: "soap",
-  description: "A fresh coastal-inspired blend.",
-  ingredients: "Olive oil, coconut oil, shea butter"
-},
+  // ✅ FIX: MATCH USING ID (NOT NAME)
+  let product = null;
 
-{
-  id: "pacific-waters",
-  name: "Pacific Waters Soap",
-  price: 59,
-  image: "./images/pacific-waters-box-cat.png",
-  images: [
-    "./images/pacific-waters-1.jpg",
-    "./images/pacific-waters-2.jpg",
-    "./images/pacific-waters-3.jpg"
-  ],
-  category: "soap",
-  description: "A crisp, clean aquatic scent.",
-  ingredients: "Olive oil, coconut oil, shea butter"
-},
+  for(let i = 0; i < products.length; i++){
+    if(products[i].id === rawId){
+      product = products[i];
+      break;
+    }
+  }
 
-{
-  id: "seashells-on-seaboard",
-  name: "Seashells on the Seaboard Soap",
-  price: 59,
-  image: "./images/seashells-on-the-seaboard-box-cat.png",
-  images: [
-    "./images/seashells-seaboard-1.jpg",
-    "./images/seashells-seaboard-2.jpg"
-  ],
-  category: "soap",
-  description: "A bright seaside fragrance.",
-  ingredients: "Olive oil, coconut oil, shea butter"
-},
+  if(!product){
+    container.innerHTML = "<p style='text-align:center'>Product not found</p>";
+    console.log("Looking for ID:", rawId);
+    console.log("Available:", products.map(p => p.id));
+    return;
+  }
 
-{
-  id: "just-beachy",
-  name: "Just Beachy Soap",
-  price: 59,
-  image: "./images/just-beachy-box-cat.png",
-  images: [
-    "./images/just-beachy-1.jpg",
-    "./images/just-beachy-2.jpg"
-  ],
-  category: "soap",
-  description: "A playful beach-inspired scent.",
-  ingredients: "Olive oil, coconut oil, shea butter"
-},
+  container.innerHTML = `
+    <div style="max-width:1000px;margin:auto">
 
-{
-  id: "la-vie-in-rose",
-  name: "La Vie in Rose Soap",
-  price: 59,
-  image: "./images/la-vie-in-rose-box-cat.png",
-  images: [
-    "./images/la-vie-in-rose-1.jpg",
-    "./images/la-vie-in-rose-2.jpg",
-    "./images/la-vie-in-rose-3.jpg"
-  ],
-  category: "soap",
-  description: "A luxurious rose fragrance.",
-  ingredients: "Olive oil, coconut oil, shea butter"
-},
+      <a href="./shop.html" style="display:block;margin-bottom:20px;">← Back to Shop</a>
 
-{
-  id: "protea-party",
-  name: "Protea Party Soap",
-  price: 59,
-  image: "./images/protea-party-box-cat.png",
-  images: [
-    "./images/protea-party-1.jpg",
-    "./images/protea-party-2.jpg",
-    "./images/protea-party-3.jpg"
-  ],
-  category: "soap",
-  description: "An uplifting floral blend inspired by proteas.",
-  ingredients: "Olive oil, coconut oil, shea butter"
-},
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
 
-{
-  id: "boulders-cove",
-  name: "Boulders Cove Soap",
-  price: 59,
-  image: "./images/boulders-cove-box-cat.png",
-  images: [
-    "./images/boulders-cove-1.jpg",
-    "./images/boulders-cove-2.jpg",
-    "./images/boulders-cove-3.jpg"
-  ],
-  category: "soap",
-  description: "A fresh coastal scent with mineral notes.",
-  ingredients: "Olive oil, coconut oil, shea butter"
+        <div>
+          <img id="main-image" src="${product.image}" style="width:100%">
+          <div id="thumbs" style="display:flex;gap:10px;margin-top:10px"></div>
+        </div>
+
+        <div>
+          <h1>${product.name}</h1>
+          <p>R${product.price}</p>
+          <p>${product.description}</p>
+
+          <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">
+            Add to Cart
+          </button>
+        </div>
+
+      </div>
+    </div>
+  `;
+
+  // ✅ IMAGE GALLERY
+  const main = document.getElementById("main-image");
+  const thumbs = document.getElementById("thumbs");
+
+  let images = [];
+
+  if(product.image) images.push(product.image);
+
+  if(product.images){
+    for(let i=0;i<product.images.length;i++){
+      images.push(product.images[i]);
+    }
+  }
+
+  for(let i=0;i<images.length;i++){
+    const img = document.createElement("img");
+    img.src = images[i];
+    img.style.width = "60px";
+    img.style.cursor = "pointer";
+
+    img.onclick = function(){
+      main.src = images[i];
+    };
+
+    thumbs.appendChild(img);
+  }
+
 }
-
-];
+</script>
