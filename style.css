@@ -1481,11 +1481,10 @@ html {
 }
 
 #cart-count {
-  background: #e8dcd1;
-  border-radius: 50%;
-  padding: 3px 8px;
-  font-size: 12px;
-  margin-left: 6px;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
 }
 
 body {
