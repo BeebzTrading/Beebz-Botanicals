@@ -112,8 +112,9 @@ function renderProducts(containerId){
     const div = document.createElement("div")
     div.classList.add("product")
 
+    // ✅ FIXED LINK
     div.innerHTML = `
-      href="./product.html?id=${p.id}"
+      <a href="./product.html?id=${p.id}">
         <img src="${p.image}" alt="${p.name}">
         <h3>${p.name}</h3>
       </a>
@@ -219,39 +220,20 @@ window.onload = function(){
   renderCart()
 }
 
-// HANDLE PRODUCT LINK FROM HOMEPAGE
-window.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const productIndex = params.get("product");
+// SAFE FADE FIX (won’t break your site)
+if ('IntersectionObserver' in window) {
+  const faders = document.querySelectorAll('.fade-in');
 
-  if (productIndex !== null) {
-    const productCards = document.querySelectorAll(".product");
-
-    if (productCards[productIndex]) {
-      productCards[productIndex].scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-
-      productCards[productIndex].style.border = "2px solid #000";
-      setTimeout(() => {
-        productCards[productIndex].style.border = "none";
-      }, 2000);
-    }
-  }
-});
-
-const faders = document.querySelectorAll('.fade-in');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+      }
+    });
   });
-});
 
-faders.forEach(el => observer.observe(el));
+  faders.forEach(el => observer.observe(el));
+}
 
 let currentQty = 1;
 
