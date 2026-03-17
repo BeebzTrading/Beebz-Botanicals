@@ -214,6 +214,10 @@ const products = [
     name: "Fynbos Bath Tea",
     price: 139,
     image: "./images/fynbos-tea-1.png",
+    images: [
+  "./images/fynbos-tea-1.jpg",
+  "./images/fynbos-tea-2.jpg"
+],
     category: "bath",
     description: "Inspired by South Africa’s natural fynbos landscapes, this herbal bath tea combines aromatic botanicals to create a refreshing and grounding bathing experience. Weight: 100g Origin: Locally made.",
     ingredients: "Ingredients: Magnesium Sulphate (Epsom Salt), Sodium Chloride (Sea Salt), Natural Botanicals (including Rose Petals, Chamomile Flowers, Lavender Buds, Rooibos and Herbal Botanicals), Fragrance (Parfum). Weight: 100g."
@@ -224,6 +228,10 @@ const products = [
     name: "Rose Bath Tea",
     price: 139,
     image: "./images/rose-tea-1.png",
+    images: [
+  "./images/rose-tea-1.jpg",
+  "./images/rose-tea-2.jpg"
+],
     category: "bath",
     description: "A soothing blend of rose petals and chamomile designed to gently infuse bath water with calming floral aromas. This botanical bath tea helps create a relaxing spa-like soak while softening the skin. Weight: 100g Origin: Locally made.",
     ingredients: "Ingredients: Magnesium Sulphate (Epsom Salt), Sodium Chloride (Sea Salt), Natural Botanicals (including Rose Petals, Chamomile Flowers, Lavender Buds, Rooibos and Herbal Botanicals), Fragrance (Parfum). Weight: 100g."
@@ -234,6 +242,12 @@ const products = [
     name: "Shower Steamers",
     price: 149,
     image: "./images/shower-steamers-1.jpg",
+    images: [
+  "./images/shower-steamers-2.jpg",
+  "./images/eucalyptus-refresh.jpg",
+  "./images/lavender-refresh.jpg",
+  "./images/citrus-energy.jpg"
+],
     category: "bath",
     description: "Transform your daily shower into a spa-like aromatherapy experience. These shower steamers release calming essential oil fragrances when activated by warm water and steam. Available Scents include Eucalyptus Refresh, Lavender Calm, Citrus Energy. Packaging: Boxed set Origin: Locally made.",
     ingredients: "Ingredients: Sodium Bicarbonate (Baking Soda), Citric Acid, Zea Mays (Cornstarch), Essential Oil Blends (including Eucalyptus, Lavender or Citrus Oils), Aqua (Water), Cosmetic Colourants. Weight: 100g."
