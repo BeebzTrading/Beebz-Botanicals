@@ -1753,3 +1753,59 @@ button {
   color: white;
   z-index: 1001;
 }
+
+/* ===== CLEAN FINAL CART SYSTEM ===== */
+
+/* Cart hidden by default */
+.cart {
+  position: fixed;
+  top: 0;
+  right: -100vw;   /* fully off screen */
+  width: 350px;
+  height: 100vh;
+  background: white;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+/* Cart opens */
+.cart.open {
+  right: 0;
+}
+
+/* Mobile cart full width */
+@media (max-width: 600px) {
+  .cart {
+    width: 100vw;
+    right: -100vw;
+  }
+
+  .cart.open {
+    right: 0;
+  }
+}
+
+/* ===== CART BUTTON (FLOATING ONLY) ===== */
+
+.cart-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: auto;              /* prevents stretching */
+  padding: 12px 18px;
+  border-radius: 30px;
+  background: #2f4f46;
+  color: white;
+  z-index: 10000;
+}
+
+/* ===== REMOVE GLOBAL BUTTON BREAK ===== */
+
+@media (max-width: 600px) {
+  button {
+    width: auto;  /* fixes full-width button issue */
+  }
+}
