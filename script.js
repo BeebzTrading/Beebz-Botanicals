@@ -197,19 +197,20 @@ function changeQty(index, amount){
 function handleFadeIn() {
   const elements = document.querySelectorAll(".fade-in");
 
- elements.forEach((el, index) => {
-  const rect = el.getBoundingClientRect();
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
 
-  if (rect.top < window.innerHeight - 50) {
-    setTimeout(() => {
+    if (rect.top < window.innerHeight - 50 && rect.bottom > 0) {
       el.classList.add("show");
-    }, index * 100);
-  }
-});
+    } else {
+      el.classList.remove("show"); // 👈 THIS is the fix
+    }
+  });
 }
 
 window.addEventListener("scroll", handleFadeIn);
 window.addEventListener("load", handleFadeIn);
+
 
 window.onload = function(){
   if(typeof products === "undefined") return;
