@@ -60,7 +60,7 @@ window.onload = function(){
 
       <a href="./shop.html" class="back-btn">← Back to Shop</a>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:20px;">
+     <div class="product-layout">
 
         <div>
           <img id="main-image" src="${product.image}" style="width:100%;border-radius:12px;">
@@ -68,11 +68,35 @@ window.onload = function(){
         </div>
 
         <div>
-          <h1 style="font-size:32px;margin-bottom:10px;">${product.name}</h1>
-          <p style="font-size:24px;font-weight:600;margin-bottom:18px;">R${product.price}</p>
-          <p style="margin-bottom:18px;">${product.description}</p>
-          <p style="margin-bottom:25px;">${product.ingredients || ""}</p>
+          <div class="product-info">
 
+  <h1>${product.name}</h1>
+
+  <p style="font-size:24px;font-weight:600;">
+    R${product.price}
+  </p>
+
+  <p>${product.description}</p>
+
+  <p style="font-size:14px;color:#555;">
+    ${product.ingredients || ""}
+  </p>
+
+  <div class="product-actions">
+
+    <div class="quantity-wrapper">
+      <button id="minus">−</button>
+      <span id="quantity-value">1</span>
+      <button id="plus">+</button>
+    </div>
+
+    <button id="add-to-cart-btn" class="add-to-cart-btn">
+      🛒 Add to Cart
+    </button>
+
+  </div>
+
+</div>
           <div class="quantity-wrapper">
             <button id="minus">−</button>
             <span id="quantity-value">1</span>
