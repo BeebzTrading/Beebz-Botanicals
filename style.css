@@ -1414,3 +1414,37 @@ html {
   transform: scale(0.98);
 }
 
+.product-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 20px;
+  align-items: start;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* tighten spacing */
+.product-info h1 {
+  margin-bottom: 5px;
+}
+
+.product-info p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* push button up slightly */
+.product-actions {
+  margin-top: 10px;
+}
+
+.product-layout img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
