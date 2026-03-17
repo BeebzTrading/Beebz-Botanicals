@@ -16,9 +16,16 @@ window.onload = function(){
   let product = null;
 
   for(let i = 0; i < products.length; i++){
-    if(products[i].name === decodeURIComponent(rawId)){
-      product = products[i];
-      break;
+    if(products[i].id === rawId){
+      let product = null;
+     let product = null;
+
+for(let i = 0; i < products.length; i++){
+  if(products[i].id === rawId){
+    product = products[i];
+    break;
+  }
+}
     }
   }
 
