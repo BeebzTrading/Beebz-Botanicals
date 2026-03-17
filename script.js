@@ -19,20 +19,36 @@ function renderCart() {
 
     cartItems.innerHTML += `
       <div class="cart-item">
-        <p>${item.name} x${item.qty || 1} - R${item.price}</p>
-        <button onclick="removeFromCart(${index})">Remove</button>
+
+        <img src="${item.image}" alt="${item.name}">
+
+        <div class="cart-item-details">
+          <h3>${item.name}</h3>
+          <p>R${item.price}</p>
+
+          <div class="cart-controls">
+            <button onclick="changeQty(${index}, -1)">−</button>
+            <span>${item.qty || 1}</span>
+            <button onclick="changeQty(${index}, 1)">+</button>
+          </div>
+
+          <button class="remove-btn" onclick="removeFromCart(${index})">
+            Remove
+          </button>
+        </div>
+
       </div>
     `;
   });
 
   cartTotal.innerText = "Total: R" + total;
 
+  // cart count bubble
   const countEl = document.getElementById("cart-count");
-
-if (countEl) {
-  const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
-  countEl.innerText = totalItems;
-}
+  if (countEl) {
+    const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+    countEl.innerText = totalItems;
+  }
 }
 
 function removeFromCart(index){
