@@ -199,8 +199,7 @@ const products = [
     images: [
   "./images/rooibos-and-honey-salt-2.jpeg",
   "./images/rooibos-and-honey-salt-3.jpeg",
-  "./images/rooibos-and-honey-salt-4.jpeg",
-  "./images/rooibos-and-honey-salt-5.jpeg"
+  "./images/rooibos-and-honey-salt-4.jpeg"
 ],
     category: "bath",
     description: "A soothing blend of mineral-rich salts infused with calming rooibos and naturally comforting honey notes. Designed to relax the body, ease tension, and leave your skin feeling soft and restored. Perfect for unwinding after a long day.",
@@ -213,8 +212,7 @@ const products = [
     price: 139,
     image: "./images/fynbos-tea-1.png",
     images: [
-  "./images/fynbos-tea-1.jpg",
-  "./images/fynbos-tea-2.jpg"
+  "./images/fynbos-tea-1.png"
 ],
     category: "bath",
     description: "Inspired by South Africa’s natural fynbos landscapes, this herbal bath tea combines aromatic botanicals to create a refreshing and grounding bathing experience. Weight: 100g Origin: Locally made.",
@@ -227,8 +225,7 @@ const products = [
     price: 139,
     image: "./images/rose-tea-1.png",
     images: [
-  "./images/rose-tea-1.jpg",
-  "./images/rose-tea-2.jpg"
+  "./images/rose-tea-1.png"
 ],
     category: "bath",
     description: "A soothing blend of rose petals and chamomile designed to gently infuse bath water with calming floral aromas. This botanical bath tea helps create a relaxing spa-like soak while softening the skin. Weight: 100g Origin: Locally made.",
@@ -347,10 +344,8 @@ const products = [
     price: 139,
     image: "./images/ceramic-soap-dish.png",
     images: [
-  "./images/ceramic-soap-dish-1.jpg",
   "./images/ceramic-soap-dish-2.jpg",
   "./images/ceramic-soap-dish-3.jpg",
-  "./images/ceramic-soap-dish-4.jpg",
   "./images/ceramic-soap-dish-5.jpg",
   "./images/ceramic-soap-dish-6.jpg"
 ],
@@ -364,7 +359,6 @@ const products = [
     price: 149,
     image: "./images/waterfall-soap-dish.png",
     images: [
-  "./images/waterfall-soap-dish-1.jpg",
   "./images/waterfall-soap-dish-2.jpg",
   "./images/waterfall-soap-dish-3.jpg",
   "./images/waterfall-soap-dish-4.jpg"
@@ -379,10 +373,9 @@ const products = [
     price: 129,
     image: "./images/homemade-soap-bag.png",
     images: [
-  "./images/soap-bag-1.jpg",
-  "./images/soap-bag-2.jpg",
-  "./images/soap-bag-3.jpg",
-  "./images/soap-bag-4.jpg"
+  "./images/homemade-soap-bag-1.jpg",
+  "./images/homemade-soap-bag-2.jpg",
+  "./images/homemade-soap-bag-4.jpg"
 ],
     category: "bath",
     description: "Material: Natural twine Size: 13 cm × 9 cm Weight: 15 g Origin: Locally made. Key Features • Natural material that creates a richer lather with less soap • Gentle exfoliation for smoother skin • Extends the life of soap by collecting small pieces"
