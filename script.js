@@ -174,6 +174,17 @@ function goCheckout(){
   window.location.href = "./checkout.html";
 }
 
+function changeQty(index, amount){
+  cart[index].qty += amount;
+
+  if(cart[index].qty < 1){
+    cart.splice(index, 1);
+  }
+
+  saveCart();
+  renderCart();
+}
+
 window.onload = function(){
   if(typeof products === "undefined") return;
 
