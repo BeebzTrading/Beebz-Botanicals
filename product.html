@@ -21,7 +21,6 @@
   </nav>
 </header>
 
-<!-- CART -->
 <button class="cart-toggle" onclick="toggleCart()">🛒 Cart</button>
 
 <div id="cart" class="cart">
@@ -34,7 +33,6 @@
   <button onclick="goCheckout()" class="checkout-btn">Checkout</button>
 </div>
 
-<!-- PRODUCT -->
 <div id="product-page"></div>
 
 <script src="products.js"></script>
@@ -48,15 +46,7 @@ window.onload = function(){
 
   const container = document.getElementById("product-page");
 
-  if(!container){
-    console.error("product-page div not found");
-    return;
-  }
-
-  if(typeof products === "undefined"){
-    container.innerHTML = "<p>Error loading products</p>";
-    return;
-  }
+  if(!container || typeof products === "undefined") return;
 
   let product = products.find(p => p.id === rawId);
 
@@ -70,100 +60,72 @@ window.onload = function(){
 
       <a href="./shop.html" class="back-btn">← Back to Shop</a>
 
-      <div style="
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:50px;
-        align-items:start;
-        margin-top:20px;
-      ">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:20px;">
 
         <div>
-          <img id="main-image" src="${product.image}" style="
-            width:100%;
-            border-radius:12px;
-          ">
-          <div id="thumbs" style="
-            display:flex;
-            gap:12px;
-            margin-top:15px;
-            flex-wrap:wrap;
-          "></div>
+          <img id="main-image" src="${product.image}" style="width:100%;border-radius:12px;">
+          <div id="thumbs" style="display:flex;gap:12px;margin-top:15px;flex-wrap:wrap;"></div>
         </div>
 
         <div>
-          <h1 style="font-size:32px;margin-bottom:10px;">
-            ${product.name}
-          </h1>
+          <h1 style="font-size:32px;margin-bottom:10px;">${product.name}</h1>
+          <p style="font-size:24px;font-weight:600;margin-bottom:18px;">R${product.price}</p>
+          <p style="margin-bottom:18px;">${product.description}</p>
+          <p style="margin-bottom:25px;">${product.ingredients || ""}</p>
 
-          <p style="font-size:24px;font-weight:600;margin-bottom:18px;">
-            R${product.price}
-          </p>
+          <div class="quantity-wrapper">
+            <button id="minus">−</button>
+            <span id="quantity-value">1</span>
+            <button id="plus">+</button>
+          </div>
 
-          <p style="line-height:1.7;margin-bottom:18px;">
-            ${product.description}
-          </p>
-
-          <p style="line-height:1.7;margin-bottom:25px;">
-            ${product.ingredients || "Ingredients not available."}
-          </p>
-
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-            <label>Quantity:</label>
-           <div class="quantity-wrapper">
-  <button id="minus">−</button>
-  <span id="quantity-value">1</span>
-  <button id="plus">+</button>
-</div>
-
-          <button id="add-to-cart-btn" style="
-            padding:12px 24px;
-            border:none;
-            border-radius:8px;
-            background:#e8dcd1;
-            font-weight:600;
-            cursor:pointer;
-          ">
-            Add to Cart
-          </button>
-
+          <button id="add-to-cart-btn">Add to Cart</button>
         </div>
 
       </div>
     </div>
   `;
 
-  // Quantity logic
+  let quantity = 1;
+
+  const quantityDisplay = document.getElementById("quantity-value");
+  const plusBtn = document.getElementById("plus");
+  const minusBtn = document.getElementById("minus");
   const addBtn = document.getElementById("add-to-cart-btn");
-  const quantityInput = document.getElementById("quantity");
 
-  addBtn.onclick = function () {
-    const quantity = parseInt(quantityInput.value) || 1;
+  plusBtn.onclick = () => {
+    quantity++;
+    quantityDisplay.innerText = quantity;
+  };
 
-    for (let i = 0; i < quantity; i++) {
+  minusBtn.onclick = () => {
+    if(quantity > 1){
+      quantity--;
+      quantityDisplay.innerText = quantity;
+    }
+  };
+
+  addBtn.onclick = () => {
+    for(let i = 0; i < quantity; i++){
       addToCart(product.name, product.price, product.image);
     }
   };
 
-  // Image gallery
   const main = document.getElementById("main-image");
   const thumbs = document.getElementById("thumbs");
 
   let images = [];
-
   if(product.image) images.push(product.image);
   if(product.images) images.push(...product.images);
 
-  images.forEach(imgSrc => {
+  images.forEach(src => {
     const img = document.createElement("img");
-    img.src = imgSrc;
+    img.src = src;
     img.style.width = "70px";
-    img.style.height = "70px";
-    img.style.objectFit = "cover";
-    img.style.borderRadius = "8px";
     img.style.cursor = "pointer";
+    img.style.borderRadius = "8px";
 
-    img.onclick = () => main.src = imgSrc;
+    img.onclick = () => main.src = src;
 
     thumbs.appendChild(img);
   });
@@ -172,7 +134,6 @@ window.onload = function(){
 };
 </script>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-links">
     <a href="./privacy.html">Privacy Policy</a>
