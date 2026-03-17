@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Product | Beebz Botanicals</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="./images/logo.jpeg"> Beebz Botanicals
+  </div>
+
+  <nav class="nav">
+    <a href="./index.html">Home</a>
+    <a href="./shop.html">Shop</a>
+    <a href="./about.html">About</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- ✅ THIS WAS MISSING -->
+<div id="product-page"></div>
+
+<!-- ✅ LOAD DATA + FUNCTIONS -->
+<script src="./products.js"></script>
+<script src="./script.js"></script>
+
 <script>
 window.onload = function(){
 
@@ -6,27 +36,22 @@ window.onload = function(){
 
   const container = document.getElementById("product-page");
 
-  // safety check
   if(typeof products === "undefined"){
-    container.innerHTML = "<p style='text-align:center'>Error loading products</p>";
+    container.innerHTML = "<p>Error loading products</p>";
     return;
   }
 
-  // ✅ CLEAN FIX (THIS WAS YOUR BUG)
   let product = products.find(p => p.id === rawId);
 
   if(!product){
-    container.innerHTML = "<p style='text-align:center'>Product not found</p>";
-    console.log("URL:", rawId);
-    console.log("Products:", products);
+    container.innerHTML = "<p>Product not found</p>";
     return;
   }
 
-  // render product
   container.innerHTML = `
     <div style="max-width:1000px;margin:auto">
 
-      <a href="./shop.html" style="display:block;margin-bottom:20px;">← Back to Shop</a>
+      <a href="./shop.html">← Back to Shop</a>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
 
@@ -49,32 +74,27 @@ window.onload = function(){
     </div>
   `;
 
-  // gallery
   const main = document.getElementById("main-image");
   const thumbs = document.getElementById("thumbs");
 
   let images = [];
 
   if(product.image) images.push(product.image);
+  if(product.images) images.push(...product.images);
 
-  if(product.images){
-    for(let i=0;i<product.images.length;i++){
-      images.push(product.images[i]);
-    }
-  }
-
-  for(let i=0;i<images.length;i++){
+  images.forEach(imgSrc => {
     const img = document.createElement("img");
-    img.src = images[i];
+    img.src = imgSrc;
     img.style.width = "60px";
     img.style.cursor = "pointer";
 
-    img.onclick = function(){
-      main.src = images[i];
-    };
+    img.onclick = () => main.src = imgSrc;
 
     thumbs.appendChild(img);
-  }
+  });
 
 }
 </script>
+
+</body>
+</html>
