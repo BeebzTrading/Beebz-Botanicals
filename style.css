@@ -1591,3 +1591,8 @@ button {
   color: #777;
   margin-top: 20px;
 }
+
+.checkout-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
