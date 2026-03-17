@@ -57,6 +57,16 @@ function addToCart(name, price, image){
   if(cartPanel){
     cartPanel.classList.add("open");
   }
+
+  const popup = document.getElementById("cart-popup");
+
+if (popup) {
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 1500);
+}
 }
 
 function renderProducts(containerId){
