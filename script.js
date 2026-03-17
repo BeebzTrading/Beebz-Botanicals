@@ -239,11 +239,14 @@ window.addEventListener("load", handleFadeIn);
 
 
 window.onload = function(){
-  if(typeof products === "undefined") return;
 
-  if(document.getElementById("shop-products")){
-    renderProducts("shop-products");
+  // render products only if available
+  if(typeof products !== "undefined"){
+    if(document.getElementById("shop-products")){
+      renderProducts("shop-products");
+    }
   }
 
+  // ALWAYS render cart
   renderCart();
 };
