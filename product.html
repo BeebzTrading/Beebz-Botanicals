@@ -21,24 +21,20 @@
   </nav>
 </header>
 
- <button class="cart-toggle" onclick="toggleCart()">🛒 Cart</button>
+<!-- CART -->
+<button class="cart-toggle" onclick="toggleCart()">🛒 Cart</button>
 
 <div id="cart" class="cart">
   <div class="cart-header">
     <h2>Your Cart</h2>
     <button onclick="closeCart()">✕</button>
   </div>
-
   <div id="cart-items"></div>
-
   <h3 id="cart-total">Total: R0</h3>
-
-  <button onclick="goCheckout()" class="checkout-btn">
-    Checkout
-  </button>
+  <button onclick="goCheckout()" class="checkout-btn">Checkout</button>
 </div>
-  
-<!-- ✅ THIS WAS MISSING -->
+
+<!-- PRODUCT -->
 <div id="product-page"></div>
 
 <script src="products.js"></script>
@@ -69,135 +65,113 @@ window.onload = function(){
     return;
   }
 
-container.innerHTML = `
-  <div style="max-width:1100px;margin:40px auto;padding:0 20px;">
+  container.innerHTML = `
+    <div style="max-width:1100px;margin:40px auto;padding:0 20px;">
 
-    <a href="./shop.html" class="back-btn">← Back to Shop</a>
+      <a href="./shop.html" class="back-btn">← Back to Shop</a>
 
-    <div style="
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px;
-      align-items:start;
-      margin-top:20px;
-    ">
+      <div style="
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:50px;
+        align-items:start;
+        margin-top:20px;
+      ">
 
-      <div>
-        <img id="main-image" src="${product.image}" style="
-          width:100%;
-          border-radius:12px;
-          display:block;
-        ">
-        <div id="thumbs" style="
-          display:flex;
-          gap:12px;
-          margin-top:15px;
-          flex-wrap:wrap;
-        "></div>
-      </div>
-
-      <div style="padding-top:10px;">
-        <h1 style="
-          font-size:32px;
-          margin-bottom:10px;
-        ">${product.name}</h1>
-
-        <p style="
-          font-size:24px;
-          font-weight:600;
-          margin-bottom:18px;
-        ">R${product.price}</p>
-
-        <p style="
-          line-height:1.7;
-          margin-bottom:18px;
-        ">${product.description}</p>
-
-        <p style="
-          line-height:1.7;
-          margin-bottom:25px;
-        ">
-          <strong>Ingredients:</strong> ${product.ingredients || "Ingredients not available."}
-        </p>
-
-        <div style="
-          display:flex;
-          align-items:center;
-          gap:12px;
-          margin-bottom:20px;
-        ">
-          <label for="quantity" style="font-weight:500;">Quantity:</label>
-          <input 
-            id="quantity" 
-            type="number" 
-            min="1" 
-            value="1"
-            style="
-              width:70px;
-              padding:8px;
-              border:1px solid #ccc;
-              border-radius:6px;
-              font-size:16px;
-            "
-          >
+        <div>
+          <img id="main-image" src="${product.image}" style="
+            width:100%;
+            border-radius:12px;
+          ">
+          <div id="thumbs" style="
+            display:flex;
+            gap:12px;
+            margin-top:15px;
+            flex-wrap:wrap;
+          "></div>
         </div>
 
-        <button id="add-to-cart-btn" style="
-          padding:12px 24px;
-          border:none;
-          border-radius:8px;
-          background:#e8dcd1;
-          color:#333;
-          font-size:16px;
-          font-weight:600;
-          cursor:pointer;
-        ">
-          Add to Cart
-        </button>
+        <div>
+          <h1 style="font-size:32px;margin-bottom:10px;">
+            ${product.name}
+          </h1>
+
+          <p style="font-size:24px;font-weight:600;margin-bottom:18px;">
+            R${product.price}
+          </p>
+
+          <p style="line-height:1.7;margin-bottom:18px;">
+            ${product.description}
+          </p>
+
+          <p style="line-height:1.7;margin-bottom:25px;">
+            ${product.ingredients || "Ingredients not available."}
+          </p>
+
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+            <label>Quantity:</label>
+            <input id="quantity" type="number" min="1" value="1"
+              style="width:70px;padding:8px;border-radius:6px;border:1px solid #ccc;">
+          </div>
+
+          <button id="add-to-cart-btn" style="
+            padding:12px 24px;
+            border:none;
+            border-radius:8px;
+            background:#e8dcd1;
+            font-weight:600;
+            cursor:pointer;
+          ">
+            Add to Cart
+          </button>
+
+        </div>
+
       </div>
-
     </div>
-  </div>
-`;
+  `;
 
+  // Quantity logic
   const addBtn = document.getElementById("add-to-cart-btn");
-const quantityInput = document.getElementById("quantity");
+  const quantityInput = document.getElementById("quantity");
 
-addBtn.onclick = function () {
-  const quantity = parseInt(quantityInput.value) || 1;
+  addBtn.onclick = function () {
+    const quantity = parseInt(quantityInput.value) || 1;
 
-  for (let i = 0; i < quantity; i++) {
-    addToCart(product.name, product.price, product.image);
-  }
-};
+    for (let i = 0; i < quantity; i++) {
+      addToCart(product.name, product.price, product.image);
+    }
+  };
 
+  // Image gallery
   const main = document.getElementById("main-image");
-const thumbs = document.getElementById("thumbs");
+  const thumbs = document.getElementById("thumbs");
 
-let images = [];
+  let images = [];
 
-if (product.image) images.push(product.image);
-if (product.images) images.push(...product.images);
+  if(product.image) images.push(product.image);
+  if(product.images) images.push(...product.images);
 
-images.forEach(imgSrc => {
-  const img = document.createElement("img");
-  img.src = imgSrc;
-  img.style.width = "70px";
-  img.style.height = "70px";
-  img.style.objectFit = "cover";
-  img.style.cursor = "pointer";
-  img.style.borderRadius = "8px";
-  img.style.border = "1px solid #ddd";
+  images.forEach(imgSrc => {
+    const img = document.createElement("img");
+    img.src = imgSrc;
+    img.style.width = "70px";
+    img.style.height = "70px";
+    img.style.objectFit = "cover";
+    img.style.borderRadius = "8px";
+    img.style.cursor = "pointer";
 
-  img.onclick = () => main.src = imgSrc;
+    img.onclick = () => main.src = imgSrc;
 
-  thumbs.appendChild(img);
-});
+    thumbs.appendChild(img);
+  });
 
-  
+  renderCart();
+};
 </script>
-  <footer class="footer">
 
+<!-- FOOTER -->
+<footer class="footer">
   <div class="footer-links">
     <a href="./privacy.html">Privacy Policy</a>
     <a href="./terms.html">Terms</a>
@@ -211,7 +185,7 @@ images.forEach(imgSrc => {
   <p class="footer-copy">
     © 2026 Beebz Botanicals
   </p>
-
 </footer>
+
 </body>
 </html>
