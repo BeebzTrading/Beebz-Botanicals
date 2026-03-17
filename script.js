@@ -4,41 +4,28 @@ function saveCart(){
   localStorage.setItem("cartData", JSON.stringify(cart))
 }
 
-function renderCart(){
-  const cartItems = document.getElementById("cart-items")
-  const cartTotal = document.getElementById("cart-total")
+function renderCart() {
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
 
-  if(!cartItems || !cartTotal) return
+  if (!cartItems || !cartTotal) return;
 
-  cartItems.innerHTML = ""
+  cartItems.innerHTML = "";
 
-  let total = 0
+  let total = 0;
 
-  cart.forEach((item, index) => {
-    const div = document.createElement("div")
-    div.classList.add("cart-item")
+  cart.forEach(item => {
+    total += item.price;
 
-    div.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      <div class="cart-item-details">
-        <h3>${item.name}</h3>
-        <p>R${item.price}</p>
-
-        <div class="cart-controls">
-          <button onclick="decreaseQty(${index})">−</button>
-          <span>${item.qty}</span>
-          <button onclick="increaseQty(${index})">+</button>
-        </div>
-
-        <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <p>${item.name} - R${item.price}</p>
       </div>
+    `;
+  });
 
-      <strong>R${item.price * item.qty}</strong>
-    `
-
-    cartItems.appendChild(div)
-    total += item.price * item.qty
-  })
+  cartTotal.innerText = "Total: R" + total;
+}
 
   cartTotal.innerText = "Total: R" + total
 }
