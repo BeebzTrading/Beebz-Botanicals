@@ -1687,5 +1687,10 @@ button {
 @media (max-width: 600px) {
   .cart {
     width: 100%;
+    right: -100%; /* 👈 keep it hidden */
+  }
+
+  .cart.open {
+    right: 0;
   }
 }
