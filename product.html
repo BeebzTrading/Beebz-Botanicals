@@ -60,45 +60,55 @@ window.onload = function(){
 
       <a href="./shop.html" class="back-btn">← Back to Shop</a>
 
-     <div class="product-layout">
+      <div class="product-layout">
 
         <div>
           <img id="main-image" src="${product.image}" style="width:100%;border-radius:12px;">
           <div id="thumbs" style="display:flex;gap:12px;margin-top:15px;flex-wrap:wrap;"></div>
         </div>
 
-        <div>
-          <div class="product-info">
+        <div class="product-info">
 
-  <h1>${product.name}</h1>
+          <h1>${product.name}</h1>
 
-  <p style="font-size:24px;font-weight:600;">
-    R${product.price}
-  </p>
+          <p style="font-size:24px;font-weight:600;">
+            R${product.price}
+          </p>
 
-  <p>${product.description}</p>
+          <p>${product.description}</p>
 
-  <p style="font-size:14px;color:#555;">
-    ${product.ingredients || ""}
-  </p>
+          <p style="font-size:14px;color:#555;">
+            ${product.ingredients || ""}
+          </p>
 
-  <div class="product-actions">
+          <div class="product-actions">
 
-    <div class="quantity-wrapper">
-      <button id="minus">−</button>
-      <span id="quantity-value">1</span>
-      <button id="plus">+</button>
-    </div>
+            <div class="quantity-wrapper">
+              <button id="minus">−</button>
+              <span id="quantity-value">1</span>
+              <button id="plus">+</button>
+            </div>
 
-    <button id="add-to-cart-btn" class="add-to-cart-btn">
-      🛒 Add to Cart
-    </button>
+            <button id="add-to-cart-btn" class="add-to-cart-btn">
+              🛒 Add to Cart
+            </button>
 
-  </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ✅ RECOMMENDED SECTION -->
+      <div class="recommended-section">
+        <h2>You May Also Like</h2>
+        <div id="recommended-products" class="product-grid"></div>
+      </div>
 
     </div>
   `;
 
+  // Quantity
   let quantity = 1;
 
   const quantityDisplay = document.getElementById("quantity-value");
@@ -124,6 +134,7 @@ window.onload = function(){
     }
   };
 
+  // Images
   const main = document.getElementById("main-image");
   const thumbs = document.getElementById("thumbs");
 
@@ -141,6 +152,35 @@ window.onload = function(){
     img.onclick = () => main.src = src;
 
     thumbs.appendChild(img);
+  });
+
+  // ✅ RECOMMENDED PRODUCTS
+  const recommendedContainer = document.getElementById("recommended-products");
+
+  let recommended = products.filter(p => 
+    p.category === product.category && p.id !== product.id
+  );
+
+  if(recommended.length < 3){
+    recommended = products.filter(p => p.id !== product.id);
+  }
+
+  recommended.slice(0, 4).forEach(p => {
+    const div = document.createElement("div");
+    div.classList.add("product");
+
+    div.innerHTML = `
+      <a href="./product.html?id=${p.id}">
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+      </a>
+      <p class="price">R${p.price}</p>
+      <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')">
+        Add to Cart
+      </button>
+    `;
+
+    recommendedContainer.appendChild(div);
   });
 
   renderCart();
