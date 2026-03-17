@@ -91,7 +91,11 @@ function addToCart(name, price, image){
 
 function renderProducts(containerId){
   const container = document.getElementById(containerId)
-  if(!container || typeof products === "undefined") return
+
+  if(!container || typeof products === "undefined"){
+    console.log("Products not loaded or container missing")
+    return
+  }
 
   container.innerHTML = ""
 
@@ -101,23 +105,26 @@ function renderProducts(containerId){
     list = products.slice(0, 3)
   }
 
-  list.forEach(p => {
+  for(let i = 0; i < list.length; i++){
+
+    const p = list[i]
+
     const div = document.createElement("div")
     div.classList.add("product")
 
     div.innerHTML = `
-      <href="./product.html?id=${p.id}">
+      <a href="./product.html?id=${p.id}">
         <img src="${p.image}" alt="${p.name}">
         <h3>${p.name}</h3>
       </a>
       <p class="price">R${p.price}</p>
-      <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')">
+      <button onclick="addToCart('${p.name}', ${p.price}, '${p.image}')">
         Add to Cart
       </button>
     `
 
     container.appendChild(div)
-  })
+  }
 }
 
 function renderFiltered(list){
