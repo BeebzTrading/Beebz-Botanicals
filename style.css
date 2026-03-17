@@ -1694,3 +1694,15 @@ button {
     right: 0;
   }
 }
+
+/* 🔥 FORCE FIX FOR MOBILE CART */
+@media (max-width: 600px) {
+  .cart {
+    right: -100% !important;
+    width: 100% !important;
+  }
+
+  .cart.open {
+    right: 0 !important;
+  }
+}
