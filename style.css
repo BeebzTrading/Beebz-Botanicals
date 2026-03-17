@@ -1513,18 +1513,24 @@ h1, h2 {
 
 #cart-popup {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2f4f46; /* matches your theme */
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #2f4f46;
   color: white;
-  padding: 12px 18px;
-  border-radius: 10px;
+  padding: 12px 22px;
+  border-radius: 30px;
   opacity: 0;
-  transform: translateY(10px);
   transition: all 0.3s ease;
   font-size: 14px;
   z-index: 9999;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* show animation */
+#cart-popup.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 #cart-popup.show {
