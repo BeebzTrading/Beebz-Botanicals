@@ -149,7 +149,29 @@ function filterProducts(category){
 }
 
 function searchProducts(){
-  const input = document.getElementById("searchInput")
+  let quantity = 1;
+
+const quantityDisplay = document.getElementById("quantity-value");
+const plusBtn = document.getElementById("plus");
+const minusBtn = document.getElementById("minus");
+
+plusBtn.onclick = function () {
+  quantity++;
+  quantityDisplay.innerText = quantity;
+};
+
+minusBtn.onclick = function () {
+  if (quantity > 1) {
+    quantity--;
+    quantityDisplay.innerText = quantity;
+  }
+};
+
+addBtn.onclick = function () {
+  for (let i = 0; i < quantity; i++) {
+    addToCart(product.name, product.price, product.image);
+  }
+};
   if(!input) return
 
   const query = input.value.toLowerCase()
