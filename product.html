@@ -152,8 +152,20 @@ window.onload = function(){
     img.style.cursor = "pointer";
     img.style.borderRadius = "8px";
 
-    img.onclick = () => main.src = src;
+    img.onclick = () => {
+  main.style.opacity = 0;
 
+  setTimeout(() => {
+    main.src = src;
+    main.style.opacity = 1;
+  }, 150);
+
+  document.querySelectorAll("#thumbs img").forEach(i => {
+    i.classList.remove("active-thumb");
+  });
+
+  img.classList.add("active-thumb");
+};
     thumbs.appendChild(img);
   });
 
