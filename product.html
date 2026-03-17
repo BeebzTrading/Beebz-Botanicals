@@ -40,15 +40,10 @@ window.onload = function(){
     return;
   }
 
-  let product = products.find(p => p.id === rawId);
-
-  if(!product){
-    container.innerHTML = "<p>Product not found</p>";
+  if(typeof products === "undefined"){
+    container.innerHTML = "<p>Error loading products</p>";
     return;
   }
-
-  container.innerHTML = `<h1>${product.name}</h1>`;
-}
 
   let product = products.find(p => p.id === rawId);
 
@@ -102,8 +97,7 @@ window.onload = function(){
     thumbs.appendChild(img);
   });
 
-}
+};
 </script>
-
 </body>
 </html>
