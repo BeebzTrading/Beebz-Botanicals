@@ -57,7 +57,12 @@ if (checkoutBtn) {
     `;
   });
 
+  cartTotal.classList.add("updating");
+
+setTimeout(() => {
   cartTotal.innerText = "Total: R" + total;
+  cartTotal.classList.remove("updating");
+}, 150);
   const checkoutBtn = document.getElementById("checkout-btn");
 
 if (checkoutBtn) {
