@@ -58,6 +58,11 @@ if (checkoutBtn) {
   });
 
   cartTotal.innerText = "Total: R" + total;
+  const checkoutBtn = document.getElementById("checkout-btn");
+
+if (checkoutBtn) {
+  checkoutBtn.disabled = false;
+}
 
   // cart count bubble
   const countEl = document.getElementById("cart-count");
