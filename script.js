@@ -113,7 +113,7 @@ function renderProducts(containerId){
     div.classList.add("product")
 
     div.innerHTML = `
-      <a href="./product.html?id=${p.id}">
+      href="./product.html?id=${p.id}"
         <img src="${p.image}" alt="${p.name}">
         <h3>${p.name}</h3>
       </a>
