@@ -1,86 +1,33 @@
-<script>
-  const products [
-window.onload = function(){
+const products = [
 
-  const params = new URLSearchParams(window.location.search);
-  const rawId = params.get("id");
+{
+  id: "highveld-rose",
+  name: "Highveld Rose Soap",
+  price: 59,
+  image: "./images/highveld-rose-box-cat.png",
+  images: [
+    "./images/highveld-rose-1.jpg",
+    "./images/highveld-rose-2.jpg",
+    "./images/highveld-rose-3.jpg"
+  ],
+  category: "soap",
+  description: "A romantic floral soap with rose, geranium and palmarosa.",
+  ingredients: "Olive oil, coconut oil, shea butter"
+},
 
-  const container = document.getElementById("product-page");
+{
+  id: "jacaranda-bloom",
+  name: "Jacaranda Bloom Soap",
+  price: 59,
+  image: "./images/jacaranda-bloom-box-cat.png",
+  images: [
+    "./images/jacaranda-bloom-1.jpg",
+    "./images/jacaranda-bloom-2.jpg",
+    "./images/jacaranda-bloom-3.jpg"
+  ],
+  category: "soap",
+  description: "A calming floral blend inspired by jacaranda blossoms.",
+  ingredients: "Olive oil, coconut oil, shea butter"
+}
 
-  if(typeof products === "undefined"){
-    container.innerHTML = "<p style='text-align:center'>Error loading products</p>";
-    return;
-  }
-
-  // ✅ FIX: MATCH USING ID (NOT NAME)
-  let product = null;
-
-  for(let i = 0; i < products.length; i++){
-    if(products[i].id === rawId){
-      product = products[i];
-      break;
-    }
-  }
-
-  if(!product){
-    container.innerHTML = "<p style='text-align:center'>Product not found</p>";
-    console.log("Looking for ID:", rawId);
-    console.log("Available:", products.map(p => p.id));
-    return;
-  }
-
-  container.innerHTML = `
-    <div style="max-width:1000px;margin:auto">
-
-      <a href="./shop.html" style="display:block;margin-bottom:20px;">← Back to Shop</a>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
-
-        <div>
-          <img id="main-image" src="${product.image}" style="width:100%">
-          <div id="thumbs" style="display:flex;gap:10px;margin-top:10px"></div>
-        </div>
-
-        <div>
-          <h1>${product.name}</h1>
-          <p>R${product.price}</p>
-          <p>${product.description}</p>
-
-          <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">
-            Add to Cart
-          </button>
-        </div>
-
-      </div>
-    </div>
-  `;
-
-  // ✅ IMAGE GALLERY
-  const main = document.getElementById("main-image");
-  const thumbs = document.getElementById("thumbs");
-
-  let images = [];
-
-  if(product.image) images.push(product.image);
-
-  if(product.images){
-    for(let i=0;i<product.images.length;i++){
-      images.push(product.images[i]);
-    }
-  }
-
-  for(let i=0;i<images.length;i++){
-    const img = document.createElement("img");
-    img.src = images[i];
-    img.style.width = "60px";
-    img.style.cursor = "pointer";
-
-    img.onclick = function(){
-      main.src = images[i];
-    };
-
-    thumbs.appendChild(img);
-  }
-
-}];
-</script>
+];
