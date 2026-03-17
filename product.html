@@ -1,38 +1,46 @@
 <script>
-document.addEventListener("DOMContentLoaded", function(){
+window.onload = function(){
 
-  const params = new URLSearchParams(window.location.search)
-  const productName = decodeURIComponent(params.get("id") || "").trim().toLowerCase()
+  const params = new URLSearchParams(window.location.search);
+  const rawId = params.get("id");
 
-  const product = products.find(p => 
-    p.name.trim().toLowerCase() === productName
-  )
+  const container = document.getElementById("product-page");
 
-  const container = document.getElementById("product-page")
-
-  // 🛑 STOP CRASHING
-  if(!product){
-    container.innerHTML = "<p style='text-align:center'>Product not found</p>"
-    console.error("Product not found:", productName)
-    return
+  // SAFETY CHECK
+  if(typeof products === "undefined"){
+    container.innerHTML = "<p style='text-align:center'>Error loading products</p>";
+    return;
   }
 
-  const related = products
-    .filter(p => p.category === product.category && p.name !== product.name)
-    .slice(0,3)
+  // CLEAN MATCH
+  let product = null;
 
+  for(let i = 0; i < products.length; i++){
+    if(products[i].name === decodeURIComponent(rawId)){
+      product = products[i];
+      break;
+    }
+  }
+
+  // IF NOT FOUND → SHOW ERROR (NO CRASH)
+  if(!product){
+    container.innerHTML = "<p style='text-align:center'>Product not found</p>";
+    console.log("URL:", rawId);
+    console.log("Products:", products);
+    return;
+  }
+
+  // RENDER PRODUCT
   container.innerHTML = `
     <div style="max-width:1000px;margin:auto">
 
-      <div style="width:100%;text-align:left;">
-        <a href="./shop.html">← Back to Shop</a>
-      </div>
+      <a href="./shop.html" style="display:block;margin-bottom:20px;">← Back to Shop</a>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
 
         <div>
-          <img id="main-product-image" src="${product.image}" style="width:100%;border-radius:12px">
-          <div id="thumbnail-container" style="display:flex;gap:10px;margin-top:10px"></div>
+          <img id="main-image" src="${product.image}" style="width:100%">
+          <div id="thumbs" style="display:flex;gap:10px;margin-top:10px"></div>
         </div>
 
         <div>
@@ -40,48 +48,41 @@ document.addEventListener("DOMContentLoaded", function(){
           <p>R${product.price}</p>
           <p>${product.description}</p>
 
-          <div>
-            <button onclick="changeQty(-1)">−</button>
-            <span id="qty">1</span>
-            <button onclick="changeQty(1)">+</button>
-          </div>
-
-          <button onclick="addMultipleToCart('${product.name}', ${product.price}, '${product.image}')">
+          <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">
             Add to Cart
           </button>
         </div>
 
       </div>
     </div>
-  `
+  `;
 
-  // ✅ SAFE GALLERY
-  const mainImage = document.getElementById("main-product-image")
-  const thumbnailContainer = document.getElementById("thumbnail-container")
+  // IMAGE GALLERY (SAFE)
+  const main = document.getElementById("main-image");
+  const thumbs = document.getElementById("thumbs");
 
-  let allImages = []
+  let images = [];
 
-  if(product.image) allImages.push(product.image)
-  if(product.images && Array.isArray(product.images)){
+  if(product.image) images.push(product.image);
+
+  if(product.images){
     for(let i=0;i<product.images.length;i++){
-      allImages.push(product.images[i])
+      images.push(product.images[i]);
     }
   }
 
-  for(let i=0;i<allImages.length;i++){
-    const img = allImages[i]
+  for(let i=0;i<images.length;i++){
+    const img = document.createElement("img");
+    img.src = images[i];
+    img.style.width = "60px";
+    img.style.cursor = "pointer";
 
-    const thumb = document.createElement("img")
-    thumb.src = img
-    thumb.style.width = "60px"
-    thumb.style.cursor = "pointer"
+    img.onclick = function(){
+      main.src = images[i];
+    };
 
-    thumb.onclick = function(){
-      mainImage.src = img
-    }
-
-    thumbnailContainer.appendChild(thumb)
+    thumbs.appendChild(img);
   }
 
-})
+}
 </script>
