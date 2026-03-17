@@ -203,17 +203,21 @@ function goCheckout(){
   window.location.href = "./checkout.html"
 }
 
-document.addEventListener("DOMContentLoaded", function(){
+window.onload = function(){
+
+  if(typeof products === "undefined"){
+    console.error("Products not loaded")
+    return
+  }
 
   const shopContainer = document.getElementById("shop-products")
 
   if(shopContainer){
-    // ✅ ALWAYS render products first (required for filter/search)
     renderProducts("shop-products")
   }
 
   renderCart()
-})
+}
 
 // HANDLE PRODUCT LINK FROM HOMEPAGE
 window.addEventListener("DOMContentLoaded", () => {
