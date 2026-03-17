@@ -11,6 +11,16 @@ function renderCart() {
   if (!cartItems || !cartTotal) return;
 
   cartItems.innerHTML = "";
+  if (cart.length === 0) {
+  cartItems.innerHTML = "<p>Your cart is empty</p>";
+  cartTotal.innerText = "Total: R0";
+
+  // update cart count too
+  const countEl = document.getElementById("cart-count");
+  if (countEl) countEl.innerText = 0;
+
+  return;
+}
 
   let total = 0;
 
