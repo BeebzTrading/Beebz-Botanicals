@@ -26,6 +26,13 @@ function renderCart() {
   });
 
   cartTotal.innerText = "Total: R" + total;
+
+  const countEl = document.getElementById("cart-count");
+
+if (countEl) {
+  const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+  countEl.innerText = totalItems;
+}
 }
 
 function removeFromCart(index){
