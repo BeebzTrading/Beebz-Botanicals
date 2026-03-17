@@ -24,7 +24,6 @@
 <!-- ✅ THIS WAS MISSING -->
 <div id="product-page"></div>
 
-<!-- ✅ LOAD DATA + FUNCTIONS -->
 <script src="products.js"></script>
 <script src="script.js"></script>
 
@@ -36,10 +35,20 @@ window.onload = function(){
 
   const container = document.getElementById("product-page");
 
-  if(typeof products === "undefined"){
-    container.innerHTML = "<p>Error loading products</p>";
+  if(!container){
+    console.error("product-page div not found");
     return;
   }
+
+  let product = products.find(p => p.id === rawId);
+
+  if(!product){
+    container.innerHTML = "<p>Product not found</p>";
+    return;
+  }
+
+  container.innerHTML = `<h1>${product.name}</h1>`;
+}
 
   let product = products.find(p => p.id === rawId);
 
