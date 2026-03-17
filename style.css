@@ -1596,3 +1596,11 @@ button {
   opacity: 0.5;
   cursor: not-allowed;
 }
+#cart-total {
+  transition: all 0.3s ease;
+}
+
+#cart-total.updating {
+  opacity: 0.5;
+  transform: translateY(3px);
+}
