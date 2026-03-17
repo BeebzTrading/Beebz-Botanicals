@@ -1456,3 +1456,28 @@ html {
   font-size: 24px;
   margin-bottom: 20px;
 }
+
+/* Recommended products responsive layout */
+.recommended-section .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .recommended-section .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  .recommended-section .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recommended-section {
+  margin-top: 70px;
+}
