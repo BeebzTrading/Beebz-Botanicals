@@ -152,7 +152,6 @@ const products = [
     price: 129,
     image: "./images/highveld-rose-salt-2.jpeg",
     images: [
-  "./images/highveld-rose-salt-2.jpeg",
   "./images/highveld-rose-salt-3.jpg",
   "./images/highveld-rose-salt-4.jpg"
 ],
@@ -169,8 +168,7 @@ const products = [
     images: [
   "./images/lavender-fynbos-salt-1.jpg",
   "./images/lavender-fynbos-salt-2.jpeg",
-  "./images/lavender-fynbos-salt-3.jpg",
-  "./images/lavender-fynbos-salt-4.jpeg"
+  "./images/lavender-fynbos-salt-3.jpg"
 ],
     category: "bath",
     description: "A soothing blend of lavender and herbal botanicals inspired by South Africa’s natural fynbos landscapes. Perfect for unwinding after a long day.",
