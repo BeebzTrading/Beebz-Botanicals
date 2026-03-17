@@ -110,9 +110,11 @@ window.onload = function(){
 
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
             <label>Quantity:</label>
-            <input id="quantity" type="number" min="1" value="1"
-              style="width:70px;padding:8px;border-radius:6px;border:1px solid #ccc;">
-          </div>
+           <div class="quantity-wrapper">
+  <button id="minus">−</button>
+  <span id="quantity-value">1</span>
+  <button id="plus">+</button>
+</div>
 
           <button id="add-to-cart-btn" style="
             padding:12px 24px;
