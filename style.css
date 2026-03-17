@@ -1706,3 +1706,50 @@ button {
     right: 0 !important;
   }
 }
+/* ===== FINAL CART FIX (MOBILE SAFE) ===== */
+
+/* Always hide cart by default */
+.cart {
+  position: fixed;
+  top: 0;
+  right: -100% !important;
+  width: 350px;
+  height: 100%;
+  background: white;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+/* Show only when open */
+.cart.open {
+  right: 0 !important;
+}
+
+/* Mobile full width */
+@media (max-width: 600px) {
+  .cart {
+    width: 100% !important;
+    right: -100% !important;
+  }
+
+  .cart.open {
+    right: 0 !important;
+  }
+}
+@media (max-width: 600px) {
+  button {
+    width: 100%;
+}
+}
+/* Keep cart button floating, not full width */
+.cart-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: auto !important;
+  padding: 12px 18px;
+  border-radius: 30px;
+  background: #2f4f46;
+  color: white;
+  z-index: 1001;
+}
