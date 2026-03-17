@@ -1,6 +1,7 @@
 const products = [
 
 {
+  id: "highveld-rose",
   name: "Highveld Rose Soap",
   price: 59,
   image: "./images/highveld-rose-box-cat.png",
@@ -15,6 +16,7 @@ const products = [
 },
 
 {
+  id: "jacaranda-bloom",
   name: "Jacaranda Bloom Soap",
   price: 59,
   image: "./images/jacaranda-bloom-box-cat.png",
@@ -29,7 +31,8 @@ const products = [
 },
 
 {
-  name: "Lily of the Valley Soap",
+  id: "lily-of-the-vale",
+  name: "Lily of the Vale Soap",
   price: 59,
   image: "./images/lily-of-the-vale-box-cat.png",
   images: [
@@ -43,6 +46,7 @@ const products = [
 },
 
 {
+  id: "port-lizzie",
   name: "Port Lizzie Soap",
   price: 59,
   image: "./images/port-lizzie-box-cat.png",
@@ -56,6 +60,7 @@ const products = [
 },
 
 {
+  id: "pacific-waters",
   name: "Pacific Waters Soap",
   price: 59,
   image: "./images/pacific-waters-box-cat.png",
@@ -70,6 +75,7 @@ const products = [
 },
 
 {
+  id: "seashells-on-seaboard",
   name: "Seashells on the Seaboard Soap",
   price: 59,
   image: "./images/seashells-on-the-seaboard-box-cat.png",
@@ -83,6 +89,7 @@ const products = [
 },
 
 {
+  id: "just-beachy",
   name: "Just Beachy Soap",
   price: 59,
   image: "./images/just-beachy-box-cat.png",
@@ -96,6 +103,7 @@ const products = [
 },
 
 {
+  id: "la-vie-in-rose",
   name: "La Vie in Rose Soap",
   price: 59,
   image: "./images/la-vie-in-rose-box-cat.png",
@@ -110,6 +118,7 @@ const products = [
 },
 
 {
+  id: "protea-party",
   name: "Protea Party Soap",
   price: 59,
   image: "./images/protea-party-box-cat.png",
@@ -124,6 +133,7 @@ const products = [
 },
 
 {
+  id: "boulders-cove",
   name: "Boulders Cove Soap",
   price: 59,
   image: "./images/boulders-cove-box-cat.png",
